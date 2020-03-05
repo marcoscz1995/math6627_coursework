@@ -1,0 +1,24 @@
+% latex table generated in R 3.4.4 by xtable 1.8-4 package
+% Wed Mar  4 03:51:15 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrr}
+  \hline
+ & Df & AIC & BIC & logLik & deviance & Chisq & Chi Df & Pr($>$Chisq) \\ 
+  \hline
+ms1 & 37 & 283.01 & 464.59 & -104.50 & 209.01 &  &  &  \\ 
+  mod\_sex & 39 & 287.01 & 478.41 & -104.50 & 209.01 & 0.00 & 2 & 1.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+Data: tester
+Models:
+ms1: hrt_disease ~ OA + age + sex + race + educ + income + bmi + physical + 
+ms1:     has_doctor + smoker + drinker + blood_pres + diabetes + (1 | 
+ms1:     sex)
+mod_sex: hrt_disease ~ OA + age + sex + race + educ + income + bmi + physical + 
+mod_sex:     has_doctor + smoker + drinker + blood_pres + diabetes + (1 + 
+mod_sex:     OA | sex)
+        Df AIC    BIC logLik deviance Chisq Chi Df Pr(>Chisq)
+ms1     37 283 464.59 -104.5      209                        
+mod_sex 39 287 478.41 -104.5      209     0      2          1

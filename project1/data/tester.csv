@@ -1,0 +1,25 @@
+nan,Variable names in 3 cycles,Variable names in 3 cycles,Variable names in 3 cycles
+Variable Concept,CCHS 1.1,CCHS 2.1,CCHS 3.1
+Has heart disease,CCCA_121,CCCC_121,CCCE_121
+Has arthritis or rheumatism,CCCA_051,CCCC_051,CCCE_051
+Kind of arthritis,CCCA_05A,CCCC_05A,CCCE_05A
+Age,DHHAGAGE,DHHCGAGE,DHHEGAGE
+Sex,DHHA_SEX,DHHC_SEX,DHHE_SEX
+Marital Status,DHHAGMS,DHHCGMS,DHHEGMS
+Cultural / racial origin,SDCAGRAC,SDCCGRAC,SDCEGCGT
+Immigrant status,SDCAFIMM,SDCCFIMM,SDCEFIMM
+Length of time in Canada since immigration,SDCAGRES,SDCCGRES,SDCEGRES
+Highest level of education - respondent,EDUADR04,EDUCDR04,EDUEDR04
+Total household income from all sources,INCAGHH,INCCGHH,INCEGHH
+Body mass index,HWTAGBMI,HWTCGBMI,HWTEGBMI
+Physical activity index,PACADPAI,PACCDPAI,PACEDPAI
+Has a regular medical doctor,TWDA_5,HCUC_1AA,HCUE_1AA
+Type of smoker,SMKADSTY,SMKCDSTY,SMKEDSTY
+Type of drinker,ALCADTYP,ALCCDTYP,ALCEDTYP
+Has high blood pressure,CCCA_071,CCCC_071,CCCE_071
+Has diabetes,CCCA_101,CCCC_101,CCCE_101
+Has emphysema or chronic obstructive pulmonary disease (COPD),CCCA_91B,CCCC_91B,CCCE_91F
+Daily consumption - total fruits and vegetables,FVCADTOT,FVCCDTOT,FVCEDTOT
+Self-perceived stress,GENA_07,GENC_07,GENE_07
+Province,GEOAGPRV,GEOCGPRV,GEOEGPRV
+Sampling weight - master weight,WTSAM,WTSC_M,WTSE_M
