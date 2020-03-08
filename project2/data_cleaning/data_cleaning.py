@@ -49,10 +49,8 @@ df['aggregateRatings'] = df['ratings1'].apply(lambda x: x[0][1]-x[1][1]+x[2][1]+
                                                           +x[4][1]+x[5][1]+x[6][1]+x[7][1]+x[8][1]
                                                           -x[9][1]-x[10][1]-x[11][1]+x[12][1]-x[13][1])
                                          
-# =============================================================================
 # To account for the bias in positive reviews we introduce an average 
 # rating.
-# =============================================================================
     
 df['totalRatings'] = df['ratings'].apply(lambda x: sum([x[i]['count'] for i in range(len(x))]))
 
