@@ -1,0 +1,25 @@
+% latex table generated in R 3.4.4 by xtable 1.8-4 package
+% Mon Mar  9 18:26:20 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrr}
+  \hline
+ & Df & AIC & BIC & logLik & deviance & Chisq & Chi Df & Pr($>$Chisq) \\ 
+  \hline
+normal\_popularity\_times\_1 & 10 & -831.09 & -772.65 & 425.55 & -851.09 &  &  &  \\ 
+  normal\_popularity\_times\_2 & 19 &  &  &  &  &  & 9 &  \\ 
+   \hline
+\end{tabular}
+\end{table}
+Data: df
+Models:
+pois_views_themes_1: avg_views_per_day ~ duration + num_speaker + title_length + title_sentiment_tfidf + , zi=~0, disp=~1
+pois_views_themes_1:     film_age + (1 | tags_label_tfidf), zi=~0, disp=~1
+pois_views_themes_2: avg_views_per_day ~ duration + title_length + title_sentiment_tfidf + , zi=~0, disp=~1
+pois_views_themes_2:     num_speaker + film_age + (1 + duration + num_speaker + film_age + , zi=~0, disp=~1
+pois_views_themes_2:     title_length + title_sentiment_tfidf | tags_label_tfidf), zi=~0, disp=~1
+                    Df     AIC     BIC   logLik deviance  Chisq Chi Df Pr(>Chisq)    
+pois_views_themes_1  9 2262018 2262070 -1131000  2262000                             
+pois_views_themes_2 44 2150949 2151207 -1075431  2150861 111138     35  < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

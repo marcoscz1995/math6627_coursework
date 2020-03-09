@@ -73,7 +73,7 @@ normal_popularity_themes_1 <-
     data = df
   )
 summary(normal_popularity_themes_1)
-  #random intercept and slope
+#random intercept and slope
 normal_popularity_themes_2 <-
   glmmTMB(
     popularity ~ duration + num_speaker+ title_length+title_sentiment_tfidf + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_tfidf |

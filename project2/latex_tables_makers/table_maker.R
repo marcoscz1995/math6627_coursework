@@ -1,8 +1,8 @@
-source("latex_table_makers/longtablestargazer.R")
+source("latex_tables_makers/longtablestargazer.R")
 require(stargazer)
 library(xtable)
-library(memisc)
 library(reporttools)
+library(texreg)
 
 df<-read.csv("data/cleaned_data.csv")
 
@@ -10,7 +10,6 @@ df<-read.csv("data/cleaned_data.csv")
 ####all tables are saved to report/tables
 
 ####import weights
-
 #simple models
 normal_popularity<-readRDS("model_weights/normal_popularity.RDS")
 pois_views_tfidf<-readRDS("model_weights/pois_views_simple_tfidf.RDS")
@@ -32,40 +31,46 @@ normal_popularity_times_0<-readRDS("model_weights/normal_popularity_times_0.RDS"
 normal_popularity_times_1<-readRDS("model_weights/normal_popularity_times_1.RDS")
 normal_popularity_times_2<-readRDS("model_weights/normal_popularity_times_2.RDS")
 
+#we only want untransformed variables ie those not normalized
+df_categorical<-df[,c("title_sentiment_tfidf", "tags_label_tfidf")]
+df_numeric<-df[,c("avg_views_per_day","duration_no_norm","num_speaker_no_norm","film_age_no_norm","title_length_no_norm", "popularity")]
+
 #sumarize numeric variables
-sink("report/tables/continous_variables_description.tex")
-print(tableContinuous(df[,sapply(df, is.numeric)]))
-sink()  # returns output to the console
+sink("report/tables/numeric_variables_description.tex")
+print(tableContinuous(df_numeric))
 
 #sumarize categorical variables
 sink("report/tables/categorical_variables_description.tex")
-print(tableNominal(df[,!sapply(df, is.numeric)])) #adds the table to the text file
+print(tableNominal(df_categorical)) #adds the table to the text file
 
 
 #anova tables
-sink("report/tables/anova_sex.tex")
-out<-anova(ms1,mod_sex)
-sink("report/tables/anova_region.tex")
-print(xtable(anova(mr1,mod_region)))
-sink("report/tables/anova_marriage.tex")
-print(xtable(anova(mm1,mod_mariage)))
-sink("report/tables/anova_recen.tex")
-print(xtable(anova(mrec1,mod_recen)))
+#these test the random slope
+sink("report/tables/anova_pois_themes.tex")
+print(xtable(anova(pois_views_themes_1,pois_views_themes_2)))
+sink("report/tables/anova_pois_times.tex")
+print(xtable(anova(pois_views_times_1,pois_views_times_2)))
+sink("report/tables/anova_normal_popularity_themes.tex")
+print(xtable(anova(normal_popularity_themes_1,normal_popularity_themes_2)))
+sink("report/tables/anova_normal_popularity_times.tex")
+print(xtable(anova(normal_popularity_times_1,normal_popularity_times_2)))
+
 
 #AIC tables
-sink("report/tables/aic_sex.tex")
-print(xtable(AIC(ms,ms1)))
-sink("report/tables/aic_region.tex")
-print(xtable(AIC(mr,mr1)))
-sink("report/tables/aic_marriage.tex")
-print(xtable(AIC(mm,mm1)))
-sink("report/tables/aic_recen.tex")
-print(xtable(AIC(mrec,mrec1)))
+#these test random intercept
+sink("report/tables/aic_pois_themes.tex")
+print(xtable(AIC(pois_views_themes_0,pois_views_themes_1)))
+sink("report/tables/aic_pois_times.tex")
+print(xtable(AIC(pois_views_times_0,pois_views_times_1)))
+sink("report/tables/aic_normal_popularity_themes.tex")
+print(xtable(AIC(normal_popularity_themes_0,normal_popularity_themes_1)))
+sink("report/tables/aic_normal_popularity_times.tex")
+print(xtable(AIC(normal_popularity_times_0,normal_popularity_times_1)))
 
-#Logistic Regression Table results
+#Poison views bow simple
 longtable.stargazer(
-  mod1,
-  title = "Logistic Regression Results",
+  pois_views_bow,
+  title = "Poisson Regression with BOW",
   align = TRUE,
   type = "latex",
   dep.var.labels   = "Heart Disease",
@@ -73,6 +78,8 @@ longtable.stargazer(
   single.row = TRUE,
   filename = "report/tables/logistic_regression_results.tex"
 )
+
+texreg(pois_views_bow)
 
 #Logistic Regression Table results. with imputed income
 longtable.stargazer(
