@@ -2,7 +2,6 @@ import pandas as pd
 from operator import itemgetter
 import ast
 import clustering
-import text_processing
 import nltk
 import re
 nltk.download("stopwords")
@@ -16,6 +15,8 @@ df=pd.read_csv("../data/ted_main.csv")
 #(unix timestamps is 1514678400) when the data set was created
 df['publication_age'] = (1514678400-df['published_date'])/(60*60*24)
 df['avg_views_per_day'] = df['views']/ df['publication_age']
+#round to nearest integer because we work with poisson
+df['avg_views_per_day']=df['avg_views_per_day'].round(0).astype(int)
 
 ##Add how old the video
 #that is how many days since it was made (not published) to 
@@ -83,7 +84,8 @@ other_cols_to_norm = ['comments',
  'aggregateRatings',
  'totalRatings']
 cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'related_talks_count']
-df[cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+new_cols_to_norm = ['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
+df[new_cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
 df[other_cols_to_norm]= df[other_cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
 df['popularity'] = df[cols_to_norm].sum(axis=1)
 
