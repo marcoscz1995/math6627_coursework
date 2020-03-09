@@ -73,7 +73,7 @@ cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'relat
 new_cols=['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
 #save to new columns
 df[new_cols]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-df['polularity'] = df[new_cols].sum(axis=1)
+df['popularity'] = df[new_cols].sum(axis=1)
 
 
 ###Themes
