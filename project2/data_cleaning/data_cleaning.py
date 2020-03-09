@@ -84,10 +84,11 @@ other_cols_to_norm = ['comments',
  'aggregateRatings',
  'totalRatings']
 cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'related_talks_count']
+#save the normed columns in new columns
 new_cols_to_norm = ['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
 df[new_cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
 df[other_cols_to_norm]= df[other_cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-df['popularity'] = df[cols_to_norm].sum(axis=1)
+df['popularity'] = df[new_cols_to_norm].sum(axis=1)
 
 
 ###Themes
