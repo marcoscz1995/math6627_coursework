@@ -18,7 +18,7 @@ attach(df)
 #Poisson models
 pois_views_times_0 <-
   glm(
-    avg_views_per_day ~ duration + num_speaker+ title_length+title_sentiment_bow + film_age,
+    avg_views_per_day ~ duration + num_speaker+ title_length+title_sentiment_tfidf + film_age,
     data = df,
     family = poisson(link = log)
   )
@@ -26,8 +26,8 @@ summary(pois_views_times_0)
 #only random intercept
 pois_views_times_1 <-
   glmmTMB(
-    avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
-                                                               tags_label_bow),
+    avg_views_per_day ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 |
+                                                               tags_label_tfidf),
     data = df,
     family = poisson(link = log)
   )
@@ -35,8 +35,8 @@ summary(pois_views_times_1)
 #random intercept and slope
 pois_views_times_2 <-
   glmmTMB(
-    avg_views_per_day ~ duration+ title_length+title_sentiment_bow + num_speaker + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_bow |
-                                                               tags_label_bow),
+    avg_views_per_day ~ duration+ title_length+title_sentiment_tfidf + num_speaker + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_tfidf |
+                                                               tags_label_tfidf),
     data = df,
     family = poisson(link = log)
   )
@@ -52,23 +52,23 @@ saveRDS(pois_views_times_2, "model_weights/pois_views_times_2.RDS")
 #no randomness
 normal_popularity_times_0 <-
   lm(
-    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age,
+    popularity ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age,
     data = df
   )
 summary(normal_popularity_times_0)
 #only random intercept
 normal_popularity_times_1 <-
   glmmTMB(
-    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
-                                                        tags_label_bow),
+    popularity ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 |
+                                                        tags_label_tfidf),
     data = df
   )
 summary(normal_popularity_times_1)
 #random intercept and slope
 normal_popularity_times_2 <-
   glmmTMB(
-    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
-                                                        tags_label_bow),
+    popularity ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
+                                                        tags_label_tfidf),
     data = df
   )
 summary(normal_popularity_times_2)
