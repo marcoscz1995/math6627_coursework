@@ -1,4 +1,4 @@
-library(lme4)
+library(glmmTMB)
 df <- read.csv("data/cleaned_data.csv")
 attach(df)
 
@@ -34,7 +34,7 @@ pois_views_themes_0 <-
 summary(pois_views_themes_0)
 #only random intercept
 pois_views_themes_1 <-
-  glmer(
+  glmmTMB(
     avg_views_per_day ~ duration + num_speaker + title_length+title_sentiment_bow+ film_age + (1 |
                                                                tags_label_bow),
     data = df,
@@ -43,7 +43,7 @@ pois_views_themes_1 <-
 summary(pois_views_themes_1)
 #random intercept and slope
 pois_views_themes_2 <-
-  glmer(
+  glmmTMB(
     avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age + title_length+title_sentiment_bow |
                                                                tags_label_bow),
     data = df,
@@ -57,7 +57,7 @@ saveRDS(pois_views_themes_1, "model_weights/pois_views_themes_1.RDS")
 saveRDS(pois_views_themes_2, "model_weights/pois_views_themes_2.RDS")
 
 
-######Normal models on popularity score
+######Normal models on popularity score 
 #no randomness
 normal_popularity_themes_0 <-
   lm(
@@ -67,7 +67,7 @@ normal_popularity_themes_0 <-
 summary(normal_popularity_themes_0)
 #only random intercept
 normal_popularity_themes_1 <-
-  lmer(
+  glmmTMB(
     popularity ~ duration + num_speaker + title_length+title_sentiment_bow+ film_age + (1 |
                                                                tags_label_bow),
     data = df
@@ -75,7 +75,7 @@ normal_popularity_themes_1 <-
 summary(normal_popularity_themes_1)
   #random intercept and slope
 normal_popularity_themes_2 <-
-  lmer(
+  glmmTMB(
     popularity ~ duration + num_speaker+ title_length+title_sentiment_bow + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_bow |
                                                                tags_label_bow),
     data = df

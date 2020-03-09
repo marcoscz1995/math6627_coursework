@@ -1,4 +1,4 @@
-library(lme4)
+library(glmmTMB)
 df <- read.csv("data/cleaned_data.csv")
 attach(df)
 
@@ -25,7 +25,7 @@ pois_views_times_0 <-
 summary(pois_views_times_0)
 #only random intercept
 pois_views_times_1 <-
-  glmer(
+  glmmTMB(
     avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
                                                                tags_label_bow),
     data = df,
@@ -34,7 +34,7 @@ pois_views_times_1 <-
 summary(pois_views_times_1)
 #random intercept and slope
 pois_views_times_2 <-
-  glmer(
+  glmmTMB(
     avg_views_per_day ~ duration+ title_length+title_sentiment_bow + num_speaker + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_bow |
                                                                tags_label_bow),
     data = df,
@@ -58,7 +58,7 @@ normal_popularity_times_0 <-
 summary(normal_popularity_times_0)
 #only random intercept
 normal_popularity_times_1 <-
-  lmer(
+  glmmTMB(
     popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
                                                         tags_label_bow),
     data = df
@@ -66,7 +66,7 @@ normal_popularity_times_1 <-
 summary(normal_popularity_times_1)
 #random intercept and slope
 normal_popularity_times_2 <-
-  lmer(
+  glmmTMB(
     popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
                                                         tags_label_bow),
     data = df
