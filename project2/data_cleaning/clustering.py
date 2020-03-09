@@ -12,7 +12,7 @@ import pandas as pd
 
 
 
-def kmeans_bow(df, n, label):
+def kmeans_bow(df, n, label, desred_col_name ):
     
     count_vect = CountVectorizer()
     bow = count_vect.fit_transform(df[label].values)
@@ -25,8 +25,8 @@ def kmeans_bow(df, n, label):
     model.fit(bow)
     model.predict(bow)
     
-    # Giving Labels/assigning a cluster to each point/text
-    df['BOW_Clus_Label'] = model.labels_ # the last column you can see the label numebers
+    # Giving labels/assigning a cluster to each point/text
+    df['tmp'] = model.labels_ # the last column you can see the label numebers
 
     
     print("top terms per cluster:")
@@ -46,14 +46,14 @@ def kmeans_bow(df, n, label):
     # Create a dictionary from zip object
     dictOfWords = dict(zipbObj)
     
-    df['BOW_Clus_with_Label']=df['BOW_Clus_Label'].replace(dictOfWords)
-    
+    df[desred_col_name]=df['tmp'].replace(dictOfWords)
+    del df['tmp']
     return
 
 """
 Kmeans with tf-idf
 """
-def kmeans_tfidf(df,n, label):
+def kmeans_tfidf(df,n, label, desred_col_name):
 
     tfidf_vect = TfidfVectorizer()
     tfidf = tfidf_vect.fit_transform(df[label].values)
@@ -62,7 +62,7 @@ def kmeans_tfidf(df,n, label):
     model_tf = KMeans(n_clusters = n, n_jobs = -1,random_state=99)
     model_tf.fit(tfidf)
 
-    df['Tfidf_clus_label'] = model_tf.labels_
+    df['tmp'] = model_tf.labels_
     
     names_list =[]
     list_ints = list(range(0,n))
@@ -78,7 +78,8 @@ def kmeans_tfidf(df,n, label):
     # Create a dictionary from zip object
     dictOfWords = dict(zipbObj)
     
-    df['tfidf_Clus_with_Label']=df['Tfidf_clus_label'].replace(dictOfWords)
+    df[desred_col_name]=df['tmp'].replace(dictOfWords)
+    del df['tmp']
     
     return
 

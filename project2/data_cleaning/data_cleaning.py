@@ -69,11 +69,18 @@ df['avgPerRating'] = df['aggregateRatings']/df['totalRatings']
 ##Normailze the new response variables and sum them
 
 #normalization
+other_cols_to_norm = ['comments',
+ 'duration',
+ 'num_speaker',
+ 'views',
+ 'publication_age',
+ 'film_age',
+ 'aggregateRatings',
+ 'totalRatings']
 cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'related_talks_count']
-new_cols=['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
-#save to new columns
-df[new_cols]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-df['popularity'] = df[new_cols].sum(axis=1)
+df[cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+df[other_cols_to_norm]= df[other_cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+df['popularity'] = df[cols_to_norm].sum(axis=1)
 
 
 ###Themes
@@ -85,11 +92,19 @@ df['tags_text'] = df['tags'].apply(lambda x: ''.join(x))
 clustering.kmeans_bow(df, 10, 'tags_text')
 clustering.kmeans_tfidf(df, 10, 'tags_text')
 
+###Video Titles Sentiment
+##categorize each video title by a theme using clustering.
+#convert the list of tags to a sentence
+#cluster using kmeans with tfidf and bow
+#cluster into 2 groups (oridnary title, click bait)
+clustering.kmeans_bow(df, 2, 'title', 'title_sentiment_bow')
+clustering.kmeans_tfidf(df, 2, 'tags_text', 'title_sentiment_tfidf')
+
 
 df.to_csv(r'../data/cleaned_data.csv', index = False)
 
 
-
+col_names=list(df)
 
 
 
