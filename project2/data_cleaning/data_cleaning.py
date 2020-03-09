@@ -83,7 +83,7 @@ df['tags_text'] = df['tags'].apply(lambda x: ''.join(x))
 #cluster using kmeans with tfidf and bow
 #cluster into 20 groups
 clustering.kmeans_bow(df, 10, 'tags_text')
-clustering.kmeans_tfidf(df, 0, 'tags_text')
+clustering.kmeans_tfidf(df, 10, 'tags_text')
 
 
 df.to_csv(r'../data/cleaned_data.csv', index = False)
