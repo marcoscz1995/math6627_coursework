@@ -2,6 +2,11 @@ import pandas as pd
 from operator import itemgetter
 import ast
 import clustering
+import text_processing
+import nltk
+import re
+nltk.download("stopwords")
+from nltk.corpus import stopwords
 
 #I assume you are in /data_cleaning
 df=pd.read_csv("../data/ted_main.csv")
@@ -89,22 +94,30 @@ df['popularity'] = df[cols_to_norm].sum(axis=1)
 df['tags_text'] = df['tags'].apply(lambda x: ''.join(x)) 
 #cluster using kmeans with tfidf and bow
 #cluster into 20 groups
-clustering.kmeans_bow(df, 10, 'tags_text')
-clustering.kmeans_tfidf(df, 10, 'tags_text')
+clustering.kmeans_bow(df, 10, 'tags_text', 'tags_label_bow')
+clustering.kmeans_tfidf(df, 10, 'tags_text', 'tags_label_tfidf')
 
 ###Video Titles Sentiment
 ##categorize each video title by a theme using clustering.
 #convert the list of tags to a sentence
 #cluster using kmeans with tfidf and bow
 #cluster into 2 groups (oridnary title, click bait)
-clustering.kmeans_bow(df, 2, 'title', 'title_sentiment_bow')
-clustering.kmeans_tfidf(df, 2, 'tags_text', 'title_sentiment_tfidf')
 
+#some cleaning
+df['title'] = df['title'].str.lower().str.split(' ') 
+stop = stopwords.words('english')
+df['title_cleaned'] = df['title'].apply(lambda x: [item for item in x if item not in stop])
+df['title_cleaned'] = df['title_cleaned'].apply(lambda x: ' '.join(x)) 
+#the clustering
+clustering.kmeans_bow(df, 4, 'title_cleaned', 'title_sentiment_bow')
+clustering.kmeans_tfidf(df, 4, 'title_cleaned', 'title_sentiment_tfidf')
+
+
+##Length of title (by number of works)
+df['title_length']=df['title'].apply(lambda x: len(x))
 
 df.to_csv(r'../data/cleaned_data.csv', index = False)
 
-
-col_names=list(df)
 
 
 

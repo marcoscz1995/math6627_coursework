@@ -53,7 +53,7 @@ def kmeans_bow(df, n, label, desred_col_name ):
 """
 Kmeans with tf-idf
 """
-def kmeans_tfidf(df,n, label, desred_col_name):
+def kmeans_tfidf(df,n, label, desired_col_name):
 
     tfidf_vect = TfidfVectorizer()
     tfidf = tfidf_vect.fit_transform(df[label].values)
@@ -78,7 +78,7 @@ def kmeans_tfidf(df,n, label, desred_col_name):
     # Create a dictionary from zip object
     dictOfWords = dict(zipbObj)
     
-    df[desred_col_name]=df['tmp'].replace(dictOfWords)
+    df[desired_col_name]=df['tmp'].replace(dictOfWords)
     del df['tmp']
     
     return
