@@ -70,41 +70,6 @@ df['totalRatings'] = df['ratings'].apply(lambda x: sum([x[i]['count'] for i in r
 
 df['avgPerRating'] = df['aggregateRatings']/df['totalRatings']
 
-
-###Popularity score
-##Normailze the new response variables and sum them
-
-#normalization
-cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'related_talks_count']
-#save the normed columns in new columns
-new_cols_to_norm = ['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
-other_cols_to_norm = ['comments',
- 'duration',
- 'num_speaker',
- 'views',
- 'publication_age',
- 'film_age',
- 'aggregateRatings',
- 'totalRatings']
-
-#these columns are made so as to make the latex tables for continuous/categorical data 
-#easier to create without affecting the established models
-old_columns_without_norm = ['comments_no_norm',
- 'duration_no_norm',
- 'num_speaker_no_norm',
- 'views_no_norm',
- 'publication_age_no_norm',
- 'film_age_no_norm',
- 'aggregateRatings_no_norm',
- 'totalRatings_no_norm']
-df[old_columns_without_norm ] = df[other_cols_to_norm]
-#save these normed columns to new columns
-df[new_cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-#change these columns
-df[other_cols_to_norm]= df[other_cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-df['popularity'] = df[new_cols_to_norm].sum(axis=1)
-
-
 ###Themes
 ##categorize each video by a theme using clustering.
 #convert the list of tags to a sentence
@@ -132,6 +97,41 @@ clustering.kmeans_tfidf(df, 4, 'title_cleaned', 'title_sentiment_tfidf')
 
 ##Length of title (by number of works)
 df['title_length']=df['title'].apply(lambda x: len(x))
+
+###Popularity score
+##Normailze the new response variables and sum them
+
+#normalization
+cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'related_talks_count']
+#save the normed columns in new columns
+new_cols_to_norm = ['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
+other_cols_to_norm = ['comments',
+ 'duration',
+ 'num_speaker',
+ 'views',
+ 'publication_age',
+ 'film_age',
+ 'aggregateRatings',
+ 'totalRatings',
+ 'title_length']
+
+#these columns are made so as to make the latex tables for continuous/categorical data 
+#easier to create without affecting the established models
+old_columns_without_norm = ['comments_no_norm',
+ 'duration_no_norm',
+ 'num_speaker_no_norm',
+ 'views_no_norm',
+ 'publication_age_no_norm',
+ 'film_age_no_norm',
+ 'aggregateRatings_no_norm',
+ 'totalRatings_no_norm',
+ 'title_length_no_norm']
+df[old_columns_without_norm ] = df[other_cols_to_norm]
+#save these normed columns to new columns
+df[new_cols_to_norm]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+#change these columns
+df[other_cols_to_norm]= df[other_cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
+df['popularity'] = df[new_cols_to_norm].sum(axis=1)
 
 df.to_csv(r'../data/cleaned_data.csv', index = False)
 
