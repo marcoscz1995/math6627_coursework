@@ -1,6 +1,7 @@
 import pandas as pd
 from operator import itemgetter
 import ast
+import clustering
 
 #I assume you are in /data_cleaning
 df=pd.read_csv("../data/ted_main.csv")
@@ -72,29 +73,20 @@ cols_to_norm = ['avg_views_per_day','avgPerRating', 'comments_per_views', 'relat
 new_cols=['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm', 'related_talks_count_norm']
 #save to new columns
 df[new_cols]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
-df['polularity'] = df[cols_to_norm].sum(axis=1)
+df['polularity'] = df[new_cols].sum(axis=1)
 
-dftest=df
 
 ###Themes
-#make a table with the most popular themes
-#remove TEDx from every row in tags
-df['tags'] = df['tags'].apply(lambda x: [i for i in x if i != 'TEDx'])
-s = dftest.apply(lambda x: pd.Series(x['tags']),axis=1).stack().reset_index(level=1, drop=True)
-s.name = 'theme'
-theme_dftest = dftest.drop('tags', axis=1).join(s)
-theme_dftest.head()
-pop_themes = pd.DataFrame(theme_dftest['theme'].value_counts()).reset_index()
-pop_themes.columns = ['theme', 'talks']
-#only want top 20
-top_themes = pop_themes.head(20)
-
+##categorize each video by a theme using clustering.
 #convert the list of tags to a sentence
-df['tags_text'] = df['tags'].apply(', '.join)
+df['tags_text'] = df['tags'].apply(lambda x: ''.join(x)) 
+#cluster using kmeans with tfidf and bow
+#cluster into 20 groups
+clustering.kmeans_bow(df, 10, 'tags_text')
+clustering.kmeans_tfidf(df, 0, 'tags_text')
 
 
-top_themes.to_csv(r'../data/themes.csv')
-df.to_csv(r'../data/cleaned_data.csv')
+df.to_csv(r'../data/cleaned_data.csv', index = False)
 
 
 
