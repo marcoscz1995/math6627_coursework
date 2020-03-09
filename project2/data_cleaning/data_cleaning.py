@@ -1,5 +1,6 @@
 import pandas as pd
 from operator import itemgetter
+import ast
 
 #I assume you are in /data_cleaning
 df=pd.read_csv("../data/ted_main.csv")
@@ -9,6 +10,12 @@ df=pd.read_csv("../data/ted_main.csv")
 #(unix timestamps is 1514678400) when the data set was created
 df['publication_age'] = (1514678400-df['published_date'])/(60*60*24)
 df['avg_views_per_day'] = df['views']/ df['publication_age']
+
+##Add how old the video
+#that is how many days since it was made (not published) to 
+#December 31, 2017 (unix timestamps is 1514678400) when the dataset 
+#was published
+df['film_age'] = (1514678400-df['film_date'])/(60*60*24)
 
 ###Get the number of related talks.
 #acts as a measure of how close to the center of the ted talks universe is a
@@ -67,6 +74,26 @@ new_cols=['avg_views_per_day_norm','avgPerRating_norm', 'comments_per_views_norm
 df[new_cols]= df[cols_to_norm].apply(lambda x: (x - x.min()) / (x.max() - x.min()))
 df['polularity'] = df[cols_to_norm].sum(axis=1)
 
+dftest=df
+
+###Themes
+#make a table with the most popular themes
+#remove TEDx from every row in tags
+df['tags'] = df['tags'].apply(lambda x: [i for i in x if i != 'TEDx'])
+s = dftest.apply(lambda x: pd.Series(x['tags']),axis=1).stack().reset_index(level=1, drop=True)
+s.name = 'theme'
+theme_dftest = dftest.drop('tags', axis=1).join(s)
+theme_dftest.head()
+pop_themes = pd.DataFrame(theme_dftest['theme'].value_counts()).reset_index()
+pop_themes.columns = ['theme', 'talks']
+#only want top 20
+top_themes = pop_themes.head(20)
+
+#convert the list of tags to a sentence
+df['tags_text'] = df['tags'].apply(', '.join)
+
+
+top_themes.to_csv(r'../data/themes.csv')
 df.to_csv(r'../data/cleaned_data.csv')
 
 
