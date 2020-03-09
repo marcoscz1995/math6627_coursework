@@ -18,7 +18,7 @@ attach(df)
 #Poisson models
 pois_views_times_0 <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age,
+    avg_views_per_day ~ duration + num_speaker+ title_length+title_sentiment_bow + film_age,
     data = df,
     family = poisson(link = log)
   )
@@ -26,7 +26,7 @@ summary(pois_views_times_0)
 #only random intercept
 pois_views_times_1 <-
   glmer(
-    avg_views_per_day ~ duration + num_speaker + film_age + (1 |
+    avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
                                                                BOW_Clus_with_Label),
     data = df,
     family = poisson(link = log)
@@ -35,7 +35,7 @@ summary(pois_views_times_1)
 #random intercept and slope
 pois_views_times_2 <-
   glmer(
-    avg_views_per_day ~ duration + num_speaker + film_age + (1 + duration + num_speaker + film_age |
+    avg_views_per_day ~ duration+ title_length+title_sentiment_bow + num_speaker + film_age + (1 + duration + num_speaker + film_age |
                                                                BOW_Clus_with_Label),
     data = df,
     family = poisson(link = log)
@@ -52,14 +52,14 @@ saveRDS(pois_views_times_2, "model_weights/pois_views_times_2.RDS")
 #no randomness
 normal_popularity_times_0 <-
   lm(
-    popularity ~ duration + num_speaker + film_age,
+    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age,
     data = df
   )
 summary(normal_popularity_times_0)
 #only random intercept
 normal_popularity_times_1 <-
   lmer(
-    popularity ~ duration + num_speaker + film_age + (1 |
+    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 |
                                                         BOW_Clus_with_Label),
     data = df
   )
@@ -67,7 +67,7 @@ summary(normal_popularity_times_1)
 #random intercept and slope
 normal_popularity_times_2 <-
   lmer(
-    popularity ~ duration + num_speaker + film_age + (1 + duration + num_speaker + film_age |
+    popularity ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
                                                         BOW_Clus_with_Label),
     data = df
   )

@@ -22,14 +22,14 @@ attach(df)
 #use kmeans with bow
 pois_views_bow <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age + BOW_Clus_with_Label,
+    avg_views_per_day ~ duration + num_speaker + film_age +title_sentiment_bow + title_length+ BOW_Clus_with_Label,
     family = poisson(link = log)
   )
 summary(pois_views_bow)
 #use kmeans with tfidf
 pois_views_tfidf <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age + tfidf_Clus_with_Label,
+    avg_views_per_day ~ duration + num_speaker + film_age+title_sentiment_bow +title_length+ tfidf_Clus_with_Label,
     family = poisson(link = log)
   )
 summary(pois_views_tfidf)
@@ -41,6 +41,6 @@ summary(pois_views_tfidf)
 #response: composite popularity score (includes languages, standardized comments,
 # standardized views,aggregate ratings, number of related talks)
 normal_popularity <-
-  lm(popularity ~ duration + num_speaker + film_age + BOW_Clus_with_Label +
+  lm(popularity ~ duration + num_speaker+title_sentiment_bow + title_length+film_age + BOW_Clus_with_Label +
        main_speaker)
 summary(normal_popularity)
