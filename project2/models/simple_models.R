@@ -1,4 +1,3 @@
-library(lme4)
 df <- read.csv("data/cleaned_data.csv")
 attach(df)
 
@@ -22,14 +21,14 @@ attach(df)
 #use kmeans with bow
 pois_views_bow <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age +title_sentiment_bow + title_length+ BOW_Clus_with_Label,
+    avg_views_per_day ~ duration + num_speaker + film_age +title_sentiment_bow + title_length+ tags_label_bow,
     family = poisson(link = log)
   )
 summary(pois_views_bow)
 #use kmeans with tfidf
 pois_views_tfidf <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age+title_sentiment_bow +title_length+ tfidf_Clus_with_Label,
+    avg_views_per_day ~ duration + num_speaker + film_age+title_sentiment_bow +title_length+ tags_label_tfidf,
     family = poisson(link = log)
   )
 summary(pois_views_tfidf)
@@ -41,6 +40,9 @@ summary(pois_views_tfidf)
 #response: composite popularity score (includes languages, standardized comments,
 # standardized views,aggregate ratings, number of related talks)
 normal_popularity <-
-  lm(popularity ~ duration + num_speaker+title_sentiment_bow + title_length+film_age + BOW_Clus_with_Label +
-       main_speaker)
+  lm(popularity ~ duration + num_speaker+title_sentiment_bow + title_length+film_age + tags_label_bow)
 summary(normal_popularity)
+
+saveRDS(normal_popularity, "model_weights/normal_popularity.RDS")
+saveRDS(pois_views_tfidf, "model_weights/pois_views_simple_tfidf.RDS")
+saveRDS(pois_views_bow, "model_weights/pois_views_simple_bow.RDS")

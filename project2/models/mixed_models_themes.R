@@ -36,7 +36,7 @@ summary(pois_views_themes_0)
 pois_views_themes_1 <-
   glmer(
     avg_views_per_day ~ duration + num_speaker + title_length+title_sentiment_bow+ film_age + (1 |
-                                                               BOW_Clus_with_Label),
+                                                               tags_label_bow),
     data = df,
     family = poisson(link = log)
   )
@@ -44,8 +44,8 @@ summary(pois_views_themes_1)
 #random intercept and slope
 pois_views_themes_2 <-
   glmer(
-    avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
-                                                               BOW_Clus_with_Label),
+    avg_views_per_day ~ duration + title_length+title_sentiment_bow+ num_speaker + film_age + (1 + duration + num_speaker + film_age + title_length+title_sentiment_bow |
+                                                               tags_label_bow),
     data = df,
     family = poisson(link = log)
   )
@@ -69,15 +69,15 @@ summary(normal_popularity_themes_0)
 normal_popularity_themes_1 <-
   lmer(
     popularity ~ duration + num_speaker + title_length+title_sentiment_bow+ film_age + (1 |
-                                                               BOW_Clus_with_Label),
+                                                               tags_label_bow),
     data = df
   )
 summary(normal_popularity_themes_1)
   #random intercept and slope
 normal_popularity_themes_2 <-
   lmer(
-    popularity ~ duration + num_speaker+ title_length+title_sentiment_bow + film_age + (1 + duration + num_speaker + film_age |
-                                                               BOW_Clus_with_Label),
+    popularity ~ duration + num_speaker+ title_length+title_sentiment_bow + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_bow |
+                                                               tags_label_bow),
     data = df
   )
 summary(normal_popularity_themes_2)
