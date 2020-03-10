@@ -1,0 +1,28 @@
+
+\begin{frame}{Model Selection: Testing Random Intercept}
+To compare whether these groups have different base rates of heart disease, we test the random intercept of these four models using AIC for model selection.
+    \input{tables/aic}
+\end{frame}
+
+\begin{frame}{Model Selection: Testing Random Intercept}
+\begin{itemize}
+    \item The four null models are preferred as they have lower AIC's, although not by much which again could be because of the small amount of data used.
+    \item All the random intercepts are not statistically significant.
+    \item There is little evidence that suggests the populations being compared vary in base rate odds of having heart disease.
+\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}{Model Selection: Testing Random Slope}
+Similarly, we test whether individuals between the four models differ in their odds of having OA. We test these random slopes using $\chi^2$ model selection.
+\end{frame}
+
+\begin{frame}{Model Selection: Testing Random Slope}
+    \input{tables/anovas}
+\end{frame}
+\begin{frame}{Model Selection: Testing Random Slope}
+\begin{itemize}
+    \item None of the random slopes are statistically significant.
+    \item This suggests that the four populations being compared to do not differ in how OA effects their odds of having heart disease. 
+\end{itemize}
+\end{frame}

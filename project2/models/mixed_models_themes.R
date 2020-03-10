@@ -1,4 +1,4 @@
-library(glmmTMB)
+library(lme4)
 df <- read.csv("data/cleaned_data.csv")
 attach(df)
 
@@ -34,7 +34,7 @@ pois_views_themes_0 <-
 summary(pois_views_themes_0)
 #only random intercept
 pois_views_themes_1 <-
-  glmmTMB(
+  glmer(
     avg_views_per_day ~ duration + num_speaker + title_length+title_sentiment_tfidf+ film_age + (1 |
                                                                tags_label_tfidf),
     data = df,
@@ -43,7 +43,7 @@ pois_views_themes_1 <-
 summary(pois_views_themes_1)
 #random intercept and slope
 pois_views_themes_2 <-
-  glmmTMB(
+  glmer(
     avg_views_per_day ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 + duration + num_speaker + film_age + title_length+title_sentiment_tfidf |
                                                                tags_label_tfidf),
     data = df,
@@ -67,7 +67,7 @@ normal_popularity_themes_0 <-
 summary(normal_popularity_themes_0)
 #only random intercept
 normal_popularity_themes_1 <-
-  glmmTMB(
+  lmer(
     popularity ~ duration + num_speaker + title_length+title_sentiment_tfidf+ film_age + (1 |
                                                                tags_label_tfidf),
     data = df
@@ -75,7 +75,7 @@ normal_popularity_themes_1 <-
 summary(normal_popularity_themes_1)
 #random intercept and slope
 normal_popularity_themes_2 <-
-  glmmTMB(
+  lmer(
     popularity ~ duration + num_speaker+ title_length+title_sentiment_tfidf + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_tfidf |
                                                                tags_label_tfidf),
     data = df

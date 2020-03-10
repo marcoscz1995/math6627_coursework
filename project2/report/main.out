@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Data Sources}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Study Sample}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Response and Predictors}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Response: Heart Disease}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Predictors}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Exposure/Risk Factor: Osteoarthritis}{subsection.3.2}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Covariates \046 Confounders}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Statistical Analysis}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Logistic Regression Cross-Section}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Logistic Mixed-Models Cross-Section}{section.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Regional Variation}{subsection.4.2}% 13
+\BOOKMARK [1][-]{section.5}{Results}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Poisson \046 Linear Regression}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Poisson \046 Linear Mixed-Effects}{section.5}% 16
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Model Selection}{subsection.5.2}% 17
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 18
