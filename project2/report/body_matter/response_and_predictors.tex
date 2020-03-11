@@ -1,14 +1,44 @@
 \section{Response and Predictors}
 \subsection{Responses}
-In this analysis, we used two measures of popularity; the most intuitive being a form of views count, and a composite response.
-\subsubsection{Average View Per Day}
-The most intuitive measurement of popularity is number of views. However, the flaw of this is that it does not account for age of a video, that is an older video will have more views than a newer video just by the nature of being around longer and able to garnish more views. Indeed, this raw view measurement wold suggest that a day old video with 1 million views is just as popular as a 5 year old video with 1 million views. To account for this, we divide the number of views of a video by the number of days since it has been published. This allows videos to be equal across length since publication.
+In this analysis, we used two measures of popularity; the most intuitive being a form of views count, and a composite response. Table \ref{numer} summarizes the two responses. 
+\subsubsection{Average Views Per Day}
+The most intuitive measurement of popularity is the number of views. However, the flaw of this is that it does not account for age of a video, that is an older video will have more views than a newer video just by the nature of being around longer and able to garnish more views. Indeed, this raw measurement wold suggest that a day old video with 1 million views is just as popular as a 5 year old video with 1 million views. To account for this, we divide the number of views of a video by the number of days since it has been published. This allows videos to be comparable across length since publication. Number of views are in thousands.
 \subsubsection{Popularity}
-
+Besides number of views, the data set included the number of languages the video has been translated to, number of comments, a string dictionary of the ratings given to the talk (e.g., inspiring, fascinating, jaw dropping, etc.) and their frequency, and the number of related talks. We composed a composite popularity score using these variables. We use equal weightings in the construction of the composite variable, however unequal weight could be given if an prior knowledge of a particular variable should be weighted more \cite{song2013composite}. The intuition for including each is provided as:
+\begin{itemize}
+	\item \textbf{Number of Languages}: A "popular" talk will be translated into several languages as their is a great demand for the talk.
+	\item \textbf{Number of Comments}: A "popular" talk will garnish an active comment section as people discuss/praise the video. We assume that a popular video will have many comments whereas an unpopular video will have few comments as individuals are less likely to finish watching the video and thus not comment. Further, we distinguish videos that generate lively comments and controversial comments. Lively comments include praise for the videos, whereas controversial comments will result from viewers debating the topic as the topic could be unpopular but controversial (i.e religion, politics etc...). To account for this we use a comments per views metric instead to make comments proportional to the number of views so that we can capture popular videos with a lot of comments and not unpopular/controversial videos with few views but a lot of comments. 
+	\item \textbf{Ratings}: To account for the ratings that viewers append to each video, we convert each rating and its frequency into a score of +1 if the rating is positive (Funny, Beautiful, Ingenious, Courageous, Informative, 
+	Fascinating, Persuasive,
+	Jaw-dropping, Inspiring) and a score of -1 if negative (Confusing, Unconvincing, Obnoxious,Long winded). Then we add up the score for each rating times its frequency to get the aggregate rating score. We note that there is a bias in the data for videos to be dis-proportionally positive, as such we introduce an average ratings.
+	\item \textbf{Number of Related Talks}: We can treat the relationship between videos as a graph. A more popular video will be closer to the center of that graph, and popularity drops off from the center. Websites such as YouTube will recommend videos that are popular so as to gain for traffic on its website, so the number of related videos implies how many videos websites like YouTube will recommend viewers to watch. We can think of this graph as a social notwork, if many people are related to the center then that person is "popular" in the conventional manner of social popularity, and individuals whom not many people know (ie are less "popular") will be on the fringes of that graph. We apply this logic to the videos by using how many talks a video is related to. The more related talks, the more popular the video.
+\end{itemize}
+Since all of these variables are on vastly different scales of magnitude, we normalize the variables and add them to create our rough composite popularity score. 
 
 \subsection{Predictors}
-\subsubsection{Exposure/Risk Factor: Osteoarthritis}
+The predictors in this analysis are duration, number of speakers in the video, how old the video is, when the video was published, the "sentiment" of the title and themes associated with the video, and the length of the title. Table \ref{cat} and \ref{numer} summarize the predictors.
+\begin{itemize}
+	\item \textbf{Duration}: We include duration of videos as we assume that individuals are more likely to watch a shorter video that a longer video.
+	\item \textbf{Number of Speaker}: We assume that with more speakers this will increase the chance that a viewer is can associate with the video and thus watch it. 
+	\item \textbf{Film Age}: We assume that more recently produced videos are more likely to be seen. For example, the data set contains videos from the 1990's to 2017.  As the data set is from when the videos were published from 2006 to 2017, the views during this time will reflect a viewers bias to watch newer produced videos, that is to prefer videos from 2007 on wards over videos from the 1990s. We posit this assumption because individuals might discount older talks as outdated and thus not worth their time. Film Age is the videos age in days since being produced.
+	\item \textbf{Video Age Group}: We add a categorical variable for when the video was published, labeled as 'old' for videos published prior to 2010 and young after 2010. We choose 2010 as that is when TED talk's underwent a sharp increase in the number of videos produced and would be a good divider between when TED was well know or not. We assume that viewers also consider when a video was published. This is different from when the variable Film Age, that is there is a difference between when a video was made and when it was published. A video made in 1990 but published in 2016 would be considered new, and viewers might consider the content relevant despite the date of production. However, this same video might still have a large Film Age coefficient as it has been in circulation for a year until 2017.  
+	\item \textbf{Title Sentiment}: As the title is the first thing a viewer will see, we assume that the title plays a crucial role in attracting views. To account for this we applied data clustering with K-Means with TF-IDF on the titles to try to separate titles into three groups that might suggest the titles topic.
+	\item \textbf{Title Length}: We assume that shorter titles, like shorter video lengths, will encourage views as a viewer can quickly understand topic of the video rather than being forced to read  a lengthy title which could potentially cutoff, which could further disincentive a viewer.
+	\item \textbf{Themes Label}: the data set provides a list of themes that the video is associated with. However, the videos will have several themes which might not be informative as TED talks has an incentive to apply as many themes to garnish views. To deal with this, we apply data clustering with K-Means with TF-IDF to determine the most relevant theme of the video. We include this predictor as some themes might have a larger following than other. For example themes regarding science might garnish more views than themes regarding plumbing.
+\end{itemize}
+
+\input{tables/descriptive_stats/categorical_variables_description.tex}
+\input{tables/descriptive_stats/numeric_variables_description.tex}
 
 
-\subsection{Covariates \& Confounders}
+
+
+
+
+
+
+
+
+
+
 

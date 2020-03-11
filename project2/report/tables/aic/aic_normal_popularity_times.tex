@@ -1,5 +1,5 @@
 % latex table generated in R 3.4.4 by xtable 1.8-4 package
-% Mon Mar  9 22:12:01 2020
+% Tue Mar 10 20:05:53 2020
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrr}
@@ -7,50 +7,77 @@
  & df & AIC \\ 
   \hline
 normal\_popularity\_times\_0 & 9.00 & -810.37 \\ 
-  normal\_popularity\_times\_1 & 10.00 & -789.73 \\ 
+  normal\_popularity\_times\_1 & 10.00 & -767.85 \\ 
    \hline
 \end{tabular}
 \end{table}
-Linear mixed model fit by REML ['lmerMod']
-Formula: popularity ~ duration + title_length + title_sentiment_tfidf +  
-    num_speaker + film_age + (1 + duration + num_speaker + film_age |      tags_label_tfidf)
+
+Call:
+glm(formula = avg_views_per_day ~ duration + num_speaker + title_length + 
+    title_sentiment_tfidf + film_age, family = poisson(link = log), 
+    data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-49.66  -21.00  -10.72    4.49  285.84  
+
+Coefficients:
+                             Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                  8.167978   0.002173  3758.22   <2e-16 ***
+duration                     1.874285   0.008007   234.08   <2e-16 ***
+num_speaker                 -0.795043   0.009163   -86.77   <2e-16 ***
+title_length                 0.204772   0.003625    56.48   <2e-16 ***
+title_sentiment_tfidflife    0.142284   0.002468    57.64   <2e-16 ***
+title_sentiment_tfidfnew    -0.158242   0.003135   -50.47   <2e-16 ***
+title_sentiment_tfidfworld  -0.150662   0.001966   -76.65   <2e-16 ***
+film_age                   -12.301841   0.010341 -1189.56   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 4777341  on 2549  degrees of freedom
+Residual deviance: 2434647  on 2542  degrees of freedom
+AIC: 2456259
+
+Number of Fisher Scoring iterations: 5
+
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: poisson  ( log )
+Formula: avg_views_per_day ~ duration + title_length + title_sentiment_tfidf +      num_speaker + film_age + (1 | video_age_label)
    Data: df
 
-REML criterion at convergence: -859.7
+     AIC      BIC   logLik deviance df.resid 
+ 2418696  2418748 -1209339  2418678     2541 
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--5.2665 -0.4217  0.0994  0.5323  6.1529 
+   Min     1Q Median     3Q    Max 
+ -41.8  -18.3  -10.6    4.1 5131.9 
 
 Random effects:
- Groups           Name        Variance Std.Dev. Corr             
- tags_label_tfidf (Intercept) 0.008303 0.09112                   
-                  duration    0.120288 0.34683  -0.70            
-                  num_speaker 0.078722 0.28057  -0.77  0.26      
-                  film_age    0.134748 0.36708  -0.59 -0.10  0.54
- Residual                     0.040523 0.20130                   
-Number of obs: 2550, groups:  tags_label_tfidf, 10
+ Groups          Name        Variance Std.Dev.
+ video_age_label (Intercept) 0.05368  0.2317  
+Number of obs: 2550, groups:  video_age_label, 2
 
 Fixed effects:
-                            Estimate Std. Error t value
-(Intercept)                 1.790857   0.033764  53.040
-duration                    0.381668   0.128397   2.973
-title_length                0.197073   0.030463   6.469
-title_sentiment_tfidflife   0.005788   0.022460   0.258
-title_sentiment_tfidfnew   -0.003477   0.024133  -0.144
-title_sentiment_tfidfworld -0.043131   0.015238  -2.830
-num_speaker                -0.048467   0.122917  -0.394
-film_age                   -1.309236   0.131200  -9.979
+                             Estimate Std. Error  z value Pr(>|z|)    
+(Intercept)                  8.507633   0.163902    51.91   <2e-16 ***
+duration                     1.756094   0.008021   218.94   <2e-16 ***
+title_length                 0.176762   0.003640    48.56   <2e-16 ***
+title_sentiment_tfidflife    0.125029   0.002470    50.63   <2e-16 ***
+title_sentiment_tfidfnew    -0.151639   0.003135   -48.37   <2e-16 ***
+title_sentiment_tfidfworld  -0.153020   0.001965   -77.86   <2e-16 ***
+num_speaker                 -0.820848   0.009149   -89.72   <2e-16 ***
+film_age                   -14.083116   0.013890 -1013.89   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
                  (Intr) duratn ttl_ln ttl_sntmnt_tfdfl ttl_sntmnt_tfdfn ttl_sntmnt_tfdfw nm_spk
-duration         -0.618                                                                        
-title_lngth      -0.378 -0.042                                                                 
-ttl_sntmnt_tfdfl  0.011 -0.008 -0.088                                                          
-ttl_sntmnt_tfdfn  0.001 -0.002 -0.072  0.037                                                   
-ttl_sntmnt_tfdfw  0.000 -0.014 -0.098  0.065            0.060                                  
-num_speaker      -0.502  0.143  0.026 -0.006            0.013            0.007                 
-film_age         -0.596 -0.119  0.190 -0.008           -0.003            0.003            0.377
-convergence code: 0
-boundary (singular) fit: see ?isSingular
-
+duration         -0.006                                                                        
+title_lngth      -0.011 -0.054                                                                 
+ttl_sntmnt_tfdfl  0.000 -0.009 -0.095                                                          
+ttl_sntmnt_tfdfn  0.000 -0.078 -0.033  0.045                                                   
+ttl_sntmnt_tfdfw  0.000 -0.015 -0.105  0.077            0.056                                  
+num_speaker       0.000 -0.200  0.087  0.005           -0.021            0.003                 
+film_age         -0.013 -0.027  0.334  0.029           -0.001           -0.002            0.093

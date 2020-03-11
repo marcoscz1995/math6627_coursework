@@ -1,0 +1,12 @@
+\section{Statistical Analysis Without Mixed Models}
+In this analysis we use two models to determine the "popularity" of TED talks using the two responses; average views per day and the composite popularity score. To predict the average views per day, which is a count variable, we use a Poisson regression. To predict the composite popularity score we use a linear regression.
+
+\subsection{Poisson Regression on Average Views Per Day}
+To predict the average views per day, which is a count variable, we use a Poisson regression with a log link. 
+\input{body_matter/equations/pois_simple.tex}
+This model indicates the log of the average number of views a video will obtain on any given day given the predictors.
+\subsection{Linear Regression on Composite Popularity Score}
+To predict the popularity, which is a normally distributed number, we use a Linear regression model.
+\input{body_matter/equations/linear_simple.tex}
+This model indicates the popularity score a video will obtain given the predictors.
+

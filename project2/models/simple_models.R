@@ -21,7 +21,7 @@ attach(df)
 #using kmeans with tfidf to determine the sentiment of the video title
 pois_views_tfidf <-
   glm(
-    avg_views_per_day ~ duration + num_speaker + film_age+title_sentiment_tfidf +title_length+ tags_label_tfidf,
+        avg_views_per_day ~ duration + num_speaker + film_age+title_sentiment_tfidf +title_length+ tags_label_tfidf+video_age_label,
     family = poisson(link = log)
   )
 summary(pois_views_tfidf)
@@ -30,7 +30,7 @@ summary(pois_views_tfidf)
 #response: composite popularity score (includes languages, standardized comments,
 # standardized views,aggregate ratings, number of related talks)
 normal_popularity <-
-  lm(popularity ~ duration + num_speaker+title_sentiment_tfidf + title_length+film_age + tags_label_tfidf)
+  lm(popularity ~ duration + num_speaker+title_sentiment_tfidf + title_length+film_age + tags_label_tfidf+video_age_label)
 summary(normal_popularity)
 
 saveRDS(normal_popularity, "model_weights/normal_popularity.RDS")

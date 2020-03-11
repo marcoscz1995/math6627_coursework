@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from operator import itemgetter
 import ast
 import clustering
@@ -23,6 +24,12 @@ df['avg_views_per_day']=df['avg_views_per_day'].round(0).astype(int)
 #December 31, 2017 (unix timestamps is 1514678400) when the dataset 
 #was published
 df['film_age'] = (1514678400-df['film_date'])/(60*60*24)
+
+##Add a categorical descriptor for whether the video is old or new
+#old: before 2008. New: 2008 or after
+#this is measured since the video was published.
+df['videos_age_time'] = pd.to_datetime(df['published_date'], unit='s')
+df['video_age_label'] = df['videos_age_time'].apply(lambda x:'new'  if int(x.strftime('%Y')) >2010 else 'old')
 
 ###Get the number of related talks.
 #acts as a measure of how close to the center of the ted talks universe is a

@@ -45,7 +45,7 @@ normal_popularity_times_2 <-
 
 #we only want untransformed variables ie those not normalized
 df_categorical <-
-  df[, c("title_sentiment_tfidf", "tags_label_tfidf")]
+  df[, c("title_sentiment_tfidf", "tags_label_tfidf", "video_age_label")]
 df_numeric <-
   df[, c(
     "avg_views_per_day",
@@ -60,27 +60,27 @@ df_numeric <-
 ######
 #sumarize numeric variables
 ###
-sink("report/tables/numeric_variables_description.tex")
+sink("report/tables/descriptive_stats/numeric_variables_description.tex")
 print(tableContinuous(df_numeric))
 
 #sumarize categorical variables
-sink("report/tables/categorical_variables_description.tex")
+sink("report/tables/descriptive_stats/categorical_variables_description.tex")
 print(tableNominal(df_categorical)) #adds the table to the text file
 
 #####
 #anova tables
 #these test the random slope
-sink("report/tables/anova/nova_pois_themes.tex")
+sink("report/tables/anova/anova_pois_themes.tex")
 print(xtable(anova(
   pois_views_themes_1, pois_views_themes_2
 )))
-sink("report/tables/anova/nova_pois_times.tex")
+sink("report/tables/anova/anova_pois_times.tex")
 print(xtable(anova(pois_views_times_1, pois_views_times_2)))
-sink("report/tables/anova/nova_normal_popularity_themes.tex")
+sink("report/tables/anova/anova_normal_popularity_themes.tex")
 print(xtable(
   anova(normal_popularity_themes_1, normal_popularity_themes_2)
 ))
-sink("report/tables/anova/nova_normal_popularity_times.tex")
+sink("report/tables/anova/anova_normal_popularity_times.tex")
 print(xtable(anova(
   normal_popularity_times_1, normal_popularity_times_2
 )))

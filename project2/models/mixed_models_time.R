@@ -27,16 +27,16 @@ summary(pois_views_times_0)
 pois_views_times_1 <-
   glmer(
     avg_views_per_day ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 |
-                                                               tags_label_tfidf),
+                                                               video_age_label),
     data = df,
     family = poisson(link = log)
   )
 summary(pois_views_times_1)
-#random intercept and slope
+    #random intercept and slope
 pois_views_times_2 <-
   glmer(
     avg_views_per_day ~ duration+ title_length+title_sentiment_tfidf + num_speaker + film_age + (1 + duration + num_speaker + film_age+ title_length+title_sentiment_tfidf |
-                                                               tags_label_tfidf),
+                                                               video_age_label),
     data = df,
     family = poisson(link = log)
   )
@@ -60,7 +60,7 @@ summary(normal_popularity_times_0)
 normal_popularity_times_1 <-
   lmer(
     popularity ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 |
-                                                        tags_label_tfidf),
+                                                        video_age_label),
     data = df
   )
 summary(normal_popularity_times_1)
@@ -68,7 +68,7 @@ summary(normal_popularity_times_1)
 normal_popularity_times_2 <-
   lmer(
     popularity ~ duration + title_length+title_sentiment_tfidf+ num_speaker + film_age + (1 + duration + num_speaker + film_age |
-                                                        tags_label_tfidf),
+                                                        video_age_label),
     data = df
   )
 summary(normal_popularity_times_2)
@@ -77,3 +77,4 @@ summary(normal_popularity_times_2)
 saveRDS(normal_popularity_times_0, "model_weights/normal_popularity_times_0.RDS")
 saveRDS(normal_popularity_times_1, "model_weights/normal_popularity_times_1.RDS")
 saveRDS(normal_popularity_times_2, "model_weights/normal_popularity_times_2.RDS")
+
