@@ -1,7 +1,7 @@
 \begin{frame}{Statistical Analysis With Mixed Models: Time Variation}
 	\begin{itemize}
 		\item To determine whether the characteristics that predict popularity change over time, we define time into two groups, old (videos published prior to 2010) and new (after 2010). 
-		\item \textbf{Random intercept: } Viewers of TED talk videos in 1990 when personal computers where not readily available were most likely from a higher socio-demographic population than the average viewer in 2017 when the vast majority of individuals have personal computers. As such, 'old' and 'new' videos will have different intercepts (different average popularity or average views/day).
+		\item \textbf{Random intercept: }Viewers of TED talk videos in 1990 when personal computers where not readily available were most likely from a higher socio-demographic population than the average viewer in 2017 when the vast majority of individuals have personal computers. As such, 'old' and 'new' videos will have different intercepts (different average popularity or average views/day).
 		\item \textbf{Random slope: }An individual in the early 2000s with a computer was most likely more educated (due to the general lack of widespread computers they would need it for very specific reasons like work/school) than the average computer user in 2017 (where everyone owns a computer for both pleasure and work), and as such the former group might rate a longer video better than the latter group due to differences in attention span, for example. 
 	\end{itemize}
 \end{frame}
@@ -22,7 +22,7 @@ In this model we have $b$'s as the random slope/intercept for $i$ observations f
 	\begin{itemize}
 		\item To determine whether the characteristics that predict popularity vary by the talks themes, we define themes into ten groups, as determined by the K-means clustering with TF-IDF, as: brain, business, culture, design, energy, global, health, music, science, social. 
 		\item \textbf{Random intercept: }We assume each theme attracts viewers from different populations. As such, we assume each theme will attract different populations and thus videos from each theme will have different intercepts (different average popularity or average views/day).
-		\item \textbf{Random slope: }To account for potential differences in populations that might have different video viewing behaviors. Indeed, an computer science student that watches science related videos will most likely have a different attention span than a the average viewer who watches music related videos. As such, the former group might rate a longer video better than the latter group due to differences in attention spans.
+		\item \textbf{Random slope: }To account for potential differences in populations that might have different video viewing behaviors. Indeed, a computer science student that watches science related videos will most likely have a different attention span than the average viewer who watches music related videos. As such, the former group might rate a longer video better than the latter group due to differences in attention spans.
 	\end{itemize}
 \end{frame}
 

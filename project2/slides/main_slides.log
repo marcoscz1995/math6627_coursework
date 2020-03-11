@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.12)  11 MAR 2020 04:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.12)  11 MAR 2020 05:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -715,7 +715,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\medskipamount' on input line 31.
 
-(./main_slides.aux)
+(./main_slides.aux
+
+LaTeX Warning: Label `simple_results' multiply defined.
+
+
+LaTeX Warning: Label `mixed' multiply defined.
+
+)
 \openout1 = `main_slides.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -893,36 +900,1532 @@ Dictionary: translator-theorem-dictionary, Language: English
 
 ]) (./body_matter/data_sources.tex [4
 
-]) (./body_matter/model_selection.tex
-(./tables/aic/aic_all.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) [5
-
-] [6
+]) (./body_matter/variables.tex [5
 
 ]
-(./tables/anova/anova_all.tex
-Overfull \hbox (9.64435pt too wide) in paragraph at lines 7--22
- [] 
- []
+[6
 
-) [7
+] [7
 
 ] [8
 
 ] [9
 
-]) (./end_matter/conclusion.tex [10
+]
+(./tables/descriptive_stats/categorical_variables_description.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 
-] [11
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+! Undefined control sequence.
+<argument> \fnum@table 
+                       : 
+l.36 \caption{categorical}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+Overfull \vbox (6.3699pt too high) detected at line 48
+ []
+
+[10
+
+]) (./body_matter/statistical_analysis_simple.tex [11
+
+]
+(./body_matter/equations/pois_simple.tex
+Overfull \hbox (7.59314pt too wide) detected at line 9
+[]
+ []
+
+) [12
+
+] (./body_matter/equations/linear_simple.tex) [13
+
+])
+(./body_matter/statistical_analysis_mixed.tex [14
+
+]
+(./body_matter/equations/pois_mixed_time.tex) [15
+
+]
+(./body_matter/equations/linear_mixed_time.tex) [16
+
+] [17
+
+]
+(./body_matter/equations/pois_mixed_themes.tex) [18
+
+]
+(./body_matter/equations/linear_mixed_themes.tex
+Overfull \hbox (90.20811pt too wide) detected at line 14
+\OT1/cmss/m/it/10.95 i \OT1/cmss/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmss/m/n
+/10.95 1\OML/cmm/m/it/10.95 ; ::; \OT1/cmss/m/it/10.95 n[]\OMS/cmsy/m/n/10.95 g
+\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 j \OT1/cmss/m/n/10.95 = \OMS/cmsy/m/
+n/10.95 f\OT1/cmss/m/it/10.95 brain\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 b
+usiness\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 culture\OML/cmm/m/it/10.95 ; 
+\OT1/cmss/m/it/10.95 design\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 energy\OM
+L/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 global\OML/cmm/m/it/10.95 ; \OT1/cmss/m
+/it/10.95 health\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 music\OML/cmm/m/it/1
+0.95 ; \OT1/cmss/m/it/10.95 science\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 s
+ocial\OMS/cmsy/m/n/10.95 g
+ []
+
+) [19
+
+]) (./body_matter/results_simple.tex
+(./tables/regressions/simple_models.tex
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<argument> \fnum@table 
+                       : 
+l.6   \caption{Poisson and Linear Regression}
+                                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.387^
+                       {***}$ $(0.008) & 0.132^{**}$ $(0.056) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.387^{***}$ $(0.008) &
+                                         0.132^{**}$ $(0.056) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.387^{***}$ $(0.008) & 0.132^
+                                               {**}$ $(0.056) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   N
+        um. Speaker & -0.834^{***}$ $(0.009) & -0.083$ $(0.076) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   Num. Speaker & -0.834^
+                             {***}$ $(0.009) & -0.083$ $(0.076) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   Num. Speaker & -0.834^{***}$ $(0.009) &
+                                               -0.083$ $(0.076) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   Film Age in Days & -16.303^
+                                  {***}$ $(0.016) & -2.849^{***}$ $(0.118) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 ...lm Age in Days & -16.303^{***}$ $(0.016) &
+                                                   -2.849^{***}$ $(0.118) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 ...n Days & -16.303^{***}$ $(0.016) & -2.849^
+                                                  {***}$ $(0.118) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19   T
+        itle Label: Life & 0.149^{***}$ $(0.002) & -0.001$ $(0.022) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19   Title Label: Life & 0.149^
+                                 {***}$ $(0.002) & -0.001$ $(0.022) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19   Title Label: Life & 0.149^{***}$ $(0.002) &
+                                                   -0.001$ $(0.022) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20   Title Label: New & -0.142^
+                                 {***}$ $(0.003) & -0.007$ $(0.023) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20   Title Label: New & -0.142^{***}$ $(0.003) &
+                                                   -0.007$ $(0.023) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21   Title Label: World & -0.099^
+                                   {***}$ $(0.002) & -0.044^{***}$ $(0.015) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...le Label: World & -0.099^{***}$ $(0.002) &
+                                                   -0.044^{***}$ $(0.015) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...: World & -0.099^{***}$ $(0.002) & -0.044^
+                                                  {***}$ $(0.015) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   T
+        itle Length & 0.053^{***}$ $(0.004) & 0.087^{***}$ $(0.030) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Title Length & 0.053^
+                            {***}$ $(0.004) & 0.087^{***}$ $(0.030) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Title Length & 0.053^{***}$ $(0.004) &
+                                              0.087^{***}$ $(0.030) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...le Length & 0.053^{***}$ $(0.004) & 0.087^
+                                                  {***}$ $(0.030) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23  \hline
+             \\[-1.8ex]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Underfull \vbox (badness 10000) detected at line 26
+ []
+
+) [20
+
+] (./tables/regressions/simple_models_1.tex
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+pdfTeX warning (ext4): destination with the same identifier (name{simple_result
+s}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.6   \label{simple_results}
+                            
+Overfull \hbox (36.14299pt too wide) in alignment at lines 5--7
+ [] [] [] [] [] [] [] [] [] 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.13   Theme Label: Business & -0.135^
+                                      {***}$ $(0.002) & -0.002$ $(0.022) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.13 ...Label: Business & -0.135^{***}$ $(0.002) &
+                                                   -0.002$ $(0.022) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.14   Theme Label: Culture & -0.314^
+                                     {***}$ $(0.002) & -0.043^{**}$ $(0.018) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.14 ... Label: Culture & -0.314^{***}$ $(0.002) &
+                                                   -0.043^{**}$ $(0.018) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.14 ...Culture & -0.314^{***}$ $(0.002) & -0.043^
+                                                  {**}$ $(0.018) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.15   T
+        heme Label: Design & -0.537^{***}$ $(0.002) & -0.057^{***}$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.15   Theme Label: Design & -0.537^
+                                    {***}$ $(0.002) & -0.057^{***}$ $(0.019) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.15 ...e Label: Design & -0.537^{***}$ $(0.002) &
+                                                   -0.057^{***}$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.15 ... Design & -0.537^{***}$ $(0.002) & -0.057^
+                                                  {***}$ $(0.019) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16   T
+        heme Label: Energy & -0.589^{***}$ $(0.004) & -0.082^{***}$ $(0.029) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16   Theme Label: Energy & -0.589^
+                                    {***}$ $(0.004) & -0.082^{***}$ $(0.029) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16 ...e Label: Energy & -0.589^{***}$ $(0.004) &
+                                                   -0.082^{***}$ $(0.029) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16 ... Energy & -0.589^{***}$ $(0.004) & -0.082^
+                                                  {***}$ $(0.029) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   T
+        heme Label: Global & -0.845^{***}$ $(0.003) & -0.059^{***}$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   Theme Label: Global & -0.845^
+                                    {***}$ $(0.003) & -0.059^{***}$ $(0.019) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17 ...e Label: Global & -0.845^{***}$ $(0.003) &
+                                                   -0.059^{***}$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17 ... Global & -0.845^{***}$ $(0.003) & -0.059^
+                                                  {***}$ $(0.019) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   T
+        heme Label: Health & -0.692^{***}$ $(0.003) & -0.004$ $(0.021) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   Theme Label: Health & -0.692^
+                                    {***}$ $(0.003) & -0.004$ $(0.021) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 ...e Label: Health & -0.692^{***}$ $(0.003) &
+                                                   -0.004$ $(0.021) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19   Theme Label: Music & -0.523^
+                                   {***}$ $(0.003) & -0.130^{***}$ $(0.025) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ...me Label: Music & -0.523^{***}$ $(0.003) &
+                                                   -0.130^{***}$ $(0.025) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ...: Music & -0.523^{***}$ $(0.003) & -0.130^
+                                                  {***}$ $(0.025) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20   T
+        heme Label: Science & -0.669^{***}$ $(0.002) & -0.030$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20   Theme Label: Science & -0.669^
+                                     {***}$ $(0.002) & -0.030$ $(0.019) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20 ... Label: Science & -0.669^{***}$ $(0.002) &
+                                                   -0.030$ $(0.019) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21   Theme Label: Social & -0.552^
+                                    {***}$ $(0.002) & -0.047^{**}$ $(0.021) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...e Label: Social & -0.552^{***}$ $(0.002) &
+                                                   -0.047^{**}$ $(0.021) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ... Social & -0.552^{***}$ $(0.002) & -0.047^
+                                                  {**}$ $(0.021) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   V
+        ideo Age Group: Old & -1.841^{***}$ $(0.006) & -0.317^{***}$ $(0.026...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Video Age Group: Old & -1.841^
+                                     {***}$ $(0.006) & -0.317^{***}$ $(0.026...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22 ... Age Group: Old & -1.841^{***}$ $(0.006) &
+                                                   -0.317^{***}$ $(0.026) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...up: Old & -1.841^{***}$ $(0.006) & -0.317^
+                                                  {***}$ $(0.026) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   F
+        ilm Age:Video Age Group: Old & 13.460^{***}$ $(0.031) & 2.434^{***}$...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Film Age:Video Age Group: Old & 13.460^
+                                              {***}$ $(0.031) & 2.434^{***}$...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23 ... Age Group: Old & 13.460^{***}$ $(0.031) &
+                                                   2.434^{***}$ $(0.153) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23 ...oup: Old & 13.460^{***}$ $(0.031) & 2.434^
+                                                  {***}$ $(0.153) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24   I
+        ntercept & 8.952^{***}$ $(0.003) & 2.038^{***}$ $(0.025) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24   Intercept & 8.952^
+                         {***}$ $(0.003) & 2.038^{***}$ $(0.025) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24   Intercept & 8.952^{***}$ $(0.003) &
+                                           2.038^{***}$ $(0.025) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24   Intercept & 8.952^{***}$ $(0.003) & 2.038^
+                                                 {***}$ $(0.025) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25  \hline
+             \\[-1.8ex]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (36.14299pt too wide) in alignment at lines 7--28
+ [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28
+ []
+
+
+Overfull \hbox (36.14299pt too wide) in alignment at lines 28--33
+ [] [] [] [] [] [] [] [] [] 
+ []
+
+)
+Overfull \vbox (78.59335pt too high) detected at line 6
+ []
+
+[21
+
+] [22
+
+]
+Overfull \vbox (0.72278pt too high) detected at line 23
+ []
+
+[23
+
+]) (./body_matter/results_mixed.tex
+(./tables/regressions/pois_mixed_results.tex
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<argument> \fnum@table 
+                       : 
+l.6   \caption{Poisson Mixed Effects Results}
+                                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.976^
+                       {***}$ $(0.490) & 1.386^{***}$ $(0.149) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.976^{***}$ $(0.490) &
+                                         1.386^{***}$ $(0.149) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 1.976^{***}$ $(0.490) & 1.386^
+                                               {***}$ $(0.149) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   T
+        itle Length & 0.155$ $(0.169) & -0.097$ $(0.604) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20   Title Label: World & -0.129^
+                                   {**}$ $(0.054) & -0.226$ $(0.400) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.20 ...tle Label: World & -0.129^{**}$ $(0.054) &
+                                                   -0.226$ $(0.400) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21   Num. Speaker & -0.689$ $(0.755) & -0.887^
+                                                {***}$ $(0.231) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   F
+        ilm Age in Days & -12.327^{***}$ $(0.698) & -9.810^{***}$ $(2.759) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Film Age in Days & -12.327^
+                                  {***}$ $(0.698) & -9.810^{***}$ $(2.759) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...lm Age in Days & -12.327^{***}$ $(0.698) &
+                                                   -9.810^{***}$ $(2.759) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22 ...n Days & -12.327^{***}$ $(0.698) & -9.810^
+                                                  {***}$ $(2.759) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   I
+        ntercept & 8.105^{***}$ $(0.104) & 7.629^{***}$ $(0.951) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 8.105^
+                         {***}$ $(0.104) & 7.629^{***}$ $(0.951) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 8.105^{***}$ $(0.104) &
+                                           7.629^{***}$ $(0.951) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 8.105^{***}$ $(0.104) & 7.629^
+                                                 {***}$ $(0.951) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24  \hline
+             \\[-1.8ex]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Underfull \vbox (badness 10000) detected at line 30
+ []
+
+)
+Overfull \vbox (38.95337pt too high) detected at line 3
+ []
+
+[24
+
+] (./tables/regressions/linear_mixed_results.tex
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (D): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (.): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! Package array Error:  Illegal pream-token (-3): `c' used.
+
+See the array package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<argument> \fnum@table 
+                       : 
+l.6   \caption{Normal Mixed Effects Results}
+                                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+pdfTeX warning (ext4): destination with the same identifier (name{mixed}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.7   \label{mixed}
+                   
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 0.399^
+                       {***}$ $(0.136) & 0.171$ $(0.107) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16  Duration & 0.399^{***}$ $(0.136) &
+                                         0.171$ $(0.107) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.17   Title Length & -0.047$ $(0.124) & -0.238^
+                                                {*}$ $(0.139) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   T
+        itle Label: Life & 0.178^{***}$ $(0.050) & 0.107^{***}$ $(0.030) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   Title Label: Life & 0.178^
+                                 {***}$ $(0.050) & 0.107^{***}$ $(0.030) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18   Title Label: Life & 0.178^{***}$ $(0.050) &
+                                                   0.107^{***}$ $(0.030) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 ...bel: Life & 0.178^{***}$ $(0.050) & 0.107^
+                                                  {***}$ $(0.030) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19   T
+        itle Label: New & 0.023$ $(0.032) & 0.001$ $(0.022) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21   Num. Speaker & -0.048^
+                             {**}$ $(0.023) & -0.046^{***}$ $(0.015) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21   Num. Speaker & -0.048^{**}$ $(0.023) &
+                                              -0.046^{***}$ $(0.015) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ... Speaker & -0.048^{**}$ $(0.023) & -0.046^
+                                                  {***}$ $(0.015) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   F
+        ilm Age in Days & -1.330^{***}$ $(0.145) & -1.615$ $(1.191) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Film Age in Days & -1.330^
+                                 {***}$ $(0.145) & -1.615$ $(1.191) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.22   Film Age in Days & -1.330^{***}$ $(0.145) &
+                                                   -1.615$ $(1.191) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 1.797^
+                         {***}$ $(0.035) & 1.823^{***}$ $(0.146) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 1.797^{***}$ $(0.035) &
+                                           1.823^{***}$ $(0.146) \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.23   Intercept & 1.797^{***}$ $(0.035) & 1.823^
+                                                 {***}$ $(0.146) \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.24  \hline
+             \\[-1.8ex]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Underfull \vbox (badness 10000) detected at line 30
+ []
+
+)
+Overfull \vbox (38.95337pt too high) detected at line 7
+ []
+
+[25
+
+]) (./body_matter/model_selection.tex (./tables/aic/aic_all.tex) [26
+
+]
+[27
+
+] (./tables/anova/anova_all.tex
+Overfull \hbox (9.64435pt too wide) in paragraph at lines 7--22
+ [] 
+ []
+
+) [28
+
+] [29
+
+] [30
+
+]) (./end_matter/conclusion.tex [31
+
+] [32
 
 ])
 \tf@nav=\write7
@@ -941,24 +2444,35 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
 Package rerunfilecheck Info: File `main_slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 17536 strings out of 494923
- 330959 string characters out of 6180741
- 401490 words of memory out of 5000000
- 20409 multiletter control sequences out of 15000+600000
- 10857 words of font info for 40 fonts, out of 8000000 for 9000
+ 17756 strings out of 494923
+ 335131 string characters out of 6180741
+ 411329 words of memory out of 5000000
+ 20520 multiletter control sequences out of 15000+600000
+ 15532 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,15n,57p,799b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on main_slides.pdf (11 pages, 77135 bytes).
+ 48i,21n,57p,799b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msam7.pfb>
+Output written on main_slides.pdf (32 pages, 189045 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 309 compressed objects within 4 object streams
- 25 named destinations out of 1000 (max. 500000)
+ 942 PDF objects out of 1000 (max. 8388607)
+ 879 compressed objects within 9 object streams
+ 76 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

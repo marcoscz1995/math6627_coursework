@@ -118,20 +118,22 @@ longtable.stargazer(
   covariate.labels = c(
     "Duration",
     "Num. Speaker",
-    "Film Age",
+    "Film Age in Days",
     "Title Label: Life",
     "Title Label: New",
     "Title Label: World",
     "Title Length",
-    "Tags Label: Business",
-    "Tags Label: Culture",
-    "Tags Label: Design",
-    "Tags Label: Energy",
-    "Tags Label: Global",
-    "Tags Label: Health",
-    "Tags Label: Music",
-    "Tags Label: Science",
-    "Tags Label: Social",
+    "Theme Label: Business",
+    "Theme Label: Culture",
+    "Theme Label: Design",
+    "Theme Label: Energy",
+    "Theme Label: Global",
+    "Theme Label: Health",
+    "Theme Label: Music",
+    "Theme Label: Science",
+    "Theme Label: Social",
+    "Video Age Group: Old",
+    "Film Age:Video Age Group: Old",
     "Intercept"
   ),
   type = "latex",
@@ -170,35 +172,63 @@ longtable.stargazer(
     "Title Label: New",
     "Title Label: World",
     "Num. Speaker",
-    "Film Age",
+    "Film Age in Days",
     "Intercept"
   )
 )
 
-#mixed models abridged gender and region results
+#mixed models abridged for poisson
 longtable.stargazer(
-  mod_sex,
-  mod_region,
-  title = "Logistic Mixed Effects Results",
+  pois_views_themes_2,
+  pois_views_times_2,
+  column.labels = c(
+    "Poisson Themes",
+    "Poisson Times"
+  ),
+  model.numbers = FALSE,
+  model.names = FALSE,
+  title = "Poisson Mixed Effects Results",
   align = TRUE,
   type = "latex",
-  column.labels = c("Gender", "Region"),
-  dep.var.labels   = "Heart Disease",
   single.row = TRUE,
-  filename = "report/tables/mixed_abridged_gender_region1.tex",
-  star.char = c("+", "*", "**", "***"),
-  star.cutoffs = c(.1, .05, .01, .001)
+  filename = "slides/tables/regressions/pois_mixed_results.tex",
+  label = "mixed",
+  covariate.labels = c(
+    "Duration",
+    "Title Length",
+    "Title Label: Life",
+    "Title Label: New",
+    "Title Label: World",
+    "Num. Speaker",
+    "Film Age in Days",
+    "Intercept"
+  )
+)
+#mixed models abridged for normal
+longtable.stargazer(
+  normal_popularity_themes_2,
+  normal_popularity_times_2,
+  column.labels = c(
+    "Normal Themes",
+    "Normal Times"
+  ),
+  model.numbers = FALSE,
+  model.names = FALSE,
+  title = "Normal Mixed Effects Results",
+  align = TRUE,
+  type = "latex",
+  single.row = TRUE,
+  filename = "slides/tables/regressions/linear_mixed_results.tex",
+  label = "mixed",
+  covariate.labels = c(
+    "Duration",
+    "Title Length",
+    "Title Label: Life",
+    "Title Label: New",
+    "Title Label: World",
+    "Num. Speaker",
+    "Film Age in Days",
+    "Intercept"
+  )
 )
 
-#mixed models abridged marriage and recency results
-longtable.stargazer(
-  mod_mariage,
-  mod_recen,
-  title = "Logistic Mixed Effects Results",
-  align = TRUE,
-  type = "latex",
-  column.labels = c("Marriage", "Recency of Immigration"),
-  dep.var.labels   = "Heart Disease",
-  single.row = T,
-  filename = "report/tables/mixed_abridged_marriage_recency.tex"
-)

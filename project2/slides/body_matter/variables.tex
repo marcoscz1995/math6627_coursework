@@ -13,8 +13,8 @@
 We composed a composite popularity score using the following variables:
 \begin{itemize}
 	\item \textbf{Number of Languages}: A "popular" talk will be translated into several languages as their is a great demand for the talk.
-	\item \textbf{Number of Comments}: A "popular" talk will garnish an active comment section as people discuss/praise the video. To account for the number of comments being a function of how controversial a talk is, we use a comments per views. As such, we can capture popular videos with a lot of comments and not unpopular/controversial videos with few views but many comments. 
-	\item \textbf{Ratings}: To account for the ratings that viewers append to each video, we convert each rating and its frequency into a score of +1 if the rating is positive (Funny, Beautiful, Ingenious,...) and a score of -1 if negative (Confusing, Unconvincing,...). We add up the score for each rating times its frequency to get the aggregate rating score. To account for a positive score bias in the data we introduce an average ratings.
+	\item \textbf{Number of Comments}: A "popular" talk will garnish an active comment section as people discuss/praise the video. To account for the number of comments being a function of how controversial a talk is, we use a comments per views metric. As such, we can capture popular videos with a lot of comments and not unpopular/controversial videos with few views but many comments. 
+	\item \textbf{Ratings}: To account for the ratings that viewers append to each video, we convert each rating and its frequency into a score of +1 if the rating is positive (Funny, Beautiful, Ingenious,...) and a score of -1 if negative (Confusing, Unconvincing,...). We add up the score for each rating times its frequency to get the aggregate rating score.
 \end{itemize}
 \end{frame}
 
@@ -29,8 +29,8 @@ Since all of these variables are on vastly different scales of magnitude, we nor
 
 \begin{frame}{Predictors}
 \begin{itemize}
-	\item \textbf{Duration}: We include duration of videos as we assume that individuals are more likely to watch a shorter video that a longer video.
-	\item \textbf{Number of Speaker}: We assume that with more speakers will increase the chance that a viewer can associate with the video and thus watch it. 
+	\item \textbf{Duration}: We include duration of videos as we assume that individuals are more likely to watch a shorter video than a longer video.
+	\item \textbf{Number of Speaker}: We assume that more speakers will increase the chance that a viewer can associate with the video and thus watch it. 
 	\item \textbf{Film Age}: We assume that more recently produced videos are more likely to be seen. Film Age is the videos age in days since being produced.
 	\item \textbf{Video Age Group}: We add a categorical variable for when the video was published, labeled as 'old' for videos published prior to 2010 and young after 2010.  We assume that viewers also consider when a video was published and have a preference for videos published more recently for the same reason as Film Age. Note: A video made in 1990 but published in 2016 would be considered new.
 \end{itemize}
@@ -38,7 +38,7 @@ Since all of these variables are on vastly different scales of magnitude, we nor
 \begin{frame}{Predictors}
 	\begin{itemize}
 		\item \textbf{Title Sentiment}: As the title is the first thing a viewer will see, we assume that the title plays a crucial role in attracting views. To account for this we applied data clustering with K-Means with TF-IDF on the titles to try to separate titles into three groups that might suggest the titles topic.
-		\item \textbf{Title Length}: We assume that shorter titles, like shorter video lengths, will encourage views as a viewer can quickly understand topic of the video rather than being forced to read a lengthy title which could be potentially cutoff, which could further disincentive a viewer.
+		\item \textbf{Title Length}: We assume that shorter titles, like shorter video lengths, will encourage views as a viewer can quickly understand the topic of the video rather than being forced to read a lengthy title which could be potentially cutoff, which could further disincentive a viewer.
 		\item \textbf{Themes Label}: The data set provides a list of themes that the video is associated with. However, the videos will have several themes which might not be informative as TED talks has an incentive to apply as many themes to garnish views. Thus, we apply data clustering with K-Means with TF-IDF to determine the most relevant theme of the video. We assume some themes might garnish more views than others. 
 	\end{itemize}
 \end{frame}

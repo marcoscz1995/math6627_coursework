@@ -4,3 +4,20 @@
 \begin{frame}{Results: Linear and Poisson Regressions}
 	\input{tables/regressions/simple_models_1}
 \end{frame}
+\begin{frame}{Results: Linear and Poisson Regressions}
+\begin{itemize}
+	\item \textbf{Duration}: Both models report an increase in the response, which is counter intuitive as we initially believed that viewers would be turned off from longer videos.
+	\item \textbf{Number of Speaker}: Both models reported a decrease in the response, however the linear model did not consider it significant. This goes against our initial beliefs that more speakers would increase the likelihood of a viewer seeing a speaker they enjoy.
+	\item \textbf{Film Age}: Both models report significant decreases in the response, which agrees with our initial hypothesis that viewers prefer videos that have been published more recently. 
+	\item \textbf{Video Age Group}: Both models report decreases in the response. This supports our initial hypothesis that viewers prefer videos that have been produced more recently.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Results: Linear and Poisson Regressions}
+	\begin{itemize}
+		\item \textbf{Film Age:Video Age Group: Old}: We also model the interaction between these two terms to see how talks produced prior to 2010 but published after 2010 performs. Both models report an increase in the responses, which suggests that an 'old' video but published recently will perform just as well as a 'new' video published recently. This suggest that the age of the video in days since posted is a stronger predictor for success than the actual content of the talk. 
+		\item \textbf{Title Sentiment}: Both models agree that titles regarding the topic 'world' decrease the response and are significant. The poisson model reports a decrease in average views/day for the title topic 'new', but reports an increase for the topic 'life'.
+		\item \textbf{Title Length}: Both models report increases in the response and are significant. This is surprising as we thought verbose titles would discourage viewers from watching the video. 
+		\item \textbf{Themes Label}: Both models report all the labels as significant and negative which suggests that the most popular talks do not fall under any of these themes. 
+	\end{itemize}
+\end{frame}

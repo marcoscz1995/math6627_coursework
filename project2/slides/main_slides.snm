@@ -1,2 +1,13 @@
-\beamer@slide {aic}{5}
-\beamer@slide {anova}{7}
+\beamer@slide {cat}{10}
+\beamer@slide {poisson_simple_eqn}{12}
+\beamer@slide {simple_linear_eqn}{13}
+\beamer@slide {poisson_mixed_times_eqn}{15}
+\beamer@slide {linear_mixed_times_eqn}{16}
+\beamer@slide {poisson_mixed_themes_eqn}{18}
+\beamer@slide {linear_mixed_themes_eqn}{19}
+\beamer@slide {simple_results}{20}
+\beamer@slide {simple_results}{21}
+\beamer@slide {mixed}{24}
+\beamer@slide {mixed}{25}
+\beamer@slide {aic}{26}
+\beamer@slide {anova}{28}
