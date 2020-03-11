@@ -3,13 +3,6 @@
 % Date and time: Tue, Mar 10, 2020 - 12:53:56 AM
 % Requires LaTeX packages: dcolumn 
 \begin{longtable}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
-  \caption{Poisson and Normal Mixed-Effects with Random Slope and Intercept} 
-  \label{mixed} 
-\\[-1.8ex]\hline 
-\endhead
-\hline \\[-1.8ex] 
- & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-5} 
 \\[-1.8ex] & \multicolumn{2}{c}{avg\_views\_per\_day} & \multicolumn{2}{c}{popularity} \\ 
  & \multicolumn{1}{c}{Poisson Themes} & \multicolumn{1}{c}{Poisson Times} & \multicolumn{1}{c}{Normal Themes} & \multicolumn{1}{c}{Normal Times} \\ 
 \hline \\[-1.8ex] 
@@ -27,6 +20,22 @@ Log Likelihood & \multicolumn{1}{c}{-1,075,431.000} & \multicolumn{1}{c}{-1,075,
 Akaike Inf. Crit. & \multicolumn{1}{c}{2,150,950.000} & \multicolumn{1}{c}{2,150,950.000} & \multicolumn{1}{c}{-783.910} & \multicolumn{1}{c}{-821.705} \\ 
 Bayesian Inf. Crit. & \multicolumn{1}{c}{2,151,207.000} & \multicolumn{1}{c}{2,151,207.000} & \multicolumn{1}{c}{-520.937} & \multicolumn{1}{c}{-710.672} \\ 
 \hline 
+ & \multicolumn{4}{c}{\textit{Random Effects Variance:}} \\ 
+\hline
+Intercept & 0.10631  & 1.8097 & 0.0093 & 0.0093\\ 
+Duration & 2.22376  & 0.04407 & 0.1414 & 0.1413\\ 
+Num. Speaker & 4.80851   & 0.106 &  0.0833 & 0.0833\\ 
+Film Age & 4.09735  & 15.22 & 0.1711  & 0.1711\\ 
+Title Length & 0.27191   & 0.728 & 0.0144 & 0.0141\\ 
+Title Label: Life & 0.08319  & 1.063 & 0.0043 & 0.0043\\ 
+Title Label: New & 0.2113  & 0.79156 & 0.00126  & 0.00124\\ 
+Title Label: World & 0.0276 & 0.3207 & 0.00244 & 0.0401\\ 
 \hline \\[-1.8ex] 
+
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{2,550} & \multicolumn{1}{c}{2,550} & \multicolumn{1}{c}{2,550} & \multicolumn{1}{c}{2,550} \\ 
+Log Likelihood & \multicolumn{1}{c}{-1,075,431.000} & \multicolumn{1}{c}{-1,075,431.000} & \multicolumn{1}{c}{436.955} & \multicolumn{1}{c}{429.853} \\ 
+Akaike Inf. Crit. & \multicolumn{1}{c}{2,150,950.000} & \multicolumn{1}{c}{2,150,950.000} & \multicolumn{1}{c}{-783.910} & \multicolumn{1}{c}{-821.705} \\ 
+Bayesian Inf. Crit. & \multicolumn{1}{c}{2,151,207.000} & \multicolumn{1}{c}{2,151,207.000} & \multicolumn{1}{c}{-520.937} & \multicolumn{1}{c}{-710.672} \\ 
 \textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{longtable} 

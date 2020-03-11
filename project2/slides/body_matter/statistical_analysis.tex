@@ -1,92 +1,22 @@
-
-
 \begin{frame}{Statistical Analysis}
 \begin{outline}
-    \1 \textbf{Objective 1:} Determine whether their exists an association between OA and heart disease while accounting for socio-economic status, demographics and health behaviour.
-        \2 \textbf{Model:} Logistic Regression with interaction.
-    \1 \textbf{Objective 2:} Determine whether the association varies by gender, geography, marital status and recency of immigration among immigrants.
-        \2 \textbf{Model:} Logistic Mixed-Models with random slopes and intercepts to account for the differences in these populations.
+    \1 \textbf{Objective 1:} Determine what characteristics predict the success/popularity of a TED talk. 
+        \2 \textbf{Model:} Linear and Poisson Regression. 
+    \1 \textbf{Objective 2:} Determine whether these characteristics varies by time and themes of the talk.
+        \2 \textbf{Model:} Linear and Poisson Mixed-Models with random slopes and intercepts to account for the differences in time and themes.
 \end{outline}
 \end{frame}
 
-\begin{frame}{Logistic Regression Cross-Section}
-\begin{itemize}
-    \item To determine the odds that OA has for heart disease given the covariates.
-    \item  We model the interaction of OA with all other variables to see the role of demographics as on the association.
-    \item Lasso penalization was used for model selection to determine the most significant predictors. 
-\end{itemize}
-    To determine the odds that OA has for heart disease given the covariates.
-\begin{align*}
-        logit(P(\text{Heart Disease}_i))&=\text{OA}_i*(\text{Age}_i+\text{Sex}_i+\text{Race}_i+\text{Education}_i\\
-        &+\text{Income}_i+\text{Doctor Access}_i\\
-        &+\text{BMI}_i+\text{Physical Activity}_i+\\
-        &+\text{Smoking}_i+\text{Drinking}_i\\
-        &+\text{Blood Pressure}_i+\text{Diabetes}_i)+\epsilon_i\\
-\end{align*}
+\begin{frame}{Poisson Regression on Average Views Per Day}
+To predict the average views per day, which is a count variable, we use a Poisson regression with a log link. 
+\input{body_matter/equations/pois_simple.tex}
+This model indicates the log of the average number of views a video will obtain on any given day given the predictors.
     
 \end{frame}
 
-\begin{frame}{Logistic Mixed-Models: Variation in Region}
-\begin{itemize}
-    \item We assume differences in the relationship between heart disease and OA between northern (Territories) and southern (Provinces) Canada. 
-    \item \textbf{random intercept: } These differences would result in differing base rates of heart disease incidences. (i.e Racial homogeneity in the north, not so much in the south).
-    \item \textbf{random slope: }Different rates of OA as the two regions have different lives (i.e less access to Western medical care/labour intensive economies).
-    \item $logit(P(HD_{ij}))$ denotes the odds of an individual having heart disease.
-\end{itemize}
-\begin{align*}
-    logit(P(HD_{ij}))&=\beta_0+R_{0j}+(\beta_1+R_{1j})OA_i +\beta_2Demographics_i+\epsilon_{ij}\\
-\end{align*}
-\begin{equation*}
-    i=\{1,..,n_j\}, j=\{north,south\}
-\end{equation*}
-In this model we have $R$ as the random region slope and intercept for $i$ observations from each region $j$. 
+\begin{frame}{Linear Regression on Composite Popularity Score}
+To predict the popularity, which is a normally distributed number, we use a Linear regression model.
+\input{body_matter/equations/linear_simple.tex}
+This model indicates the popularity score a video will obtain given the predictors.
 \end{frame}
 
-\begin{frame}{Logistic Mixed-Models: Variation in Gender}
-\begin{itemize}
-    \item Assume differences in the relationship of interest between genders (male and female).
-    \item \textbf{random intercept: }Biological differences in men and women might lead to differences in heart disease base rates.
-    \item \textbf{random slope: }We believe differences in lifestyles between men and women could lead to differences in OA rates. (i.e men tend to work more labour intensive jobs that cause wear/tear of the body.) 
-\end{itemize}
-\begin{align*}
-    logit(P(HD_{ij}))&=\beta_0+G_{0j}+(\beta_1+G_{1j})OA_i +\beta_2Demographics_i+\epsilon_{ij}\\
-\end{align*}
-\begin{equation*}
-    i=\{1,..,n_j\}, j=\{male,female\}
-\end{equation*}
-In this model we have $G$ as the random slope and intercept for $i$ observations from each gender $j$.
-\end{frame}
-
-\begin{frame}{Logistic Mixed-Models: Variation in Marital Status}
-\begin{itemize}
-    \item Assume differences in the relationship of interest between the different types of marital status' (Common-Law, Married, Single, Single/Never Married, Widow/Separated/Divorced)
-    \item \textbf{random intercept: }Difference in populations due to self selection (i.e individuals who get married might differ from single individuals). 
-    \item \textbf{random slope: }Differences in lifestyles between marriage status' could lead to differences in OA rates as married individuals might have a larger social support to help cope with their OA, whereas single individuals might not. 
-\end{itemize}
-\begin{align*}
-    logit(P(HD_{ij}))&=\beta_0+M_{0j}+(\beta_1+M_{1j})OA_i +\beta_2Demographics_i+\epsilon_{ij}\\
-\end{align*}
-\begin{equation*}
-    i=\{1,..,n_j\}, j=\{married,common-law, widow/separated/divorced, single, single/never-married\}
-\end{equation*}
-In this model we have $M$ as the random slope and intercept for $i$ observations from each marriage status $j$.
-    
-\end{frame}
-
-\begin{frame}{Logistic Mixed-Models: Variation in Recency of Immigration}
-\begin{itemize}
-    \item Assume differences in the relationship of interest between among immigrants who differ in the recency of immigrating to Canada (0 to 9 years, 10 years or more).
-    \item \textbf{random intercept: }Immigrants arriving at different times might differ in their heart disease base rates because timing of immigration might be associated with different world events that will cause immigrants in different time periods to most likely be from different countries.
-    \item \textbf{random slope: }Length of stay could lead to differences in OA rates as more recent immigrants might be in transition to Canada and not have access to the medical system as readily as more established immigrants. New immigrants also tend to work more physical jobs compared to their more established counterparts.
-\end{itemize}
-
-\end{frame}
-\begin{frame}{Logistic Mixed-Models: Variation in Recency of Immigration}
-    \begin{align*}
-    logit(P(HD_{ij}))&=\beta_0+I_{0j}+(\beta_1+I_{1j})OA_i +\beta_2Demographics_i+\epsilon_{ij}\\
-\end{align*}
-\begin{equation*}
-    i=\{1,..,n_j\}, j=\{0-9-years, >10-years\}
-\end{equation*}
-In this model we have $I$ as the random slope and intercept for $i$ observations from each length of time since immigration $j$.
-\end{frame}

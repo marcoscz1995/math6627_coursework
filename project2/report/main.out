@@ -17,4 +17,7 @@
 \BOOKMARK [3][-]{subsubsection.5.2.2}{Linear Mixed Model Regression on Composite Popularity Score: Theme Variation}{subsection.5.2}% 17
 \BOOKMARK [1][-]{section.6}{Results without Mixed Models}{}% 18
 \BOOKMARK [2][-]{subsection.6.1}{Poisson \046 Linear Regression}{section.6}% 19
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 20
+\BOOKMARK [1][-]{section.7}{Results with Mixed Models}{}% 20
+\BOOKMARK [2][-]{subsection.7.1}{Poisson \046 Linear Mixed-Effects}{section.7}% 21
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Model Selection}{subsection.7.1}% 22
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 23

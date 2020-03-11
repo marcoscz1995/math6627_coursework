@@ -1,28 +1,37 @@
 
 \begin{frame}{Model Selection: Testing Random Intercept}
-To compare whether these groups have different base rates of heart disease, we test the random intercept of these four models using AIC for model selection.
-    \input{tables/aic}
+To compare whether these groups have different average responses, we test the random intercept of these four models using AIC for model selection.
+    \input{tables/aic/aic_all.tex}
 \end{frame}
 
 \begin{frame}{Model Selection: Testing Random Intercept}
 \begin{itemize}
-    \item The four null models are preferred as they have lower AIC's, although not by much which again could be because of the small amount of data used.
-    \item All the random intercepts are not statistically significant.
-    \item There is little evidence that suggests the populations being compared vary in base rate odds of having heart disease.
+	\item \textbf{Linear Model with Random Intercept for Themes}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across themes.
+	\item \textbf{Linear Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across time.
+	\item \textbf{Poisson Model with Random Intercept for Themes}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across themes.
+	\item \textbf{Poisson Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across time.
 \end{itemize}
  
 \end{frame}
 
 \begin{frame}{Model Selection: Testing Random Slope}
-Similarly, we test whether individuals between the four models differ in their odds of having OA. We test these random slopes using $\chi^2$ model selection.
-\end{frame}
-
-\begin{frame}{Model Selection: Testing Random Slope}
-    \input{tables/anovas}
+	Similarly, we test whether individuals between the four models differ in their odds of having OA. We test these random slopes using $\chi^2$ model selection.
+    \input{tables/anova/anova_all.tex}
 \end{frame}
 \begin{frame}{Model Selection: Testing Random Slope}
 \begin{itemize}
-    \item None of the random slopes are statistically significant.
-    \item This suggests that the four populations being compared to do not differ in how OA effects their odds of having heart disease. 
+	\item \textbf{Linear Model with Random Slope for Themes}: The p-value is very small; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect popularity score across themes.
+	\item \textbf{Linear Model with Random Slope for Time}: The p-value is very small; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect popularity score across time.
+	\item \textbf{Poisson Model with Random Slope for Themes}: The p-value is very small; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect avg. views per day across themes.
+	\item \textbf{Poisson Model with Random Slope for Time}: The p-value is very small; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect avg. views per day across time.
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Model Selection}
+	\begin{itemize}
+		\item The best models include both random intercepts and slopes for both Poisson and Linear models.
+		\item  Which suggests that a lot of the variation in the data can be explained by timing of when a video is published and its theme rather than the actual form/content.
+		\item  The main predictors in these models are the talks duration and age (in terms of how recent since it has been published). 
+		\item Which suggests that the best way to create a popular video is by having a long video and re-uploading it to escape the drop in popularity from aging.
+	\end{itemize}
 \end{frame}

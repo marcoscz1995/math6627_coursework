@@ -1,18 +1,18 @@
 \begin{frame}{Conclusion}
 \begin{itemize}
-    \item We used the CCHS cycles 1.1, 2.1, 3.1 data set to determine the relationships between OA and heart disease. 
-    \item We used logistic regression with Lasso penalization and logistic mixed-models to determine how various demographic groups differed in their heart disease rates.
-    \item In all models we found that there is no statistically significant relationship between OA and heart disease. 
-    \item Moreover, we did not find any evidence that suggests the relationship between heart disease and OA vary between genders, marital status, regions and recency of immigration among immigrants. 
+\item In this analysis we used web scraped data from the TED talks website to determine what predicts talks popularity.
+\item  To measure popularity we used average views per day and a composite score that encompasses several intuitive measures of popularity. 
+\item We used Linear and Poisson regression with Lasso penalization and Linear and Poisson Mixed Models with random intercepts and slopes to exploit variation in talks across time and themes. 
+\item We found that the majority of variation in the data can be explained by variation across time and themes. 
+\item We found that the strongest predictors of popularity, in all models, was a talks duration and how long it has been uploaded for. 
 
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusion}
 \begin{itemize}
-    \item We imputed missing income data by linear interpolation to increase the data set size using age, sex and education as predictors. Using the logistic regression with Lasso penalization, we found that this had no effect on the statistical significance of OA on heart disease.
-    \item We acknowledge that our analysis was limited by computational constraints that prevented us from using the full data set in the mixed models.
-    \item Future research will benefit from using the full data set in the mixed models.
-    \item Further, having identifications of individuals over time will provide a richer analysis of this relationship in the mixed models context.
+
+\item Future research will benefit from using the transcripts of the talks as a measure of the talks content. 
+\item Due to computational restrictions we were unable to run a model with both time and themes as random components. Future research will benefit from running these models to see which component explains the data the most.
 \end{itemize}
 \end{frame}
