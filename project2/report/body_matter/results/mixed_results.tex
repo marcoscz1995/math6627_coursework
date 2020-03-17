@@ -2,18 +2,18 @@
 \subsection{Poisson \& Linear Mixed-Effects}
 We now look at the result from the Poisson and Linear mixed models with random slope and intercept. Table \ref{mixed_results_table} summarizes the results.
 \input{tables/regressions/mixed_regression_results.tex}
-Since mixed models will produce the same coefficients as its non mixed counterpart we skip the description of the coefficients. Further, all the models have very similar coefficients as their non mixed counterparts except some ar slightly different which could be because of convergence issues with the lmer package. The interpretations and findings from the previous section hold the same. \ref{simple_results}.
+Since mixed models will produce the same coefficients as its non mixed counterpart we skip the description of the coefficients. Further, all the models have very similar coefficients as their non mixed counterparts except some are slightly different which could be because of convergence issues with the lmer package. The interpretations and findings from the previous section hold the same.
 \subsubsection{Model Selection}
 We now test the random intercepts and random slopes. That is, we test whether there exists difference in the average responses across time and themes, and whether there exists differences in how the predictors effect the response across time and themes.
 To compare a generalized mixed model (GLMM) without a random component with a GLMM with a random component in R, we had to use the GLM package for the nested model and LMER4 for the full model as LMER4 does not allow models to not have a random component. Evidently, to compare the nested and full model with random intercepts, we used AIC as our criterion because the ANOVA function in R is not able to compare models from the LMER4 and GLM packages. Table \ref{aic} summarizes the results of testing the random intercept.
-\input{tables/aic/aic_all.tex}
+
 \begin{itemize}
 	\item \textbf{Linear Model with Random Intercept for Themes}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across themes.
 	\item \textbf{Linear Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across time, that is for videos published before and after 2010.
 	\item \textbf{Poisson Model with Random Intercept for Themes}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across themes.
 	\item \textbf{Poisson Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across time, that is for videos published before and after 2010.
 \end{itemize}
-
+\input{tables/aic/aic_all.tex}
 Similarly, we test the random slopes. We test these random slopes using $\chi^2$ model selection. Table \ref{anova}. summarizes the results.
 \begin{itemize}
 	\item \textbf{Linear Model with Random Slope for Themes}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect popularity score across themes.
@@ -22,7 +22,7 @@ Similarly, we test the random slopes. We test these random slopes using $\chi^2$
 	\item \textbf{Poisson Model with Random Slope for Time}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect avg. views per day across time, that is for videos published before and after 2010.
 \end{itemize}
 \input{tables/anova/anova_all.tex}
-Clearly, the best models include both random intercepts and slopes for both Poisson and Linear models. Which suggests that a lot of the variation in the data can be explained by timing of when a video is published and its theme rather than the actual form/content. The main predictors in these models are the talks duration and age (in terms of how recent since it has been published). Which suggests that the best way to create a popular video is by having a long video and re-uploading it to escape the drop in popularity from aging.
+Clearly, the best models include both random intercepts and slopes for both Poisson and Linear models. Which suggests that a lot of the variation in the data can be explained by timing of when a video is published and its theme rather than the actual form/content. The main predictors in these models are the talks duration, talks film age in days since published, and the talks age group (when the talk was published) are the strongest predictors of popularity. This suggests that the best way to create a popular video is by frequently publishing long videos, regardless of the content. Popularity seems to be a function of quantity not quality.
 
 
 Due to computational restrictions we were unable to run mixed models with both time and themes as random components.

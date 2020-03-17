@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.12)  11 MAR 2020 02:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.12)  15 MAR 2020 03:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1152,9 +1152,6 @@ Package csquotes Info: ... found 'babel' package.
 
 (./main.aux
 
-LaTeX Warning: Label `simple_results' multiply defined.
-
-
 LaTeX Warning: Label `mixed_results_table' multiply defined.
 
 )
@@ -1321,14 +1318,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/sc' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/sc' tried instead on input line 2.
-) (./front_matter/introduction.tex)
-(./body_matter/methods.tex) (./body_matter/response_and_predictors.tex
-Underfull \vbox (badness 1142) has occurred while \output is active []
-
- [1
+) [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./front_matter/introducti
+on.tex) (./body_matter/methods.tex)
+(./body_matter/response_and_predictors.tex
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
@@ -1336,24 +1331,22 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
-
-
-LaTeX Warning: Reference `cat' on page 2 undefined on input line 19.
-
-[2] (./tables/descriptive_stats/categorical_variables_description.tex
+ [2] [3]
+(./tables/descriptive_stats/categorical_variables_description.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
 )
-(./tables/descriptive_stats/numeric_variables_description.tex [3]))
-(./body_matter/statistical_analysis_simple.tex
-(./body_matter/equations/pois_simple.tex)
+(./tables/descriptive_stats/numeric_variables_description.tex))
+(./body_matter/statistical_analysis/statistical_analysis_simple.tex
+(./body_matter/equations/pois_simple.tex) [4]
 (./body_matter/equations/linear_simple.tex))
-(./body_matter/statistical_analysis_mixed.tex
-(./body_matter/equations/pois_mixed_time.tex [4])
-(./body_matter/equations/linear_mixed_time.tex)
+(./body_matter/statistical_analysis/statistical_analysis_mixed.tex
+(./body_matter/equations/pois_mixed_time.tex)
+(./body_matter/equations/linear_mixed_time.tex) [5]
 (./body_matter/equations/pois_mixed_themes.tex)
-(./body_matter/equations/linear_mixed_themes.tex [5]))
-(./body_matter/simple_results.tex (./tables/regressions/simple_models.tex
+(./body_matter/equations/linear_mixed_themes.tex)) [6]
+(./body_matter/results/simple_results.tex
+(./tables/regressions/simple_models.tex
 
 ! Package array Error:  Illegal pream-token (D): `c' used.
 
@@ -1361,7 +1354,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1373,7 +1366,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1385,7 +1378,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1397,7 +1390,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1409,7 +1402,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1421,7 +1414,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1433,7 +1426,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1445,7 +1438,7 @@ See the array package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
+l.1 ...extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1453,7 +1446,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.16  Duration & 1.387^
+l.12  Duration & 1.387^
                        {***}$ $(0.008) & 0.132^{**}$ $(0.056) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1461,7 +1454,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.16  Duration & 1.387^{***}$ $(0.008) &
+l.12  Duration & 1.387^{***}$ $(0.008) &
                                          0.132^{**}$ $(0.056) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1472,7 +1465,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.16  Duration & 1.387^{***}$ $(0.008) & 0.132^
+l.12  Duration & 1.387^{***}$ $(0.008) & 0.132^
                                                {**}$ $(0.056) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1480,7 +1473,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.17   N
+l.13   N
         um. Speaker & -0.834^{***}$ $(0.009) & -0.083$ $(0.076) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1491,7 +1484,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.17   Num. Speaker & -0.834^
+l.13   Num. Speaker & -0.834^
                              {***}$ $(0.009) & -0.083$ $(0.076) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1499,7 +1492,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.17   Num. Speaker & -0.834^{***}$ $(0.009) &
+l.13   Num. Speaker & -0.834^{***}$ $(0.009) &
                                                -0.083$ $(0.076) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1510,7 +1503,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.18   Film Age in Days & -16.303^
+l.14   Film Age in Days & -16.303^
                                   {***}$ $(0.016) & -2.849^{***}$ $(0.118) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1518,7 +1511,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.18 ...lm Age in Days & -16.303^{***}$ $(0.016) &
+l.14 ...lm Age in Days & -16.303^{***}$ $(0.016) &
                                                    -2.849^{***}$ $(0.118) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1529,7 +1522,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.18 ...n Days & -16.303^{***}$ $(0.016) & -2.849^
+l.14 ...n Days & -16.303^{***}$ $(0.016) & -2.849^
                                                   {***}$ $(0.118) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1537,7 +1530,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.19   T
+l.15   T
         itle Label: Life & 0.149^{***}$ $(0.002) & -0.001$ $(0.022) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1548,7 +1541,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.19   Title Label: Life & 0.149^
+l.15   Title Label: Life & 0.149^
                                  {***}$ $(0.002) & -0.001$ $(0.022) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1556,7 +1549,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.19   Title Label: Life & 0.149^{***}$ $(0.002) &
+l.15   Title Label: Life & 0.149^{***}$ $(0.002) &
                                                    -0.001$ $(0.022) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1567,7 +1560,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.20   Title Label: New & -0.142^
+l.16   Title Label: New & -0.142^
                                  {***}$ $(0.003) & -0.007$ $(0.023) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1575,7 +1568,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.20   Title Label: New & -0.142^{***}$ $(0.003) &
+l.16   Title Label: New & -0.142^{***}$ $(0.003) &
                                                    -0.007$ $(0.023) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1586,7 +1579,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.21   Title Label: World & -0.099^
+l.17   Title Label: World & -0.099^
                                    {***}$ $(0.002) & -0.044^{***}$ $(0.015) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1594,7 +1587,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.21 ...le Label: World & -0.099^{***}$ $(0.002) &
+l.17 ...le Label: World & -0.099^{***}$ $(0.002) &
                                                    -0.044^{***}$ $(0.015) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1605,7 +1598,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.21 ...: World & -0.099^{***}$ $(0.002) & -0.044^
+l.17 ...: World & -0.099^{***}$ $(0.002) & -0.044^
                                                   {***}$ $(0.015) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1613,7 +1606,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.22   T
+l.18   T
         itle Length & 0.053^{***}$ $(0.004) & 0.087^{***}$ $(0.030) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1624,7 +1617,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.22   Title Length & 0.053^
+l.18   Title Length & 0.053^
                             {***}$ $(0.004) & 0.087^{***}$ $(0.030) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1632,7 +1625,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.22   Title Length & 0.053^{***}$ $(0.004) &
+l.18   Title Length & 0.053^{***}$ $(0.004) &
                                               0.087^{***}$ $(0.030) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1643,7 +1636,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.22 ...le Length & 0.053^{***}$ $(0.004) & 0.087^
+l.18 ...le Length & 0.053^{***}$ $(0.004) & 0.087^
                                                   {***}$ $(0.030) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1651,7 +1644,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.23   T
+l.19   T
         heme Label: Business & -0.135^{***}$ $(0.002) & -0.002$ $(0.022) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1662,7 +1655,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.23   Theme Label: Business & -0.135^
+l.19   Theme Label: Business & -0.135^
                                       {***}$ $(0.002) & -0.002$ $(0.022) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1670,7 +1663,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.23 ...Label: Business & -0.135^{***}$ $(0.002) &
+l.19 ...Label: Business & -0.135^{***}$ $(0.002) &
                                                    -0.002$ $(0.022) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1681,7 +1674,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.24   Theme Label: Culture & -0.314^
+l.20   Theme Label: Culture & -0.314^
                                      {***}$ $(0.002) & -0.043^{**}$ $(0.018) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1689,7 +1682,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.24 ... Label: Culture & -0.314^{***}$ $(0.002) &
+l.20 ... Label: Culture & -0.314^{***}$ $(0.002) &
                                                    -0.043^{**}$ $(0.018) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1700,7 +1693,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.24 ...Culture & -0.314^{***}$ $(0.002) & -0.043^
+l.20 ...Culture & -0.314^{***}$ $(0.002) & -0.043^
                                                   {**}$ $(0.018) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1708,7 +1701,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25   T
+l.21   T
         heme Label: Design & -0.537^{***}$ $(0.002) & -0.057^{***}$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1719,7 +1712,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25   Theme Label: Design & -0.537^
+l.21   Theme Label: Design & -0.537^
                                     {***}$ $(0.002) & -0.057^{***}$ $(0.019) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1727,7 +1720,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25 ...e Label: Design & -0.537^{***}$ $(0.002) &
+l.21 ...e Label: Design & -0.537^{***}$ $(0.002) &
                                                    -0.057^{***}$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1738,7 +1731,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25 ... Design & -0.537^{***}$ $(0.002) & -0.057^
+l.21 ... Design & -0.537^{***}$ $(0.002) & -0.057^
                                                   {***}$ $(0.019) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1746,7 +1739,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26   T
+l.22   T
         heme Label: Energy & -0.589^{***}$ $(0.004) & -0.082^{***}$ $(0.029) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1757,7 +1750,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26   Theme Label: Energy & -0.589^
+l.22   Theme Label: Energy & -0.589^
                                     {***}$ $(0.004) & -0.082^{***}$ $(0.029) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1765,7 +1758,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26 ...e Label: Energy & -0.589^{***}$ $(0.004) &
+l.22 ...e Label: Energy & -0.589^{***}$ $(0.004) &
                                                    -0.082^{***}$ $(0.029) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1776,7 +1769,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26 ... Energy & -0.589^{***}$ $(0.004) & -0.082^
+l.22 ... Energy & -0.589^{***}$ $(0.004) & -0.082^
                                                   {***}$ $(0.029) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1784,7 +1777,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.27   T
+l.23   T
         heme Label: Global & -0.845^{***}$ $(0.003) & -0.059^{***}$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1795,7 +1788,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.27   Theme Label: Global & -0.845^
+l.23   Theme Label: Global & -0.845^
                                     {***}$ $(0.003) & -0.059^{***}$ $(0.019) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1803,7 +1796,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.27 ...e Label: Global & -0.845^{***}$ $(0.003) &
+l.23 ...e Label: Global & -0.845^{***}$ $(0.003) &
                                                    -0.059^{***}$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1814,7 +1807,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.27 ... Global & -0.845^{***}$ $(0.003) & -0.059^
+l.23 ... Global & -0.845^{***}$ $(0.003) & -0.059^
                                                   {***}$ $(0.019) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1822,7 +1815,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.28   T
+l.24   T
         heme Label: Health & -0.692^{***}$ $(0.003) & -0.004$ $(0.021) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1833,7 +1826,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.28   Theme Label: Health & -0.692^
+l.24   Theme Label: Health & -0.692^
                                     {***}$ $(0.003) & -0.004$ $(0.021) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1841,7 +1834,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.28 ...e Label: Health & -0.692^{***}$ $(0.003) &
+l.24 ...e Label: Health & -0.692^{***}$ $(0.003) &
                                                    -0.004$ $(0.021) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1852,7 +1845,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.29   Theme Label: Music & -0.523^
+l.25   Theme Label: Music & -0.523^
                                    {***}$ $(0.003) & -0.130^{***}$ $(0.025) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1860,7 +1853,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.29 ...me Label: Music & -0.523^{***}$ $(0.003) &
+l.25 ...me Label: Music & -0.523^{***}$ $(0.003) &
                                                    -0.130^{***}$ $(0.025) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1871,7 +1864,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.29 ...: Music & -0.523^{***}$ $(0.003) & -0.130^
+l.25 ...: Music & -0.523^{***}$ $(0.003) & -0.130^
                                                   {***}$ $(0.025) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1879,7 +1872,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.30   T
+l.26   T
         heme Label: Science & -0.669^{***}$ $(0.002) & -0.030$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1888,13 +1881,13 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Underfull \vbox (badness 10000) detected at line 30
+Underfull \vbox (badness 10000) detected at line 26
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.30   Theme Label: Science & -0.669^
+l.26   Theme Label: Science & -0.669^
                                      {***}$ $(0.002) & -0.030$ $(0.019) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1902,7 +1895,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.30 ... Label: Science & -0.669^{***}$ $(0.002) &
+l.26 ... Label: Science & -0.669^{***}$ $(0.002) &
                                                    -0.030$ $(0.019) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1913,7 +1906,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.31   Theme Label: Social & -0.552^
+l.27   Theme Label: Social & -0.552^
                                     {***}$ $(0.002) & -0.047^{**}$ $(0.021) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1921,7 +1914,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.31 ...e Label: Social & -0.552^{***}$ $(0.002) &
+l.27 ...e Label: Social & -0.552^{***}$ $(0.002) &
                                                    -0.047^{**}$ $(0.021) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1932,7 +1925,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.31 ... Social & -0.552^{***}$ $(0.002) & -0.047^
+l.27 ... Social & -0.552^{***}$ $(0.002) & -0.047^
                                                   {**}$ $(0.021) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1940,7 +1933,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.32   V
+l.28   V
         ideo Age Group: Old & -1.841^{***}$ $(0.006) & -0.317^{***}$ $(0.026...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1951,7 +1944,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.32   Video Age Group: Old & -1.841^
+l.28   Video Age Group: Old & -1.841^
                                      {***}$ $(0.006) & -0.317^{***}$ $(0.026...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1959,7 +1952,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.32 ... Age Group: Old & -1.841^{***}$ $(0.006) &
+l.28 ... Age Group: Old & -1.841^{***}$ $(0.006) &
                                                    -0.317^{***}$ $(0.026) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1970,7 +1963,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.32 ...up: Old & -1.841^{***}$ $(0.006) & -0.317^
+l.28 ...up: Old & -1.841^{***}$ $(0.006) & -0.317^
                                                   {***}$ $(0.026) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1978,7 +1971,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33   F
+l.29   F
         ilm Age:Video Age Group: Old & 13.460^{***}$ $(0.031) & 2.434^{***}$...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1989,7 +1982,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33   Film Age:Video Age Group: Old & 13.460^
+l.29   Film Age:Video Age Group: Old & 13.460^
                                               {***}$ $(0.031) & 2.434^{***}$...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1997,7 +1990,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33 ... Age Group: Old & 13.460^{***}$ $(0.031) &
+l.29 ... Age Group: Old & 13.460^{***}$ $(0.031) &
                                                    2.434^{***}$ $(0.153) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2008,7 +2001,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33 ...oup: Old & 13.460^{***}$ $(0.031) & 2.434^
+l.29 ...oup: Old & 13.460^{***}$ $(0.031) & 2.434^
                                                   {***}$ $(0.153) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2016,7 +2009,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.34   I
+l.30   I
         ntercept & 8.952^{***}$ $(0.003) & 2.038^{***}$ $(0.025) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2027,7 +2020,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.34   Intercept & 8.952^
+l.30   Intercept & 8.952^
                          {***}$ $(0.003) & 2.038^{***}$ $(0.025) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2035,7 +2028,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.34   Intercept & 8.952^{***}$ $(0.003) &
+l.30   Intercept & 8.952^{***}$ $(0.003) &
                                            2.038^{***}$ $(0.025) \\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2046,7 +2039,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.34   Intercept & 8.952^{***}$ $(0.003) & 2.038^
+l.30   Intercept & 8.952^{***}$ $(0.003) & 2.038^
                                                  {***}$ $(0.025) \\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2054,7 +2047,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.35  \hline
+l.31  \hline
              \\[-1.8ex]
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2062,7 +2055,11 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[6])) (./body_matter/mixed_results.tex
+)
+
+LaTeX Warning: Reference `simple_results' on page 7 undefined on input line 5.
+
+[7]) (./body_matter/results/mixed_results.tex
 (./tables/regressions/mixed_regression_results.tex
 
 ! Package array Error:  Illegal pream-token (D): `c' used.
@@ -2617,16 +2614,22 @@ Overfull \hbox (35.43327pt too wide) in alignment at lines 31--48
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[7]) (./tables/aic/aic_all.tex) [8] (./tables/anova/anova_all.tex))
-(./end_matter/conclusion.tex [9]) [10] (./main.bbl) [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
+[8]) [9] (./tables/aic/aic_all.tex) (./tables/anova/anova_all.tex) [10])
+(./end_matter/conclusion.tex) [11] (./main.bbl) [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 57.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 57.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 56.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 56.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B162E46FCB23D848A74697AA27067EA1;1822.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 57.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 57.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 449D96B2962C25A827265AF28B023777;1776
+(rerunfilecheck)             After:  B162E46FCB23D848A74697AA27067EA1;1822.
 
 LaTeX Warning: There were undefined references.
 
@@ -2635,13 +2638,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 29618 strings out of 494923
- 687942 string characters out of 6180741
- 879886 words of memory out of 5000000
+ 29624 strings out of 494923
+ 688163 string characters out of 6180741
+ 877887 words of memory out of 5000000
  32271 multiletter control sequences out of 15000+600000
- 27692 words of font info for 62 fonts, out of 8000000 for 9000
+ 30355 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 62i,19n,96p,984b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,19n,96p,978b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/f
@@ -2655,10 +2658,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (11 pages, 160987 bytes).
+Output written on main.pdf (12 pages, 163873 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
+ 244 PDF objects out of 1000 (max. 8388607)
  214 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
