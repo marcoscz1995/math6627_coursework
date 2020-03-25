@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.12)  14 MAR 2020 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.21)  22 MAR 2020 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main_slides.tex
 (./main_slides.tex
 LaTeX2e <2017-04-15>
-Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2018/02/20 v3.50 A class for typesetting presentations
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -468,6 +468,12 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
@@ -866,6 +872,16 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 31.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 3
+1.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
+31.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 31.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -923,6 +939,13 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
 ! Undefined control sequence.
 <argument> \fnum@table 
                        : 
@@ -969,16 +992,17 @@ Overfull \hbox (7.59314pt too wide) detected at line 9
 ]
 (./body_matter/equations/linear_mixed_themes.tex
 Overfull \hbox (90.20811pt too wide) detected at line 14
-\OT1/cmss/m/it/10.95 i \OT1/cmss/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmss/m/n
-/10.95 1\OML/cmm/m/it/10.95 ; ::; \OT1/cmss/m/it/10.95 n[]\OMS/cmsy/m/n/10.95 g
-\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 j \OT1/cmss/m/n/10.95 = \OMS/cmsy/m/
-n/10.95 f\OT1/cmss/m/it/10.95 brain\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 b
-usiness\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 culture\OML/cmm/m/it/10.95 ; 
-\OT1/cmss/m/it/10.95 design\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 energy\OM
-L/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 global\OML/cmm/m/it/10.95 ; \OT1/cmss/m
-/it/10.95 health\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 music\OML/cmm/m/it/1
-0.95 ; \OT1/cmss/m/it/10.95 science\OML/cmm/m/it/10.95 ; \OT1/cmss/m/it/10.95 s
-ocial\OMS/cmsy/m/n/10.95 g
+\OT1/mathkerncmss/m/sl/10.95 i \OT1/cmss/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/
+cmss/m/n/10.95 1\OML/cmm/m/it/10.95 ; ::; \OT1/mathkerncmss/m/sl/10.95 n[]\OMS/
+cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 j \OT1/cmss/
+m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/mathkerncmss/m/sl/10.95 brain\OML/cmm/m/i
+t/10.95 ; \OT1/mathkerncmss/m/sl/10.95 business\OML/cmm/m/it/10.95 ; \OT1/mathk
+erncmss/m/sl/10.95 culture\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 de
+sign\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 energy\OML/cmm/m/it/10.9
+5 ; \OT1/mathkerncmss/m/sl/10.95 global\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/
+m/sl/10.95 health\OML/cmm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 music\OML/c
+mm/m/it/10.95 ; \OT1/mathkerncmss/m/sl/10.95 science\OML/cmm/m/it/10.95 ; \OT1/
+mathkerncmss/m/sl/10.95 social\OMS/cmsy/m/n/10.95 g
  []
 
 ) [19
@@ -2450,13 +2474,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17756 strings out of 494923
- 335131 string characters out of 6180741
- 411330 words of memory out of 5000000
- 20520 multiletter control sequences out of 15000+600000
- 15532 words of font info for 57 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 48i,21n,57p,799b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 17891 strings out of 492982
+ 338398 string characters out of 6134896
+ 418555 words of memory out of 5000000
+ 20894 multiletter control sequences out of 15000+600000
+ 16108 words of font info for 58 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 56i,21n,60p,799b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
@@ -2469,10 +2493,10 @@ onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts
 ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msam7.pfb>
-Output written on main_slides.pdf (32 pages, 189040 bytes).
+Output written on main_slides.pdf (32 pages, 189078 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
- 879 compressed objects within 9 object streams
+ 944 PDF objects out of 1000 (max. 8388607)
+ 881 compressed objects within 9 object streams
  76 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 

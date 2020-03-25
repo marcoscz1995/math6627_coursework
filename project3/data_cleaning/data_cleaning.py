@@ -3,7 +3,7 @@ from pandas import DataFrame
 from itertools import chain
 
 
-df=pd.read_excel(r'./data/case_study_1_cdd_database_final_0.xlsx')
+df=pd.read_excel(r'../data/case_study_1_cdd_database_final_0.xlsx')
 
 ####
 #this file cleans the data of the CDD disaster database
@@ -26,25 +26,29 @@ df.at[75,'Province/Territory']= 'QC'
 df.at[81,'Province/Territory']= 'QC'
 df.at[285,'Province/Territory']= 'QC'
 
+
 def province_setter(x):
     if x == "Across Canada" :
-        return ['AB', 'BC', 'MB', 'NB', 'NL', 'NT', 'NS', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT']
+        return 'AB BC MB NB NL NT NS NU ON PE QC SK YT'
     elif x == "Maritimes" :
-        return ['NB', 'NS', 'PE' ]
+        return 'NB NS PE'
     elif x == "Western Canada" :
-        return ['BC', 'AB', 'SK', 'MB']
+        return 'BC AB SK MB'
     elif x == "Eastern Canada" :
-        return ['NB', 'NL', 'NS', 'ON', 'PE', 'QC']
+        return 'NB NL NS ON PE QC'
     elif x == "Prairies" :
-        return ['MB', 'SK', 'AB']
+        return 'MB SK AB'
     else:
         return x
 
+
 df['Province/Territory'] = df['Province/Territory'].apply(province_setter)
+#slice the text into a list
+df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split(" ") ))
+
 
 ##Split the rows with multiple provinces into their own rows
 #make Province/Territory into a list
-df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split(" ") ))
 
 def row_exploder(df):
     for index, row in df.iterrows():
@@ -54,23 +58,13 @@ def row_exploder(df):
                 new_row = row 
                 new_row['Province/Territory'] = province
                 df = df.append(new_row,ignore_index=True)
-            df.drop(df.index[index])
+            df = df.drop(df.index[index])
     return df
-            
-tes = row_exploder(df)
-            
-test = df['Province/Territory'].apply(lambda x: row_exploder(x))
-df['Province/Territory'].apply(lambda x: )
+           
+test = row_exploder(df)
 
-for index, row in df.iterrows():
-    prov_list = row['Province/Territory']
-    new_row = row
-    if len(x)>1 :
-        for prov in prov_list :
-            
-            
-            df.append(prov)
-            break
+
+
 
 
 
