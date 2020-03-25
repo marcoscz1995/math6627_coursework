@@ -51,17 +51,31 @@ df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split
 #make Province/Territory into a list
 
 def row_exploder(df):
+    rows_to_drop = []
     for index, row in df.iterrows():
         province_list = row['Province/Territory']
         if len(province_list)>1 :
+            print('index:' , index)
+            print('df shape old:' , df.shape)
+            print('num of provinces:' , len(province_list))
             for province in province_list :#change the 'Province/Territory' to province
                 new_row = row 
                 new_row['Province/Territory'] = province
                 df = df.append(new_row,ignore_index=True)
-            df = df.drop(df.index[index])
+            print('df shape new:' , df.shape)
+            rows_to_drop.append(index)
+    df = df.drop(df.index[rows_to_drop])
+    return df, rows_to_drop
+
+def duplicate_row_dropped(df, rows_to_drop):
+    for duplicate_row in rows_to_drop:
+        df = df.drop(df.index[duplicate_row])
+        df.reset_index(drop=True, inplace=True)
     return df
            
-test = row_exploder(df)
+test, rows_to_drop= row_exploder(df)
+#test = duplicate_row_dropped(test, rows_to_drop)
+
 
 
 
