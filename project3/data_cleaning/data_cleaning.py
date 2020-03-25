@@ -51,6 +51,12 @@ df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split
 #make Province/Territory into a list
 
 def row_exploder(df):
+# =============================================================================
+#     this function appends rows to df for those values in which in an event occured across multiple provinces.
+#       the appended rows are the same row as the row with multiple provinces, but each province gets its own row.
+#       the original row with a list with multiple values gets dropped
+#       single event rows get their list converted to string.
+# =============================================================================
     rows_to_drop = []
     for index, row in df.iterrows():
         province_list = row['Province/Territory']
@@ -59,30 +65,17 @@ def row_exploder(df):
             print('df shape old:' , df.shape)
             print('num of provinces:' , len(province_list))
             for province in province_list :#change the 'Province/Territory' to province
-                new_row = row 
+                new_row = row
                 new_row['Province/Territory'] = province
                 df = df.append(new_row,ignore_index=True)
             print('df shape new:' , df.shape)
             rows_to_drop.append(index)
-    df = df.drop(df.index[rows_to_drop])
-    return df, rows_to_drop
-
-def duplicate_row_dropped(df, rows_to_drop):
-    for duplicate_row in rows_to_drop:
-        df = df.drop(df.index[duplicate_row])
-        df.reset_index(drop=True, inplace=True)
+        else:
+            df.at[index,'Province/Territory'] = ' '.join(province_list)
+    df = df.drop(df.index[rows_to_drop]) #drop duplicate rows
     return df
-           
-test, rows_to_drop= row_exploder(df)
-#test = duplicate_row_dropped(test, rows_to_drop)
 
-
-
-
-
-
-
-
+df= row_exploder(df)
 
 
 
