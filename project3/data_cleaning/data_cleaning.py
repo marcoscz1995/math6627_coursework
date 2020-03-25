@@ -1,5 +1,4 @@
 import pandas as pd
-from pandas import DataFrame
 from itertools import chain
 
 
@@ -76,6 +75,36 @@ def row_exploder(df):
     return df
 
 df= row_exploder(df)
+
+# =============================================================================
+# Clean dates to be all of the same format
+# =============================================================================
+col_names = list(df.columns)
+time_cols_names = list(chain(col_names[6:7], col_names[12:13]))
+df[time_cols_names] = pd.to_datetime(df[time_cols_names])
+
+df.at[130,'EVENT START DATE']= '2008-00-01 00:00:00'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
