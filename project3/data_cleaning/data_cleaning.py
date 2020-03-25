@@ -10,7 +10,9 @@ df=pd.read_excel(r'./data/case_study_1_cdd_database_final_0.xlsx')
 ####
 
 ###set numeric colms nans to 0
-df[list(chain(list(df.columns)[7:12], list(df.columns)[13:]))] = df[list(chain(list(df.columns)[7:12], list(df.columns)[13:]))].fillna(0)
+col_names = list(df.columns)
+numeric_cols_names = list(chain(col_names[7:12], col_names[13:]))
+df[numeric_cols_names] = df[numeric_cols_names].fillna(0)
 
 #Add names to missing values in Province/Territory
 df[df['Province/Territory'].isnull()]
@@ -24,45 +26,17 @@ df.at[75,'Province/Territory']= 'QC'
 df.at[81,'Province/Territory']= 'QC'
 df.at[285,'Province/Territory']= 'QC'
 
-prov_terr = {
-    'AB': 'Alberta',
-    'BC': 'British Columbia',
-    'MB': 'Manitoba',
-    'NB': 'New Brunswick',
-    'NL': 'Newfoundland and Labrador',
-    'NT': 'Northwest Territories',
-    'NS': 'Nova Scotia',
-    'NU': 'Nunavut',
-    'ON': 'Ontario',
-    'PE': 'Prince Edward Island',
-    'QC': 'Quebec',
-    'SK': 'Saskatchewan',
-    'YT': 'Yukon'
-}
-#Set  Across Canada to all the provinces
-all_provinces_territories = ' '.join(map(str,list(prov_terr.keys())))
-
-#Set western Canada to BC AB SK MB
-western_canada = 'BC AB SK MB'
-#Set eastern Canada to NB NL NS ON PE QC
-eastern_canada = 'NB NL NS ON PE QC'
-#Set maritimes to NB NS PE 
-maritimes = 'NB NS PE' 
-#Set Prairies to MB SK AB
-prairies='MB SK AB'
-
-
 def province_setter(x):
     if x == "Across Canada" :
-        return all_provinces_territories
+        return ['AB', 'BC', 'MB', 'NB', 'NL', 'NT', 'NS', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT']
     elif x == "Maritimes" :
-        return maritimes
+        return ['NB', 'NS', 'PE' ]
     elif x == "Western Canada" :
-        return western_canada
+        return ['BC', 'AB', 'SK', 'MB']
     elif x == "Eastern Canada" :
-        return eastern_canada
+        return ['NB', 'NL', 'NS', 'ON', 'PE', 'QC']
     elif x == "Prairies" :
-        return prairies
+        return ['MB', 'SK', 'AB']
     else:
         return x
 
