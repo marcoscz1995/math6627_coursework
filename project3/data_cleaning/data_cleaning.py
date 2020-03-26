@@ -1,5 +1,6 @@
 import pandas as pd
 from itertools import chain
+from datetime import datetime
 
 
 df=pd.read_excel(r'../data/case_study_1_cdd_database_final_0.xlsx')
@@ -79,11 +80,39 @@ df= row_exploder(df)
 # =============================================================================
 # Clean dates to be all of the same format
 # =============================================================================
+#change values that do not mathch the rest of the columns date format for event start date
+df.at[130,'EVENT START DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
+#find the average lenght of time for all events excluding those rows with incomplete data in 'EVENT END DATE'
+def event_duration(df, bad_rows_present):
+    df['event_duration'] = -1
+    if bad_rows_present == 1 :
+        bad_event_index = list(range(844, 857))+ list(range(810, 813)) +list(range(0,3)) + list(range(5,8)) +[9,14,24]
+        for index, row in df.iterrows() :
+            if index not in bad_event_index :
+                df.at[index, 'event_duration']= (row['EVENT END DATE'] - row['EVENT START DATE']).days
+            else:
+                df.at[index, 'event_duration']= -1
+
+    else:
+        df['event_duration'] = df.apply(lambda x:  x['EVENT END DATE'] - x['EVENT START DATE'])
+    return df
+
+df = event_duration(df, 1)
+
+def avg_event_duration(df):
+
+
+
 col_names = list(df.columns)
 time_cols_names = list(chain(col_names[6:7], col_names[12:13]))
-df[time_cols_names] = pd.to_datetime(df[time_cols_names])
+#change values that do not mathch the rest of the columns date format
+df.at[130,'EVENT START DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
+for i in range(844, 857) :
+    bad_time = df.iloc[i]['EVENT END DATE']
+    print(bad_time)
 
-df.at[130,'EVENT START DATE']= '2008-00-01 00:00:00'
+    df.at[i,'EVENT END DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
+
 
 
 
