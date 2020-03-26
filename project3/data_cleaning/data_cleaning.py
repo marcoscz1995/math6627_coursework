@@ -61,14 +61,10 @@ def row_exploder(df):
     for index, row in df.iterrows():
         province_list = row['Province/Territory']
         if len(province_list)>1 :
-            print('index:' , index)
-            print('df shape old:' , df.shape)
-            print('num of provinces:' , len(province_list))
             for province in province_list :#change the 'Province/Territory' to province
                 new_row = row
                 new_row['Province/Territory'] = province
                 df = df.append(new_row,ignore_index=True)
-            print('df shape new:' , df.shape)
             rows_to_drop.append(index)
         else:
             df.at[index,'Province/Territory'] = ' '.join(province_list)
@@ -83,38 +79,40 @@ df= row_exploder(df)
 #change values that do not mathch the rest of the columns date format for event start date
 df.at[130,'EVENT START DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
 #find the average lenght of time for all events excluding those rows with incomplete data in 'EVENT END DATE'
+def event_type_averages(df):
+    ##find the average event duration for each event_type of event and set the events with placeholders to that value
+    ##recall, we want to exclude the placeholders from the averages
+    df_excluding_bad_rows = df[(df['event_duration']!=-1)]
+    df_event_averages = df_excluding_bad_rows.groupby(['EVENT TYPE']).mean()
+    return df_event_averages
+
 def event_duration(df, bad_rows_present):
+# =============================================================================
+# this function creates a new column of event_duration for each event.
+# bad rows defined by whether the EVENT END DATE follows the correct format or not
+# good rows have their event_duration calculated. bad rows get a placeholder
+# bad rows then get an event_duration that is the average duration for that observations event type
+# =============================================================================
     df['event_duration'] = -1
     if bad_rows_present == 1 :
+        ##find the event duration for good entries and set bad entries to -1 placeholder
         bad_event_index = list(range(844, 857))+ list(range(810, 813)) +list(range(0,3)) + list(range(5,8)) +[9,14,24]
         for index, row in df.iterrows() :
             if index not in bad_event_index :
-                df.at[index, 'event_duration']= (row['EVENT END DATE'] - row['EVENT START DATE']).days
+                df.at[index, 'event_duration'] = (row['EVENT END DATE'] - row['EVENT START DATE']).days
             else:
-                df.at[index, 'event_duration']= -1
-
+                df.at[index, 'event_duration'] = -1
+        print('done setting placeholders')
+        #set averages by event types for bad rows
+        df_event_averages = event_type_averages(df)
+        for index in bad_event_index:
+            bad_row_event_type = df.loc[index, 'EVENT TYPE']
+            df.at[index, 'event_duration'] = df_event_averages.loc[bad_row_event_type, 'event_duration']
     else:
         df['event_duration'] = df.apply(lambda x:  x['EVENT END DATE'] - x['EVENT START DATE'])
     return df
 
 df = event_duration(df, 1)
-
-def avg_event_duration(df):
-
-
-
-col_names = list(df.columns)
-time_cols_names = list(chain(col_names[6:7], col_names[12:13]))
-#change values that do not mathch the rest of the columns date format
-df.at[130,'EVENT START DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
-for i in range(844, 857) :
-    bad_time = df.iloc[i]['EVENT END DATE']
-    print(bad_time)
-
-    df.at[i,'EVENT END DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
-
-
-
 
 
 
