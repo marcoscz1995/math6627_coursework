@@ -1,9 +1,11 @@
 import pandas as pd
 from itertools import chain
-from datetime import datetime
+from datetime import datetime, timedelta, date
+import statscanpy as scp
 
 
 df=pd.read_excel(r'../data/case_study_1_cdd_database_final_0.xlsx')
+common_years_df=pd.read_csv(r'../data/provinces_common_years_population.csv')
 
 ####
 #this file cleans the data of the CDD disaster database
@@ -52,10 +54,12 @@ df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split
 
 def row_exploder(df):
 # =============================================================================
-#     this function appends rows to df for those values in which in an event occured across multiple provinces.
-#       the appended rows are the same row as the row with multiple provinces, but each province gets its own row.
-#       the original row with a list with multiple values gets dropped
-#       single event rows get their list converted to string.
+#this function appends rows to df for those values in which in an event occured across multiple provinces.
+#the appended rows are the same row as the row with multiple provinces, but each province gets its own row.
+#the original row with a list with multiple values gets dropped
+#single event rows get their list converted to string.
+#since each province is of different sizes we need to divide the variables in the new rows
+#by each provinces population proportions.
 # =============================================================================
     rows_to_drop = []
     for index, row in df.iterrows():
@@ -88,7 +92,7 @@ def event_type_averages(df):
 
 def event_duration(df, bad_rows_present):
 # =============================================================================
-# this function creates a new column of event_duration for each event.
+# this function creates a new column of event_duration for each event, in days
 # bad rows defined by whether the EVENT END DATE follows the correct format or not
 # good rows have their event_duration calculated. bad rows get a placeholder
 # bad rows then get an event_duration that is the average duration for that observations event type
@@ -114,6 +118,23 @@ def event_duration(df, bad_rows_present):
 
 df = event_duration(df, 1)
 
+
+# =============================================================================
+# Add the population of the province when the event took place
+#if an event took place over many years we take the average of the population
+#durring that time
+# =============================================================================
+def year_of_event(df):
+    df['avg_year_of_event'] = -1
+    for index, row in df.iterrows():
+        avg_days_duration = df.loc[index, 'event_duration']/2
+        df.at[index, 'avg_year_of_event'] =(row['EVENT START DATE'] + timedelta(days=avg_days_duration)).year
+    return df
+#test = df['avg_year_of_event'].apply(lambda x: x['avg_year_of_event'] = x['EVENT START DATE'] + timedelta(days=x['event_duration']))
+test =year_of_event(df)
+
+def add_population_to_provinces(event_df, population_df):
+    return
 
 
 
