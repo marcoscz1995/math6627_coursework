@@ -1,7 +1,10 @@
+import numpy as np
 import pandas as pd
+#from __future__ import division
 from itertools import chain
 from datetime import datetime, timedelta
 
+###run provincial_data_web_importer first then province_df_agregator
 
 df=pd.read_excel(r'../data/case_study_1_cdd_database_final_0.xlsx')
 common_years_df=pd.read_csv(r'../data/provinces_common_years_population.csv')
@@ -27,9 +30,10 @@ df.at[75,'Province/Territory']= 'QC'
 df.at[81,'Province/Territory']= 'QC'
 df.at[285,'Province/Territory']= 'QC'
 
-
+df['provinces_level'] = -1
 def province_setter(x):
     if x == "Across Canada" :
+
         return 'AB BC MB NB NL NT NS NU ON PE QC SK YT'
     elif x == "Maritimes" :
         return 'NB NS PE'
@@ -130,16 +134,28 @@ def year_of_event(df):
         df.at[index, 'avg_year_of_event'] =(row['EVENT START DATE'] + timedelta(days=avg_days_duration)).year
     return df
 #test = df['avg_year_of_event'].apply(lambda x: x['avg_year_of_event'] = x['EVENT START DATE'] + timedelta(days=x['event_duration']))
+
 df =year_of_event(df)
 
 def add_population_to_provinces(event_df, population_df):
+    year_list = list(population_df['year']) #list of all years
+    year_array = np.array(population_df['year']) #make the above list as a np array
+    event_df['closest_year'] = -1
+    event_df['population'] = -1
+    for index, row in event_df.iterrows():
+        event_avg_year = row['avg_year_of_event']
+        year_list_differnce_absolute = [abs(event_avg_year-event_year) for event_year in year_array]
+        index_min = np.argmin(year_list_differnce_absolute)
+        year_list_value_at_index_min = year_list[index_min]
+        df.at[index, 'closest_year'] = year_list_value_at_index_min
+        province_abbreviation = row['Province/Territory']
+        df.at[index, 'population'] = population_df.at[index_min, province_abbreviation]
+    return df
 
-    return
+#import pdb; pdb.set_trace()
+df = add_population_to_provinces(df, common_years_df)
 
-
-
-
-
+#divide the respective variables by their proportional population weights
 
 
 
