@@ -30,24 +30,40 @@ df.at[75,'Province/Territory']= 'QC'
 df.at[81,'Province/Territory']= 'QC'
 df.at[285,'Province/Territory']= 'QC'
 
-df['provinces_level'] = -1
-def province_setter(x):
-    if x == "Across Canada" :
+#add new column that determine which geographical region of canada was involved.
+# add single if only one province was involved and one of "across canada, western canada,
+#eastern canada etc ....
+df['provinces_level'] = 'single'
+df['event_id'] = -1
+def province_and_geography_labels_setter(df):
+    for index, row in df.iterrows():
+        province_or_area = row['Province/Territory']
+        if province_or_area == "Across Canada" :
+            df.at[index, 'Province/Territory'] = 'AB BC MB NB NL NT NS NU ON PE QC SK YT'
+            df.at[index, 'provinces_level'] = 'canada'
+            df.at[index, 'event_id'] = index
+        elif province_or_area == "Maritimes" :
+            df.at[index, 'Province/Territory'] = 'NB NS PE'
+            df.at[index, 'provinces_level'] = 'maritimes'
+            df.at[index, 'event_id'] = index
+        elif province_or_area == "Western Canada" :
+            df.at[index, 'Province/Territory'] = 'BC AB SK MB'
+            df.at[index, 'provinces_level'] = 'western_canada'
+            df.at[index, 'event_id'] = index
+        elif province_or_area == "Eastern Canada" :
+            df.at[index, 'Province/Territory'] = 'NB NL NS ON PE QC'
+            df.at[index, 'provinces_level'] = 'eastern_canada'
+            df.at[index, 'event_id'] = index
+        elif province_or_area == "Prairies" :
+            df.at[index, 'Province/Territory'] = 'MB SK AB'
+            df.at[index, 'provinces_level'] = 'prairies'
+            df.at[index, 'event_id'] = index
+        else :
+            df.at[index, 'event_id'] = index
+    return df
 
-        return 'AB BC MB NB NL NT NS NU ON PE QC SK YT'
-    elif x == "Maritimes" :
-        return 'NB NS PE'
-    elif x == "Western Canada" :
-        return 'BC AB SK MB'
-    elif x == "Eastern Canada" :
-        return 'NB NL NS ON PE QC'
-    elif x == "Prairies" :
-        return 'MB SK AB'
-    else:
-        return x
-
-
-df['Province/Territory'] = df['Province/Territory'].apply(province_setter)
+#import pdb; pdb.set_trace()
+df = province_and_geography_labels_setter(df)
 #slice the text into a list
 df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split(" ") ))
 
@@ -155,7 +171,13 @@ def add_population_to_provinces(event_df, population_df):
 #import pdb; pdb.set_trace()
 df = add_population_to_provinces(df, common_years_df)
 
-#divide the respective variables by their proportional population weights
+# =============================================================================
+# divide the respective variables by their proportional population weights
+# =============================================================================
+
+#add a cloumn with total population for rows in province_level in ['single', 'canada', 'maritimes', 'wester_canada', 'eastern_canada', 'prairies']
+
+
 
 
 

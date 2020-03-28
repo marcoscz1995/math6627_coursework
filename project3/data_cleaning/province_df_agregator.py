@@ -30,6 +30,17 @@ year_list=[df['year'] for df in df_list]
 common_years = sorted(list(set(year_list[0]).intersection(*year_list)))
 df_list = [df[df['year'].isin(common_years)] for df in df_list]
 common_years_df = reduce(lambda left,right: pd.merge(left,right,on='year'), df_list)
+
+#add total populations for each geography group
+def total_population(df):
+    df['canada'] = df.iloc[:, 1:13].sum(axis=1)
+    df['maritimes'] = df[['NB','NS','PE']].sum(axis=1)
+    df['western_canada'] = df[['BC','AB','SK','MB']].sum(axis=1)
+    df['eastern_canada'] = df[['NB','NL','NS','ON','PE','QC']].sum(axis=1)
+    df['prairies'] = df[['MB','SK','AB']].sum(axis=1)
+    return df
+common_years_df  = total_population(common_years_df )
+
 common_years_df.to_csv(r'../data/provinces_common_years_population.csv', index = False)
 
 
