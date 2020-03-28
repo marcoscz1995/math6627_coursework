@@ -3,15 +3,16 @@ import pandas as pd
 #from __future__ import division
 from itertools import chain
 from datetime import datetime, timedelta
+'''
+This file cleans the data of the CDD disaster database.
+Since this file uses cleaned data from other files, please run provincial_data_web_importer first then province_df_agregator
+if you cannot access the data they created in ../data/
+'''
 
-###run provincial_data_web_importer first then province_df_agregator
+###
 
 df=pd.read_excel(r'../data/case_study_1_cdd_database_final_0.xlsx')
 common_years_df=pd.read_csv(r'../data/provinces_common_years_population.csv')
-
-####
-#this file cleans the data of the CDD disaster database
-####
 
 ###set numeric colms nans to 0
 col_names = list(df.columns)
@@ -30,12 +31,16 @@ df.at[75,'Province/Territory']= 'QC'
 df.at[81,'Province/Territory']= 'QC'
 df.at[285,'Province/Territory']= 'QC'
 
-#add new column that determine which geographical region of canada was involved.
-# add single if only one province was involved and one of "across canada, western canada,
-#eastern canada etc ....
-df['provinces_level'] = 'single'
-df['event_id'] = -1
+
 def province_and_geography_labels_setter(df):
+    """
+    adds new column that determine which geographical region of canada was involved.
+    add single if only one province was involved and one of "across canada, western canada,
+    eastern canada...
+    adds an event id to each event
+    """
+    df['provinces_level'] = 'single'
+    df['event_id'] = -1
     for index, row in df.iterrows():
         province_or_area = row['Province/Territory']
         if province_or_area == "Across Canada" :
@@ -60,9 +65,10 @@ def province_and_geography_labels_setter(df):
             df.at[index, 'event_id'] = index
         else :
             df.at[index, 'event_id'] = index
+            if len(list(province_or_area.split(" ")))>1 :
+                df.at[index, 'provinces_level'] = province_or_area
     return df
 
-#import pdb; pdb.set_trace()
 df = province_and_geography_labels_setter(df)
 #slice the text into a list
 df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split(" ") ))
@@ -72,14 +78,14 @@ df['Province/Territory'] = df['Province/Territory'].apply(lambda x: list(x.split
 #make Province/Territory into a list
 
 def row_exploder(df):
-# =============================================================================
-#this function appends rows to df for those values in which in an event occured across multiple provinces.
-#the appended rows are the same row as the row with multiple provinces, but each province gets its own row.
-#the original row with a list with multiple values gets dropped
-#single event rows get their list converted to string.
-#since each province is of different sizes we need to divide the variables in the new rows
-#by each provinces population proportions.
-# =============================================================================
+    """
+    this function appends rows to df for those values in which in an event occured across multiple provinces.
+    the appended rows are the same row as the row with multiple provinces, but each province gets its own row.
+    the original row with a list with multiple values gets dropped
+    single event rows get their list converted to string.
+    since each province is of different sizes we need to divide the variables in the new rows
+    by each provinces population proportions.
+    """
     rows_to_drop = []
     for index, row in df.iterrows():
         province_list = row['Province/Territory']
@@ -103,19 +109,21 @@ df= row_exploder(df)
 df.at[130,'EVENT START DATE']= datetime.strptime('2008-01-01 00:00:00', "%Y-%m-%d %H:%M:%S")
 #find the average lenght of time for all events excluding those rows with incomplete data in 'EVENT END DATE'
 def event_type_averages(df):
-    ##find the average event duration for each event_type of event and set the events with placeholders to that value
-    ##recall, we want to exclude the placeholders from the averages
+    """
+    find the average event duration for each event_type of event and set the events with placeholders to that value
+    recall, we want to exclude the placeholders from the averages
+    """
     df_excluding_bad_rows = df[(df['event_duration']!=-1)]
     df_event_averages = df_excluding_bad_rows.groupby(['EVENT TYPE']).mean()
     return df_event_averages
 
 def event_duration(df, bad_rows_present):
-# =============================================================================
-# this function creates a new column of event_duration for each event, in days
-# bad rows defined by whether the EVENT END DATE follows the correct format or not
-# good rows have their event_duration calculated. bad rows get a placeholder
-# bad rows then get an event_duration that is the average duration for that observations event type
-# =============================================================================
+    """
+    this function creates a new column of event_duration for each event, in days
+    bad rows defined by whether the EVENT END DATE follows the correct format or not
+    good rows have their event_duration calculated. bad rows get a placeholder
+    bad rows then get an event_duration that is the average duration for that observations event type
+    """
     df['event_duration'] = -1
     if bad_rows_present == 1 :
         ##find the event duration for good entries and set bad entries to -1 placeholder
@@ -125,7 +133,6 @@ def event_duration(df, bad_rows_present):
                 df.at[index, 'event_duration'] = (row['EVENT END DATE'] - row['EVENT START DATE']).days
             else:
                 df.at[index, 'event_duration'] = -1
-        print('done setting placeholders')
         #set averages by event types for bad rows
         df_event_averages = event_type_averages(df)
         for index in bad_event_index:
@@ -141,7 +148,10 @@ df = event_duration(df, 1)
 # =============================================================================
 # Add the population of the province when the event took place
 #if an event took place over many years we take the average of the population
-#durring that time
+#durring that time.
+#we also add the total_event_population of all provinces invloved in that event. if an event
+#involved a single province then population = total_event_population, else total_event_population
+#is the sum of the populations of all provinces involved in the event at that year
 # =============================================================================
 def year_of_event(df):
     df['avg_year_of_event'] = -1
@@ -149,11 +159,16 @@ def year_of_event(df):
         avg_days_duration = df.loc[index, 'event_duration']/2
         df.at[index, 'avg_year_of_event'] =(row['EVENT START DATE'] + timedelta(days=avg_days_duration)).year
     return df
-#test = df['avg_year_of_event'].apply(lambda x: x['avg_year_of_event'] = x['EVENT START DATE'] + timedelta(days=x['event_duration']))
 
 df =year_of_event(df)
 
 def add_population_to_provinces(event_df, population_df):
+    """
+    we add the population to df for each province and year. The population data is pulled from common_years_df.
+    To do so we take the absolute difference between the year which the event took place from the years in common_years_df,
+    we then find the index where the absolute min is in year_list to get the closest year in common_years_df to the year of the event in
+    df. We then put this closest year and the population at that year from common_years_df into the df.
+    """
     year_list = list(population_df['year']) #list of all years
     year_array = np.array(population_df['year']) #make the above list as a np array
     event_df['closest_year'] = -1
@@ -163,26 +178,60 @@ def add_population_to_provinces(event_df, population_df):
         year_list_differnce_absolute = [abs(event_avg_year-event_year) for event_year in year_array]
         index_min = np.argmin(year_list_differnce_absolute)
         year_list_value_at_index_min = year_list[index_min]
-        df.at[index, 'closest_year'] = year_list_value_at_index_min
+        event_df.at[index, 'closest_year'] = year_list_value_at_index_min
         province_abbreviation = row['Province/Territory']
-        df.at[index, 'population'] = population_df.at[index_min, province_abbreviation]
-    return df
+        event_df.at[index, 'population'] = population_df.at[index_min, province_abbreviation]
+    return event_df
 
-#import pdb; pdb.set_trace()
 df = add_population_to_provinces(df, common_years_df)
+
 
 # =============================================================================
 # divide the respective variables by their proportional population weights
 # =============================================================================
 
-#add a cloumn with total population for rows in province_level in ['single', 'canada', 'maritimes', 'wester_canada', 'eastern_canada', 'prairies']
+#find the prop weights for each event
+#add total populations per event_id
+def add_total_event_population_to_provinces(event_df, population_df):
+    '''
+    for those events that either involved only one province, or had one of the defined canadian geographies (canada, western canada,...)
+    we set their total population in 'total_event_population'. For those events with one province, 'total_event_population' is the same as 'population'.
+    For those with defined geography, they get their respective total population from common_years_df for the respective year that the event took place.
+    '''
+    event_df['total_event_population'] = -1
+    for index, row in event_df.iterrows():
+        provinces_involved = row['provinces_level']
+        if provinces_involved != 'single' :
+            if provinces_involved in ['canada', 'maritimes', 'western_canada', 'eastern_canada', 'western_canada', 'prairies'] :
+                year = row['closest_year']
+                event_df.at[index, 'total_event_population'] = population_df.loc[population_df['year']==year, provinces_involved]
+        else :
+            event_df.at[index, 'total_event_population'] = event_df.at[index, 'population']
+    return df
+df = add_total_event_population_to_provinces(df, common_years_df)
 
+####here we add the sumed population for those events where 'total_event_population' == -1. ie those events with more than one provinces,
+###but not enough to be a geographic region. We create a subset of the df with only these events, them group them by event_id and take their sum.
+##This sum is their total_event_population. We make a dictionary with the event id and its total population to be used later to add them to df.
+##We then map the df for those odd events using their event_id to the dictionary, and set non mapped values to their original value.
+odd_events_population_dictionary = df[df['total_event_population'] == -1].groupby('event_id')['population'].sum().to_dict()
+df['total_event_population'] = df['event_id'].map(odd_events_population_dictionary).fillna(df['total_event_population'])
 
+#add the proportional weights
+df['prop_pop_weight'] = df['population']/df['total_event_population']
 
+#multiply the columns [7:11], [13:20] by proportional weights to get provincial columns
+def proportional_effects(df):
+    columns_to_proportionalize = list(range(7,12))+list(range(13,21))
+    for col in columns_to_proportionalize :
+        original_column_name = df.columns[col]
+        proportional_column_name = 'proportional_'+original_column_name
+        df[proportional_column_name] = df[original_column_name]*df['prop_pop_weight']
+    return df
 
+df = proportional_effects(df)
 
-
-
+df.to_csv(r'../data/final_cleaned.csv', index = False)
 
 
 

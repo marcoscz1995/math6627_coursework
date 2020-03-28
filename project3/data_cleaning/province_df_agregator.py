@@ -1,5 +1,10 @@
 import pandas as pd
 from functools import reduce
+"""
+	This file aggregates the provincial dfs web scraped from provincial_data_web_importer.
+	It then finds the total populations for the main geographical areas of canada for each year that 
+	is common among all provincial data.
+"""
 #import the data
 df_list = []
 def df_creator(province):

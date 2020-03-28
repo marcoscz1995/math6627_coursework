@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from tabulate import tabulate
 import csv
 import numpy as np
+'''
+'''
 
 prov_terr_dict = {
     'AB': 'Alberta',
