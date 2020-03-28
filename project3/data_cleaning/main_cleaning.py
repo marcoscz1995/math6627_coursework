@@ -231,6 +231,8 @@ def proportional_effects(df):
 
 df = proportional_effects(df)
 
+
+
 df.to_csv(r'../data/final_cleaned.csv', index = False)
 
 
