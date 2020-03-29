@@ -52,7 +52,7 @@ pois_views_themes_2 <-
 summary(pois_views_themes_2)
 
 #save the weights
-saveRDS(pois_views_themes_0, "model_weights/pois_views_themes_0.RDS")
+  saveRDS(pois_views_themes_0, "model_weights/pois_views_themes_0.RDS")
 saveRDS(pois_views_themes_1, "model_weights/pois_views_themes_1.RDS")
 saveRDS(pois_views_themes_2, "model_weights/pois_views_themes_2.RDS")
 
