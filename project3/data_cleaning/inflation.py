@@ -159,9 +159,8 @@ def year_of_event(df):
         df.at[index, 'avg_year_of_event'] =(row['EVENT START DATE'] + timedelta(days=avg_days_duration)).year
     return df
 
-df =year_of_event(df)
+df = year_of_event(df)
 
-##Adjust each year cost data to 2014 prices
 def inflation(df):
     for index, row in df.iterrows():
         if row['avg_year_of_event'] >1912 :
@@ -172,94 +171,6 @@ def inflation(df):
 
 df = inflation(df)
 
-def add_population_to_provinces(event_df, population_df):
-    """
-    we add the population to df for each province and year. The population data is pulled from common_years_df.
-    To do so we take the absolute difference between the year which the event took place from the years in common_years_df,
-    we then find the index where the absolute min is in year_list to get the closest year in common_years_df to the year of the event in
-    df. We then put this closest year and the population at that year from common_years_df into the df.
-    """
-    year_list = list(population_df['year']) #list of all years
-    year_array = np.array(population_df['year']) #make the above list as a np array
-    event_df['closest_year'] = -1
-    event_df['population'] = -1
-    for index, row in event_df.iterrows():
-        event_avg_year = row['avg_year_of_event']
-        year_list_differnce_absolute = [abs(event_avg_year-event_year) for event_year in year_array]
-        index_min = np.argmin(year_list_differnce_absolute)
-        year_list_value_at_index_min = year_list[index_min]
-        event_df.at[index, 'closest_year'] = year_list_value_at_index_min
-        province_abbreviation = row['Province/Territory']
-        event_df.at[index, 'population'] = population_df.at[index_min, province_abbreviation]
-    return event_df
-
-df = add_population_to_provinces(df, common_years_df)
-
-
-# =============================================================================
-# divide the respective variables by their proportional population weights
-# =============================================================================
-
-#find the prop weights for each event
-#add total populations per event_id
-def add_total_event_population_to_provinces(event_df, population_df):
-    '''
-    for those events that either involved only one province, or had one of the defined canadian geographies (canada, western canada,...)
-    we set their total population in 'total_event_population'. For those events with one province, 'total_event_population' is the same as 'population'.
-    For those with defined geography, they get their respective total population from common_years_df for the respective year that the event took place.
-    '''
-    event_df['total_event_population'] = -1
-    for index, row in event_df.iterrows():
-        provinces_involved = row['provinces_level']
-        if provinces_involved != 'single' :
-            if provinces_involved in ['canada', 'maritimes', 'western_canada', 'eastern_canada', 'western_canada', 'prairies'] :
-                year = row['closest_year']
-                event_df.at[index, 'total_event_population'] = population_df.loc[population_df['year']==year, provinces_involved]
-        else :
-            event_df.at[index, 'total_event_population'] = event_df.at[index, 'population']
-    return df
-df = add_total_event_population_to_provinces(df, common_years_df)
-
-####here we add the sumed population for those events where 'total_event_population' == -1. ie those events with more than one provinces,
-###but not enough to be a geographic region. We create a subset of the df with only these events, them group them by event_id and take their sum.
-##This sum is their total_event_population. We make a dictionary with the event id and its total population to be used later to add them to df.
-##We then map the df for those odd events using their event_id to the dictionary, and set non mapped values to their original value.
-odd_events_population_dictionary = df[df['total_event_population'] == -1].groupby('event_id')['population'].sum().to_dict()
-df['total_event_population'] = df['event_id'].map(odd_events_population_dictionary).fillna(df['total_event_population'])
-
-#add the proportional weights
-df['prop_pop_weight'] = df['population']/df['total_event_population']
-
-#multiply the NORMALIZED TOTAL COST and all human cost related columns by proportional weights to get human/econ costs by province
-def percentage_proportional_effects(df):
-    """
-    this gives the percentage of human/econ lost happened by province given an event in a year
-    """
-    columns_to_proportionalize = list(range(7,10)) +[11] #7-9 are human costs and 11 is econ cost
-    for col in columns_to_proportionalize :
-        original_column_name = df.columns[col]
-        proportional_column_name = ('percentage_'+original_column_name).lower()
-        if col != 11 :
-            df[proportional_column_name] = (df[original_column_name]/df['total_event_population'])*100
-        else :
-            proportional_column_name = 'proportional_normalized_cost'
-            df[proportional_column_name] = df[original_column_name]*df['prop_pop_weight']
-    print(df.columns)
-    return df
-
-df = percentage_proportional_effects(df)
-
-df.to_csv(r'../data/final_cleaned.csv', index = False)
-
-
-
-
-
-
-
-
-
-
-
+def st
 
 
