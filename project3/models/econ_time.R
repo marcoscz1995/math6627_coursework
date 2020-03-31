@@ -12,9 +12,9 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 #The linear model predicts the economic impact of natural disasters in canada. The response 'econ_cost_comp_score' is a composite
 #
 ##
-y <- "econ_cost_comp_score"
-x <- c(names(df))[c(3,22, 25)]
-mixed_component <- c(names(df))[27] #avg_year_of_event
+y <- "NORMALIZED.TOTAL.COST"
+x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
+mixed_component <- c('Province.Territory')  #avg_year_of_event
 
 #linear model
 econ_time_0 <- linear_regression(y, x, df, 'econ_time_0', 'dont_save_weights')

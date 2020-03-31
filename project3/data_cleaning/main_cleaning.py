@@ -235,7 +235,7 @@ def percentage_proportional_effects(df):
     """
     this gives the percentage of human/econ lost happened by province given an event in a year
     """
-    columns_to_proportionalize = list(range(7,10)) +[11] #7-9 are human costs and 11 is econ cost
+    columns_to_proportionalize = list(range(7,10)) +[11,20] #7-9, 20 are human costs and 11 is econ cost
     for col in columns_to_proportionalize :
         original_column_name = df.columns[col]
         proportional_column_name = ('percentage_'+original_column_name).lower()

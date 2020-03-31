@@ -57,7 +57,7 @@ random_levels = ['taco bell', 'chipolte', 'chaleteco', 'pueblito']
 linear_predictors = ['taco type', 'meatamount', 'spiciness']
 mixed_predictors = ['taco type']
 label = 'big tings'
-n=100
-tex_name = 'test.tex'
-doc = function_latex_maker(model_type, response, linear_predictors, mixed_predictors, label, n,random_levels, tex_name)
+n=1114
+tex_name = 'big_latex_mood.tex'
+function_latex_maker(model_type, response, linear_predictors, mixed_predictors, label, n,random_levels, tex_name)
 

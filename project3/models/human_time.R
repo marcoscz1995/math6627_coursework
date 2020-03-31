@@ -14,7 +14,8 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 ##
 y <- "human_cost_comp_score"
 x <- c(names(df))[c(3,22, 25)]
-mixed_component <- c(names(df))[27] #avg_year_of_event
+x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
+mixed_component <- c('closest_year')  #avg_year_of_event
 
 #linear model
 human_time_0 <- linear_regression(y, x, df, 'human_time_0', 'dont_save_weights')

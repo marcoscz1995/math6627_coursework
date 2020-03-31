@@ -14,7 +14,8 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 ##
 y <- "human_cost_comp_score"
 x <- c(names(df))[c(3,22, 25)]
-mixed_component <- c(names(df))[6] #province/territory 
+x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
+mixed_component <- c('Province.Territory') #province/territory 
 
 #linear model
 human_province_0 <- linear_regression(y, x, df, 'human_province_0', 'dont_save_weights')
