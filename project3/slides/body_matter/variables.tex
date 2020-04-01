@@ -19,7 +19,6 @@ We composed a composite popularity score using the following variables:
 \end{frame}
 
 \begin{frame}{Economic Impact}
-We composed a composite popularity score using the following variables:
 \begin{itemize}
 	\item For example, a flood that effects both Quebec and New Brunswick will incur different costs. Our reasoning is that since Quebec is a more capital intensive economy than New Brunswick, it will incur more costs in damaged physical capital, thus incurring a larger economic loss in absolute terms.
 	\item Thus, the datasets does not reflect this asymmetry in losses and provides just the total Federal loss to the event and not the provincial loss.
@@ -29,8 +28,8 @@ We composed a composite popularity score using the following variables:
 
 \begin{frame}{Human Impact: A Composite Score}
 	\begin{itemize}
-		\item The data set provides three variables that are related to the direct impact to humans; fatalities, injured/effected, evacuated and number of people that loose access to utility services. 
-\item We transform all the human impact measures into percentages; we divide the total human loss by the sum of all provinces population involved to get what percentage of each provinces population effected. We assume that every province involved suffers the same amount of human loss in percentages. 
+		\item The data set provides three variables that are related to the direct impact to humans; fatalities, injured/infected, evacuated and number of people that loose access to utility services. 
+\item We transform all the human impact measures into percentages; we divide the total human loss by the sum of all provinces population involved to get what percentage of each provinces population is effected. We assume that every province involved suffers the same amount of human loss in percentages. 
 \item By transforming the human loss into percentage this allows us to control for increases in population over time which makes comparing losses over time easier.
 
 	\end{itemize}
@@ -51,7 +50,6 @@ We composed a composite popularity score using the following variables:
 	\item \textbf{Event Type}: We include the event type as the main predictor as we predict that different types of events will result with differing effects on economic and human costs. For example, a biological pandemic will create more human loss than direct economic costs, whereas a flood will cause more economic damage than human loss.
 	\item \textbf{Earthquakes Magnitude}: We assume that stronger earthquakes will cause greater economic and human loss.
 	\item \textbf{Events Duration}: We predict that as an events duration increases, both measures will increase. 
-	\item \textbf{Number of Provinces Involved}: We included this as we posit that as more provinces are involved the costs will increase as all levels of government are strained and not able to focus on mitigating costs. Indeed, as more provinces are involved, then it is likely that more government and hence more bureaucratic slog will slow down responses to crisis management.
 
 \end{itemize}
 \end{frame}

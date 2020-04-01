@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.21)  1 APR 2020 04:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.21)  1 APR 2020 05:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -969,7 +969,7 @@ and I'll forget about whatever was undefined.
 Package hyperref Warning: Ignoring empty anchor on input line 34.
 
 )
-Overfull \vbox (1.01993pt too high) detected at line 70
+Overfull \vbox (1.01993pt too high) detected at line 68
  []
 
 [14
@@ -1643,10 +1643,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17852 strings out of 492982
- 336916 string characters out of 6134896
- 419250 words of memory out of 5000000
- 20866 multiletter control sequences out of 15000+600000
+ 17856 strings out of 492982
+ 336948 string characters out of 6134896
+ 419252 words of memory out of 5000000
+ 20870 multiletter control sequences out of 15000+600000
  15814 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,18n,60p,799b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1661,7 +1661,7 @@ onts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts
 1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb>
-Output written on main_slides.pdf (36 pages, 192099 bytes).
+Output written on main_slides.pdf (36 pages, 191827 bytes).
 PDF statistics:
  1042 PDF objects out of 1200 (max. 8388607)
  975 compressed objects within 10 object streams
