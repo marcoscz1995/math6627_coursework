@@ -1,6 +1,6 @@
 #library(lme4)
-source("models/model_makers.R")
 df <- read.csv("data/final_cleaned_with_composite_scores.csv")
+attach(df)
 
 ####
 #Q1) How has the econ impact of natural disasters changed over province in Canada?
@@ -12,19 +12,32 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 #The linear model predicts the economic impact of natural disasters in canada. The response 'econ_cost_comp_score' is a composite
 #
 ##
-y <- "NORMALIZED.TOTAL.COST"
-x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
-mixed_component <- c('Province.Territory') #province/territory 
 
-#linear model
-econ_province_0 <- linear_regression(y, x, df, 'econ_province_0', 'dont_save_weights')
-#mixed model with random intercept
+
+######Normal models on popularity score 
+#no randomness
+econ_province_0 <-
+  lm(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved,
+    data = df
+  )
+#only random intercept
 econ_province_1 <-
-  mixed_models(y, x, mixed_component, df, 'no_slope', 'econ_province_1', 'dont_save_weights')
-econ_province_2 <-
-  mixed_models(y, x, mixed_component, df, 'with_slope', 'econ_province_2', 'dont_save_weights')
-
-summary(econ_province_0)
-coef(econ_province_0)
+  lmer(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 |
+                                                                                                  Province.Territory),
+    data = df
+  )
 summary(econ_province_1)
-summary(econ_province_2)
+#random intercept and slope
+econ_province_2 <-
+  lmer(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 + EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved |
+                                                                                                  Province.Territory),
+    data = df
+  )
+
+#save the weights
+saveRDS(econ_province_0, "model_weights/econ_province_0.RDS")
+saveRDS(econ_province_1, "model_weights/econ_province_1.RDS")
+saveRDS(econ_province_2, "model_weights/econ_province_2.RDS")

@@ -1,38 +1,56 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Apr 01, 2020 - 01:05:29 AM
+% Requires LaTeX packages: dcolumn 
 \begin{longtable}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} } 
-  \caption{Poisson and Linear Regression} 
-  \label{simple_results_table} 
+  \caption{Economic and Human Cost Linear Regression} 
+  \label{results_table} 
 \\[-1.8ex]\hline 
 \endhead
 \hline \\[-1.8ex] 
  & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-3} 
-\\[-1.8ex] & \multicolumn{1}{c}{avg\_views\_per\_day} & \multicolumn{1}{c}{popularity} \\ 
- & \multicolumn{1}{c}{Poisson} & \multicolumn{1}{c}{Linear} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{NORMALIZED.TOTAL.COST} & \multicolumn{1}{c}{human\_cost\_comp\_score} \\ 
+ & \multicolumn{1}{c}{Economic Cost(Millions)} & \multicolumn{1}{c}{Human Cost} \\ 
 \hline \\[-1.8ex] 
- Duration & 1.387^{***}$ $(0.008) & 0.132^{**}$ $(0.056) \\ 
-  Num. Speaker & -0.834^{***}$ $(0.009) & -0.083$ $(0.076) \\ 
-  Film Age in Days & -16.303^{***}$ $(0.016) & -2.849^{***}$ $(0.118) \\ 
-  Title Label: Life & 0.149^{***}$ $(0.002) & -0.001$ $(0.022) \\ 
-  Title Label: New & -0.142^{***}$ $(0.003) & -0.007$ $(0.023) \\ 
-  Title Label: World & -0.099^{***}$ $(0.002) & -0.044^{***}$ $(0.015) \\ 
-  Title Length & 0.053^{***}$ $(0.004) & 0.087^{***}$ $(0.030) \\ 
-  Theme Label: Business & -0.135^{***}$ $(0.002) & -0.002$ $(0.022) \\ 
-  Theme Label: Culture & -0.314^{***}$ $(0.002) & -0.043^{**}$ $(0.018) \\ 
-  Theme Label: Design & -0.537^{***}$ $(0.002) & -0.057^{***}$ $(0.019) \\ 
-  Theme Label: Energy & -0.589^{***}$ $(0.004) & -0.082^{***}$ $(0.029) \\ 
-  Theme Label: Global & -0.845^{***}$ $(0.003) & -0.059^{***}$ $(0.019) \\ 
-  Theme Label: Health & -0.692^{***}$ $(0.003) & -0.004$ $(0.021) \\ 
-  Theme Label: Music & -0.523^{***}$ $(0.003) & -0.130^{***}$ $(0.025) \\ 
-  Theme Label: Science & -0.669^{***}$ $(0.002) & -0.030$ $(0.019) \\ 
-  Theme Label: Social & -0.552^{***}$ $(0.002) & -0.047^{**}$ $(0.021) \\ 
-  Video Age Group: Old & -1.841^{***}$ $(0.006) & -0.317^{***}$ $(0.026) \\ 
-  Film Age:Video Age Group: Old & 13.460^{***}$ $(0.031) & 2.434^{***}$ $(0.153) \\ 
-  Intercept & 8.952^{***}$ $(0.003) & 2.038^{***}$ $(0.025) \\ 
+ Event Type: Cold Event & -50.496$ $(115.809) & 0.108^{***}$ $(0.039) \\ 
+  Event Type: Drought & 44.972$ $(99.813) & -0.076^{**}$ $(0.034) \\ 
+  Event Type: Earthquake & -175.112$ $(356.707) & 0.005$ $(0.120) \\ 
+  Event Type: Epidemic & -43.554$ $(116.558) & 0.023$ $(0.039) \\ 
+  Event Type: Flood & 28.715$ $(94.346) & -0.007$ $(0.032) \\ 
+  Event Type: Geomagnetic Storm & -34.053$ $(384.312) & 0.075$ $(0.129) \\ 
+  Event Type: Heat Event & 23.283$ $(128.400) & 0.150^{***}$ $(0.043) \\ 
+  Event Type: Hurricane / Typhoon / Tropical Storm & 27.184$ $(108.548) & 0.006$ $(0.037) \\ 
+  Event Type: Infestation & -38.530$ $(279.883) & -0.005$ $(0.094) \\ 
+  Event Type: Landslide & 38.164$ $(109.167) & -0.010$ $(0.037) \\ 
+  Event Type: Storm - Unspecified / Other & 19.231$ $(128.344) & -0.007$ $(0.043) \\ 
+  Event Type: Storm Surge & 0.264$ $(147.492) & 0.002$ $(0.050) \\ 
+  Event Type: Storms and Severe Thunderstorms & 10.218$ $(97.846) & -0.004$ $(0.033) \\ 
+  Event Type: Tornado & 14.105$ $(109.264) & -0.006$ $(0.037) \\ 
+  Event Type: Tsunami & -223.053$ $(502.626) & -0.001$ $(0.169) \\ 
+  Event Type: Wildfire & 5.915$ $(99.940) & -0.006$ $(0.034) \\ 
+  Event Type: Winter Storm & 228.661^{**}$ $(100.382) & 0.024$ $(0.034) \\ 
+  Event Duration (days) & 0.008$ $(0.043) & 0.001^{***}$ $(0.00001) \\ 
+  Earthquake Magnitude & 36.119$ $(55.734) & -0.003$ $(0.019) \\ 
+  Num.Provinces Involved & 5.274$ $(5.992) & -0.013^{***}$ $(0.002) \\ 
+  Province: BC & -55.778$ $(48.583) & -0.009$ $(0.016) \\ 
+  Province: MB & -28.391$ $(46.412) & 0.006$ $(0.016) \\ 
+  Province: NB & 3.381$ $(52.596) & -0.009$ $(0.018) \\ 
+  Province: NL & -85.908$ $(56.492) & 0.014$ $(0.019) \\ 
+  Province: NS & -83.971$ $(59.272) & -0.011$ $(0.020) \\ 
+  Province: NT & -65.142$ $(77.596) & 0.022$ $(0.026) \\ 
+  Province: NU & -63.944$ $(108.701) & -0.002$ $(0.037) \\ 
+  Province: ON & -19.376$ $(43.658) & -0.008$ $(0.015) \\ 
+  Province: PE & -103.227$ $(68.038) & -0.006$ $(0.023) \\ 
+  Province: QC & -13.482$ $(46.461) & -0.012$ $(0.016) \\ 
+  Province: SK & -33.949$ $(48.191) & -0.005$ $(0.016) \\ 
+  Province: YT & -62.270$ $(88.978) & -0.001$ $(0.030) \\ 
+  Year & 1.190^{**}$ $(0.465) & -0.0004^{***}$ $(0.0002) \\ 
+  Intercept & -2,327.665^{**}$ $(925.329) & 0.887^{***}$ $(0.311) \\ 
  \hline \\[-1.8ex] 
-Observations & \multicolumn{1}{c}{2,550} & \multicolumn{1}{c}{2,550} \\ 
-R$^{2}$ &  & \multicolumn{1}{c}{0.360} \\ 
-Adjusted R$^{2}$ &  & \multicolumn{1}{c}{0.356} \\ 
-Akaike Inf. Crit. & \multicolumn{1}{c}{2,071,454.000} &  \\ 
+Observations & \multicolumn{1}{c}{1,114} & \multicolumn{1}{c}{1,114} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.037} & \multicolumn{1}{c}{0.697} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.007} & \multicolumn{1}{c}{0.688} \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 

@@ -1,0 +1,57 @@
+\begin{frame}{Statistical Analysis}
+\begin{itemize}
+	\item As these events span over 100 years, and if we assume that climate change is causing more frequent and destructive natural events, then there is reason to believe that there exists variation in the data over time.
+	\item Further, due to obvious geographical and social demographic difference among provinces, there is variation in the data among provinces. 
+	\item As such, we use mixed models to capture this time and space variation.
+
+\end{itemize}
+
+\end{frame}
+\begin{frame}{Statistical Analysis With Mixed Models: Time Variation}
+	\begin{itemize}
+		\item To determine whether the impact of natural disasters has changed over time, we divide time by the 12 decades from 1900 to 2014.
+		\item \textbf{Random intercept: }Provinces evolve tremendously in every passing decade, in particular as global warming changes the environment, we posit that the average response variable will be different across time within a province. Also, due to advances in technology, such as river level controls in the Don Valley River, the average cost of these events will drop as we become better at managing crisis' over time.
+		\item \textbf{Random slope: }To account for potential differences in how the different types of events can effect the responses over time. Indeed, a flood in the early 1900s was more destructive when houses were made of logs and hay, compared to todays more resilient buildings. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Time Variation}
+We apply Mixed Models to the Linear regression to model the variation in time for the normalized economic cost. $\text{Economic Cost}_{ij}$ denotes the normalized economic impact.
+\input{body_matter/equations/econ_time.tex}
+In this model we have $b$'s as the random slope/intercept for $i$ observations from each time group $j$.
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Time Variation}
+We apply Mixed Models to the Linear regression to model the variation in time for the composite human costs score $\text{Human Impact}_{ij}$ denotes the human costs score.
+\input{body_matter/equations/human_time.tex}
+In this model we have $b$'s as the random slope/intercept for $i$ observations from each time group $j$.
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Provincial Variation}
+	\begin{itemize}
+		\item To determine whether the impact of natural disasters is different among provinces, we set the random levels as the 13 provinces and territories. 
+		\item We choose to use provinces over geographical regions (Maritimes, Prairies etc.) because we believe that including more levels will allow a finer grain analysis, and also we posit that there is large variation within each region. 
+		\item For example, the prairies includes Alberta, Saskatchewan and Manitoba which despite sharing similar geographies and hence similar types of natural disasters, vary in their economies. These economic differences will lend themselves to differences in how the province prevents/mitigates natural disasters. Indeed, in oil rich Alberta, the government might have more resources to mitigate the harms of floods than Manitoba which in effect will result with lower economic and human losses.  
+		We chose to include random intercepts and slopes.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Provincial Variation}
+\begin{itemize}
+
+	\item \textbf{Random intercept: }Provinces vary greatly by geography and thus the type of events that effect them. More destructive events such as floods are concentrated in certain provinces, most notably the prairies. This concentration of events by geography will cause each province to have different average economic and human costs.
+	\item \textbf{Random slope: }To account for potential differences in how the different types of events can effect the response variables among provinces. Indeed, a flood in an area accustomed to floods with existing measures to cope will likely incur less damage than, say, Southern Ontario where floods are rare and will cause havoc as they are not prepared.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Provincial Variation}
+We apply Mixed Models to the Linear regression to model the variation among provinces for the normalized economic cost. $\text{Economic Cost}_{ij}$ denotes the normalized economic impact.
+\input{body_matter/equations/econ_province.tex}
+In this model we have $b$'s as the random slope/intercept for $i$ observations from each province $j$.
+\end{frame}
+
+\begin{frame}{Statistical Analysis With Mixed Models: Provincial Variation}
+We apply Mixed Models to the Linear regression to model the variation among provinces for the composite human costs score $\text{Human Impact}_{ij}$ denotes the human costs score.
+\input{body_matter/equations/human_province.tex}
+In this model we have $b$'s as the random slope/intercept for $i$ observations from each province $j$.
+\end{frame}

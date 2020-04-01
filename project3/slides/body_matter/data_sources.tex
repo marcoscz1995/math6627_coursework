@@ -1,0 +1,32 @@
+\begin{frame}{Data Source}
+\begin{itemize}
+	\item We used data from the Canadian Disaster Database (CDD).  
+	\item The data contains descriptions of natural disasters that have occurred in Canada since 1900. 
+	\item There are over 1000 different natural disasters in the data such as biological epidemics, earthquakes, and floods.
+\end{itemize}
+The CDD tracks significant disaster events which conform to the Emergency Management Framework for Canada definition of a disaster and meet one or more of the following criteria:
+\begin{itemize}
+	\item 10 or more people killed;
+	\item 100 or more people affected/injured/infected/evacuated or homeless;
+	\item an appeal for national/international assistance;
+	\item historical significance;
+	\item significant damage/interruption of normal processes such that the community affected cannot recover on its own,
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data Source}
+\begin{itemize}
+	\item The data describes when and which provinces/territories the event took place in, the number of injuries, evacuations, and fatalities, as well as an estimate of the costs. 
+	\item The data also displays cost data in the dollar amount of the year that the event took place or the year a specific payment was made.
+	\item As many of the events took place across multiple provinces, the data set provides only the aggregate economic costs and human displacements/loss. As such, events that took place across multiple provinces/territories had their economic cost and human loss transformed to account for each provinces/territories population size during the events year. 
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data Source}
+\begin{itemize}
+	\item If an event spanned several years, we denoted that event year as an average of all the years it occurred over. 
+	\item Each provinces population by year was web scraped from each provinces/territories Wikipedia page from 1900 on wards. However, the population dataset was taken at decade intervals from 1900 to 1951 and the every 6 years after. As such, we joined the population dateset with the CDD datasets on the events year (and rounded an events year to the closest year in the population data) to get the population of each province/territory during each event.
+	\item As the population datasets only went up to 2014, all events years then take place between 1900 and 2014.
+\end{itemize}
+\end{frame}

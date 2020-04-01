@@ -2,59 +2,66 @@ source("latex_tables_makers/longtablestargazer.R")
 require(stargazer)
 library(xtable)
 library(reporttools)
+library(readr)
 
-df <- read.csv("data/cleaned_data.csv")
+df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 
 #####This file makes latex tables usign the stargazer, xtable and reportools packages for the models outputs
-####all tables are saved to report/tables
+####all tables are saved to repo  rt/tables
 
 ########
 ####import weights
-#simple models
-normal_popularity <- readRDS("model_weights/normal_popularity.RDS")
-pois_views_tfidf <-
-  readRDS("model_weights/pois_views_simple_tfidf.RDS")
 
-#mixed models themes
-pois_views_themes_0 <-
-  readRDS("model_weights/pois_views_themes_0.RDS")
-pois_views_themes_1 <-
-  readRDS("model_weights/pois_views_themes_1.RDS")
-pois_views_themes_2 <-
-  readRDS("model_weights/pois_views_themes_2.RDS")
-normal_popularity_themes_0 <-
-  readRDS("model_weights/normal_popularity_themes_0.RDS")
-normal_popularity_themes_1 <-
-  readRDS("model_weights/normal_popularity_themes_1.RDS")
-normal_popularity_themes_2 <-
-  readRDS("model_weights/normal_popularity_themes_2.RDS")
+#linear models
+econ_linear <-
+  read_rds("model_weights/econ_linear.RDS")
+human_linear <-
+  read_rds("model_weights/human_linear.RDS")
+summary(econ_linear)
+#mixed models Province
+econ_province_0 <-
+  readRDS("model_weights/econ_province_0.RDS")
+econ_province_1 <-
+  readRDS("model_weights/econ_province_1.RDS")
+econ_province_2 <-
+  readRDS("model_weights/econ_province_2.RDS")
+human_province_0 <-
+  readRDS("model_weights/human_province_0.RDS")
+human_province_1 <-
+  readRDS("model_weights/human_province_1.RDS")
+human_province_2 <-
+  read_rds("model_weights/human_province_2.RDS")
 
-#mixed models times
-pois_views_times_0 <-
-  readRDS("model_weights/pois_views_times_0.RDS")
-pois_views_times_1 <-
-  readRDS("model_weights/pois_views_times_1.RDS")
-pois_views_times_2 <-
-  readRDS("model_weights/pois_views_times_2.RDS")
-normal_popularity_times_0 <-
-  readRDS("model_weights/normal_popularity_times_0.RDS")
-normal_popularity_times_1 <-
-  readRDS("model_weights/normal_popularity_times_1.RDS")
-normal_popularity_times_2 <-
-  readRDS("model_weights/normal_popularity_times_2.RDS")
+#mixed models Times
+econ_time_0 <-
+  read_rds("model_weights/econ_time_0.RDS")
+econ_time_1 <-
+  read_rds("model_weights/econ_time_1.RDS")
+econ_time_2 <-
+  read_rds("model_weights/econ_time_2.RDS")
+human_time_0 <-
+  read_rds("model_weights/human_time_0.RDS")
+human_time_1 <-
+  read_rds("model_weights/human_time_1.RDS")
+human_time_2 <-
+  read_rds("model_weights/human_time_2.RDS")
 
-#we only want untransformed variables ie those not normalized
-df_categorical <-
-  df[, c("title_sentiment_tfidf", "tags_label_tfidf", "video_age_label")]
+#we only want untransformed variables ie those not Humanized
 df_numeric <-
   df[, c(
-    "avg_views_per_day",
-    "duration_no_norm",
-    "num_speaker_no_norm",
-    "film_age_no_norm",
-    "title_length_no_norm",
-    "popularity"
+    "percentage_fatalities",
+    "percentage_evacuated",
+    "human_cost_comp_score",
+    "event_duration",
+    "MAGNITUDE",
+    "percentage_injured.infected",
+    "num_provinces_involved",
+    'govt_spending_percent_gdp'
   )]
+df_categorical <-
+  df[, c("EVENT.TYPE",
+         "Province.Territory",
+         "closest_year")]
 
 
 ######
@@ -65,75 +72,51 @@ print(tableContinuous(df_numeric))
 
 #sumarize categorical variables
 sink("report/tables/descriptive_stats/categorical_variables_description.tex")
-print(tableNominal(df_categorical)) #adds the table to the text file
+print(tableNominal(df_categorical))
 
 #####
 #anova tables
 #these test the random slope
-sink("report/tables/anova/anova_pois_themes.tex")
-print(xtable(anova(
-  pois_views_themes_1, pois_views_themes_2
-)))
-sink("report/tables/anova/anova_pois_times.tex")
-print(xtable(anova(pois_views_times_1, pois_views_times_2)))
-sink("report/tables/anova/anova_normal_popularity_themes.tex")
-print(xtable(
-  anova(normal_popularity_themes_1, normal_popularity_themes_2)
-))
-sink("report/tables/anova/anova_normal_popularity_times.tex")
-print(xtable(anova(
-  normal_popularity_times_1, normal_popularity_times_2
-)))
+  sink("report/tables/anova/anova_econ_province.tex")
+  print(xtable(anova(econ_province_1, econ_province_2)))
+  sink("report/tables/anova/anova_econ_time.tex")
+  print(xtable(anova(econ_time_1, econ_time_2)))
+  sink("report/tables/anova/anova_human_province.tex")
+  print(xtable(anova(human_province_1, human_province_2)))
+  sink("report/tables/anova/anova_human_time.tex")
+  print(xtable(anova(human_time_1, human_time_2)))
 
 #####
 #AIC tables
 #these test random intercept
-sink("report/tables/aic/aic_pois_themes.tex")
-print(xtable(AIC(
-  pois_views_themes_0, pois_views_themes_1
-)))
-sink("report/tables/aic/aic_pois_times.tex")
-print(xtable(AIC(pois_views_times_0, pois_views_times_1)))
-sink("report/tables/aic/aic_normal_popularity_themes.tex")
-print(xtable(AIC(
-  normal_popularity_themes_0, normal_popularity_themes_1
-)))
-sink("report/tables/aic/aic_normal_popularity_times.tex")
-print(xtable(AIC(
-  normal_popularity_times_0, normal_popularity_times_1
-)))
+sink("report/tables/aic/aic_econ_province.tex")
+print(xtable(AIC(econ_province_0, econ_province_1)))
+sink("report/tables/aic/aic_econ_time.tex")
+print(xtable(AIC(econ_time_0, econ_time_1)))
+sink("report/tables/aic/aic_human_province.tex")
+print(xtable(AIC(human_province_0, human_province_1)))
+sink("report/tables/aic/aic_human_time.tex")
+print(xtable(AIC(human_time_0, human_time_1)))
 
 #######
-#simple models
+#Linear Regression Results
 ####
-#Poison tfidf
 longtable.stargazer(
-  pois_views_tfidf,
-  normal_popularity,
-  column.labels = c("Poisson", "Linear"),
+  econ_linear,
+  human_linear,
+  column.labels = c("Economic Cost(Millions)", "Human Cost"),
+  label = "results_table",
   model.numbers = FALSE,
   model.names = FALSE,
-  title = "Poisson and Linear Regression",
+  title = "Economic and Human Cost Linear Regression",
   align = TRUE,
   covariate.labels = c(
-    "Duration",
-    "Num. Speaker",
-    "Film Age in Days",
-    "Title Label: Life",
-    "Title Label: New",
-    "Title Label: World",
-    "Title Length",
-    "Theme Label: Business",
-    "Theme Label: Culture",
-    "Theme Label: Design",
-    "Theme Label: Energy",
-    "Theme Label: Global",
-    "Theme Label: Health",
-    "Theme Label: Music",
-    "Theme Label: Science",
-    "Theme Label: Social",
-    "Video Age Group: Old",
-    "Film Age:Video Age Group: Old",
+    event_type[2:length(event_type), ],
+    "Event Duration (days)",
+    "Earthquake Magnitude",
+    "Num.Provinces Involved",
+    prov[2:length(prov), ],
+    "Year",
     "Intercept"
   ),
   type = "latex",
@@ -143,92 +126,78 @@ longtable.stargazer(
 )
 
 
-
 #######
 #mixed models results
 longtable.stargazer(
-  pois_views_themes_2,
-  pois_views_times_2,
-  normal_popularity_themes_2,
-  normal_popularity_times_2,
+  econ_province_2,
+  econ_time_2,
+  human_province_2,
+  human_time_2,
   column.labels = c(
-    "Poisson Themes",
-    "Poisson Times",
-    "Normal Themes",
-    "Normal Times"
+    "Economic: Provinces",
+    "Economic: Time ",
+    "Human: Provinces",
+    "Human: Time"
   ),
   model.numbers = FALSE,
   model.names = FALSE,
-  title = "Poisson and Normal Mixed Effects Results",
+  title = "Economic and Human Cost Mixed Effects Results",
   align = TRUE,
   type = "latex",
   single.row = TRUE,
   filename = "report/tables/regressions/mixed_results.tex",
   label = "mixed",
   covariate.labels = c(
-    "Duration",
-    "Title Length",
-    "Title Label: Life",
-    "Title Label: New",
-    "Title Label: World",
-    "Num. Speaker",
-    "Film Age in Days",
+    event_type[2:length(event_type), ],
+    "Event Duration (days)",
+    "Earthquake Magnitude",
+    "Num.Provinces Involved",
     "Intercept"
   )
 )
 
-#mixed models abridged for poisson
+#mixed models abridged for Economic
 longtable.stargazer(
-  pois_views_themes_2,
-  pois_views_times_2,
-  column.labels = c(
-    "Poisson Themes",
-    "Poisson Times"
-  ),
+  econ_province_2,
+  econ_time_2,
+  column.labels = c("Economic: Provinces",
+                    "Economic: Time"),
   model.numbers = FALSE,
   model.names = FALSE,
-  title = "Poisson Mixed Effects Results",
+  title = "Economic Costs Mixed Effects Results",
   align = TRUE,
   type = "latex",
   single.row = TRUE,
-  filename = "slides/tables/regressions/pois_mixed_results.tex",
+  filename = "slides/tables/regressions/econ_mixed_results.tex",
   label = "mixed",
   covariate.labels = c(
-    "Duration",
-    "Title Length",
-    "Title Label: Life",
-    "Title Label: New",
-    "Title Label: World",
-    "Num. Speaker",
-    "Film Age in Days",
+    event_type[2:length(event_type), ],
+    "Event Duration (days)",
+    "Earthquake Magnitude",
+    "Num.Provinces Involved",
     "Intercept"
   )
 )
-#mixed models abridged for normal
+#mixed models abridged for Human
 longtable.stargazer(
-  normal_popularity_themes_2,
-  normal_popularity_times_2,
-  column.labels = c(
-    "Normal Themes",
-    "Normal Times"
-  ),
+  human_province_2,
+  human_time_2,
+  column.labels = c("Human: Provinces",
+                    "Human: Time"),
   model.numbers = FALSE,
   model.names = FALSE,
-  title = "Normal Mixed Effects Results",
+  title = "Human Mixed Effects Results",
   align = TRUE,
   type = "latex",
   single.row = TRUE,
-  filename = "slides/tables/regressions/linear_mixed_results.tex",
+  filename = "slides/tables/regressions/human_mixed_results.tex",
   label = "mixed",
   covariate.labels = c(
-    "Duration",
-    "Title Length",
-    "Title Label: Life",
-    "Title Label: New",
-    "Title Label: World",
-    "Num. Speaker",
-    "Film Age in Days",
+    event_type[2:length(event_type), ],
+    "Event Duration (days)",
+    "Earthquake Magnitude",
+    "Num.Provinces Involved",
     "Intercept"
   )
 )
-
+  

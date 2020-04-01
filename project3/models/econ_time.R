@@ -11,19 +11,30 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 ######
 #The linear model predicts the economic impact of natural disasters in canada. The response 'econ_cost_comp_score' is a composite
 #
-##
-y <- "NORMALIZED.TOTAL.COST"
-x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
-mixed_component <- c('Province.Territory')  #avg_year_of_event
-
-#linear model
-econ_time_0 <- linear_regression(y, x, df, 'econ_time_0', 'dont_save_weights')
-#mixed model with random intercept
+######Normal models on popularity score 
+#no randomness
+econ_time_0 <-
+  lm(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved,
+    data = df
+  )
+#only random intercept
 econ_time_1 <-
-  mixed_models(y, x, mixed_component, df, 'no_slope', 'econ_time_1', 'dont_save_weights')
-econ_time_2 <-
-  mixed_models(y, x, mixed_component, df, 'with_slope', 'econ_time_2', 'dont_save_weights')
-
-summary(econ_time_0)
+  lmer(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 |
+                                                                                                  closest_year),
+    data = df
+  )
 summary(econ_time_1)
-summary(econ_time_2)
+#random intercept and slope
+econ_time_2 <-
+  lmer(
+    NORMALIZED.TOTAL.COST ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 + EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved |
+                                                                                                  closest_year),
+    data = df
+  )
+
+#save the weights
+saveRDS(econ_time_0, "model_weights/econ_time_0.RDS")
+saveRDS(econ_time_1, "model_weights/econ_time_1.RDS")
+saveRDS(econ_time_2, "model_weights/econ_time_2.RDS")

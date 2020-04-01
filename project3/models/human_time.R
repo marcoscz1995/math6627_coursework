@@ -12,19 +12,30 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 #The linear model predicts the humanomic impact of natural disasters in canada. The response 'human_cost_comp_score' is a composite
 # measure
 ##
-y <- "human_cost_comp_score"
-x <- c(names(df))[c(3,22, 25)]
-x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
-mixed_component <- c('closest_year')  #avg_year_of_event
 
-#linear model
-human_time_0 <- linear_regression(y, x, df, 'human_time_0', 'dont_save_weights')
-#mixed model with random intercept
+#no randomness
+human_time_0 <-
+  lm(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved,
+    data = df
+  )
+#only random intercept
 human_time_1 <-
-  mixed_models(y, x, mixed_component, df, 'no_slope', 'human_time_1', 'dont_save_weights')
-human_time_2 <-
-  mixed_models(y, x, mixed_component, df, 'with_slope', 'human_time_2', 'dont_save_weights')
-
-summary(human_time_0)
+  lmer(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 |
+                                                                                                  closest_year),
+    data = df
+  )
 summary(human_time_1)
-summary(human_time_2)
+#random intercept and slope
+human_time_2 <-
+  lmer(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 + EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved |
+                                                                                                  closest_year),
+    data = df
+  )
+
+#save the weights
+saveRDS(human_time_0, "model_weights/human_time_0.RDS")
+saveRDS(human_time_1, "model_weights/human_time_1.RDS")
+saveRDS(human_time_2, "model_weights/human_time_2.RDS")

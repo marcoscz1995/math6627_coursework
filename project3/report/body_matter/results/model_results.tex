@@ -1,11 +1,10 @@
 \section{Results}
-We now look at the result from the mixed models regressions on the economic and human impacts of natural disasters with variation by time and province with random intercepts and slopes. Table \ref{results_table} summarizes the results for the 4 models.
+We now look at the result from the mixed models regressions on the economic and human impacts of natural disasters with variation by time and province with random intercepts and slopes. Table \ref{results_table} summarizes the results for the linear regressions for the economic and human costs.
 
 \input{tables/regressions/simple_models.tex}
 
 What is interesting is that the Poisson model kept everything as significant whereas the Linear model removed the title labels Life and New and the theme labels science and social. Further, both models agree on all signs and rankings in the case of categorical variables which adds to the robustness of these models ability to predict popularity. 
-
-Note, for this analysis we use terms such as increase or decrease for simplicity, however we note that the linear model increases/decreases the response by the amount of the reported value in Table \ref{simple_results}, whereas the poisson model increases/decreases the responses by exponentiating the reported value.
+Note, for this analysis we use terms such as increase or decrease for simplicity.
 
 \begin{itemize}
 	\item \textbf{Event Type}: We include the event type as the main predictor as we predict that different types of events will result with differing effects on economic and human costs. For example, a biological pandemic will create more human loss than direct economic costs, whereas a flood will cause more economic damage than human loss.

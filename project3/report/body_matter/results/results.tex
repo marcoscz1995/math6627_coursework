@@ -1,0 +1,22 @@
+\section{Results}
+\subsection{Linear Regression Results}
+We first look at the result from the linear regressions on the economic and human impacts of natural disasters without any random components. Table \ref{results_table} summarizes the results for the linear regressions for the economic and human costs.
+
+\input{tables/regressions/simple_models.tex}
+
+
+\begin{itemize}
+	\item \textbf{Event Type}: Both models do not agree on any of the type of events.Recall, each $\beta_{event type}$ is the difference between the average response for that event type and the the average response for the base event type 'Avalanche'. Since all the events, except for winter storms, are not significant, this suggests that strongest predictors of costs is anything snow related. However, this is not the case for human costs. For human costs; cold and heat events are among the most impact full events.
+	\item \textbf{Earthquakes Magnitude}: Both models agree that earthquake magnitude is not significant.
+	\item \textbf{Events Duration}: Only the human costs model suggests that the event duration is significant and positive. We posit that many of the events occur over a short period of time, over a day or two, so durration is not a strong predictor for economic costs, however epidemics last a very long time and thus will incur more impacts to humans than psychical capital.
+	\item \textbf{Num. Provinces Involved}: Only the human costs model indicates it as significant. Although what is interesting is that it suggests that as more provinces are involved, the human impact decreases. We posit that this might be because as more provinces are involved, the loss is "diluted" across the provinces.
+	\item \textbf{Province of Event}: Both models find the provinces to not be significant, which suggests that losses are felt equally among provinces.
+	\item \textbf{Year of Event}: What is interesting is that the economics model suggests that costs have increased over time whereas human costs have decreased over time. We posit that with advancements in science we are better equipped to forecast events and thus evacuate people thus reducing human losses. However, the increase in costs can be for several reasons; increases "strength" of natural disasters over time, increases in the cost of items damaged. A flood that wreaks havoc in 1920 Southern Ontario, even when adjusting for inflation, will incur less absolute economic costs than a flood in 2020 Southern Ontario.
+	\item \textbf{Adjusted $R^2$}: The economic costs model has an adjusted $R^2$ of almost 0, where as the human costs is almost .7. This suggests that these variables do not predict the economic impacts well, where as it does well for the human impact. 
+\end{itemize}
+
+
+\subsection{Mixed Models Results}
+We now look at the result from the mixed models with random slope and intercept. Table \ref{mixed_results_table} summarizes the results.
+\input{tables/regressions/mixed_results.tex}
+Since mixed models will produce the same coefficients as its non mixed counterpart we skip the description of the coefficients. Further, all the models have very similar coefficients as their non mixed counterparts except some are slightly different which could be because of convergence issues with the lmer package. The interpretations and findings from the previous section hold the same.

@@ -1,0 +1,17 @@
+
+>   print(xtable(anova(econ_time_1, econ_time_2)))
+% latex table generated in R 3.4.4 by xtable 1.8-4 package
+% Wed Apr  1 00:42:40 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrr}
+  \hline
+ & Df & AIC & BIC & logLik & deviance & Chisq & Chi Df & Pr($>$Chisq) \\ 
+  \hline
+econ\_time\_1 & 23 & 16355.46 & 16470.82 & -8154.73 & 16309.46 &  &  &  \\ 
+  econ\_time\_2 & 253 & 15879.81 & 17148.78 & -7686.90 & 15373.81 & 935.65 & 230 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+>   sink("report/tables/anova/anova_human_province.tex")

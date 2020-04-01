@@ -1,0 +1,50 @@
+\begin{frame}{Model Selection: Testing Random Intercept}
+We now test the random intercepts and random slopes for each model. That is, we test whether there exists difference in the average responses across time and provinces, and whether there exists differences in how the predictors effect the response across time and provinces.
+    \input{tables/aic/aic_all.tex}
+\end{frame}
+
+\begin{frame}{Model Selection: Testing Random Intercept}
+\begin{itemize}
+	\item \textbf{Economic Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average economic cost across provinces.
+	\item \textbf{Economic Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average economic cost across time.
+	\item \textbf{Human Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average composite human cost score across provinces.
+	\item \textbf{Human Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average composite human cost score across time.
+\end{itemize}
+ 
+\end{frame}
+
+\begin{frame}{Model Selection: Testing Random Slope}
+Similarly, we test the random slopes. We test these random slopes using $\chi^2$ model selection.
+	
+    \input{tables/anova/anova_all.tex}
+    
+\end{frame}
+\begin{frame}{Model Selection: Testing Random Slope}
+\begin{itemize}
+	\item \textbf{Economic Cost Model with Random Slope for Provinces}: The p-value is large, so the model without random slope is an adequate simplification of the full model. 
+	This suggest that there does not exist differences in how the predictors effect economic costs across provinces.
+	\item \textbf{Economic Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is an adequate simplification of the full model. 
+	This suggest that there exists differences in how the predictors effect economic costs over time.
+	\item \textbf{Human Cost Model with Random Slope for Provinces}: The p-value is large, so the model without random slope is an adequate simplification of the full model. 
+	This suggest that there does not exist differences in how the predictors effect human costs across provinces.
+	\item \textbf{Human Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model. This suggest that there exists differences in how the predictors effect human costs over time.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model Selection}
+	\begin{itemize}
+\item The best models include both random intercepts and slopes for both human and economic costs when time is the random effects. However, when provinces is the random effects, we see that the best model is only that with random intercepts. 
+\item These two findings suggest that the average impacts of natural disasters vary across provinces and over time. However, how the various variables predict the impacts is the same across provinces, but varies over time.
+\item The variation across provinces by average impacts is quite intuitive as provinces that experience more natural disasters will have higher impacts. Further, the lack of random slopes for provinces suggest that all provinces are effected the same by natural disasters.
+	\item We would like to mention that although the best models have random intercepts, the AIC values are all quite close together which questions how strong this result is.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Prediction of Future Impacts}
+\begin{itemize}
+
+	\item What is interesting is the significance of the random slopes for time random effects for both cost models. This suggests that most of the variation in the data can be explained by changes over time. This suggests that although all provinces are effected the same by natural disasters, as a country we will all experience more increases in costs as time increases, as the linear models above showed.
+	\item Although, the impacts over time will decrease for human costs (which is good), but increase for economic costs, although not by much (about 1.2 million CAD\$ a year) is substantial and worthy of further investigation.
+	\item We would like to point out that the increase in costs over time can be for several reasons such as the data not accurately capturing the changes in the absolute amount of physical goods in an economy. Even after adjusting for inflation, 1 million in damages in 1900s Ontario meant a world of difference than 1 million dollars in damages in 2020. Most notably the ability of modern economies to bounce back from natural disasters makes comparison across time difficult. 
+\end{itemize}
+\end{frame}

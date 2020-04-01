@@ -1,0 +1,23 @@
+\begin{frame}{Statistical Analysis}
+\begin{outline}
+    \1 \textbf{Objective 1:} Determine what characteristics predict the success/popularity of a TED talk. 
+        \2 \textbf{Model:} Linear and Poisson Regression. 
+    \1 \textbf{Objective 2:} Determine whether these characteristics varies by time and themes of the talk.
+        \2 \textbf{Model:} Linear and Poisson Mixed-Models with random slopes and intercepts to account for the differences in time and themes.
+\end{outline}
+\end{frame}
+
+\begin{frame}{Poisson Regression on Average Views Per Day}
+To predict the average views per day, which is a count variable, we use a Poisson regression with a log link. 
+\input{body_matter/equations/pois_simple.tex}
+This model indicates the log of the average number of views a video will obtain on any given day given the predictors.
+\end{frame}
+
+
+
+\begin{frame}{Linear Regression on Composite Popularity Score}
+To predict the popularity, which is a normally distributed number, we use a Linear regression model.
+\input{body_matter/equations/linear_simple.tex}
+This model indicates the popularity score a video will obtain given the predictors.
+\end{frame}
+

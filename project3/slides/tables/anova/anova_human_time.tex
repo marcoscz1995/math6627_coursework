@@ -1,0 +1,20 @@
+
+>   print(xtable(anova(human_time_1, human_time_2)))
+% latex table generated in R 3.4.4 by xtable 1.8-4 package
+% Wed Apr  1 00:50:51 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{lrrrrrrrr}
+  \hline
+ & Df & AIC & BIC & logLik & deviance & Chisq & Chi Df & Pr($>$Chisq) \\ 
+  \hline
+human\_time\_1 & 23 & -1531.20 & -1415.84 & 788.60 & -1577.20 &  &  &  \\ 
+  human\_time\_2 & 253 & -2790.22 & -1521.25 & 1648.11 & -3296.22 & 1719.02 & 230 & 0.0000 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+> #####
+> #AIC tables
+> #these test random intercept
+> sink("report/tables/aic/aic_econ_province.tex")

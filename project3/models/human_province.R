@@ -10,22 +10,30 @@ df <- read.csv("data/final_cleaned_with_composite_scores.csv")
 #This file runs normal mixed models for human impacts by province
 ######
 #The linear model predicts the humanomic impact of natural disasters in canada. The response 'human_cost_comp_score' is a composite
-#
-##
-y <- "human_cost_comp_score"
-x <- c(names(df))[c(3,22, 25)]
-x <- c('EVENT.TYPE', 'event_duration', 'MAGNITUDE')
-mixed_component <- c('Province.Territory') #province/territory 
 
-#linear model
-human_province_0 <- linear_regression(y, x, df, 'human_province_0', 'dont_save_weights')
-#mixed model with random intercept
+#no randomness
+human_province_0 <-
+  lm(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved,
+    data = df
+  )
+#only random intercept
 human_province_1 <-
-  mixed_models(y, x, mixed_component, df, 'no_slope', 'human_province_1', 'dont_save_weights')
-human_province_2 <-
-  mixed_models(y, x, mixed_component, df, 'with_slope', 'human_province_2', 'dont_save_weights')
-
-summary(human_province_0)
-coef(human_province_0)
+  lmer(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 |
+                                                                                                  Province.Territory),
+    data = df
+  )
 summary(human_province_1)
-summary(human_province_2)
+#random intercept and slope
+human_province_2 <-
+  lmer(
+    human_cost_comp_score ~ EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved + (1 + EVENT.TYPE + event_duration + MAGNITUDE + num_provinces_involved |
+                                                                                                  Province.Territory),
+    data = df
+  )
+
+#save the weights
+saveRDS(human_province_0, "model_weights/human_province_0.RDS")
+saveRDS(human_province_1, "model_weights/human_province_1.RDS")
+saveRDS(human_province_2, "model_weights/human_province_2.RDS")

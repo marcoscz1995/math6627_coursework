@@ -13,12 +13,15 @@ The data set provides three variables that are related to the direct impact to h
 Since all of these variables are on vastly different scales of magnitude, we normalize the variables and add them to create our composite human impact score. 
 
 \subsection{Predictors}
-The predictors in this analysis are event type, earthquakes magnitude, and events duration.
+The predictors in this analysis are event type, earthquakes magnitude,events duration and the number of provinces. The rational for including each is provided below.
 Table \ref{cat} and \ref{numer} summarize the predictors.
 \begin{itemize}
 	\item \textbf{Event Type}: We include the event type as the main predictor as we predict that different types of events will result with differing effects on economic and human costs. For example, a biological pandemic will create more human loss than direct economic costs, whereas a flood will cause more economic damage than human loss.
 	\item \textbf{Earthquakes Magnitude}: We assume that stronger earthquakes will cause greater economic and human loss.
 	\item \textbf{Events Duration}: We predict that as an events duration increases, both measures will increase. 
+	\item \textbf{Number of Provinces Involved}: We included this as we posit that as more provinces are involved the costs will increase as all levels of government are strained and not able to focus on mitigating costs. Indeed, as more provinces are involved, then it is likely that more government and hence more bureaucratic slog will slow down responses to crisis management.
+	\item \textbf{Province of Event}: The data indicates in which provinces an event occurred. We would like to see how costs are ranked by provinces.
+	\item \textbf{Year of Event}: We would like to see how costs evolve over time. 
 \end{itemize}
 \newpage
 \input{tables/descriptive_stats/categorical_variables_description.tex}

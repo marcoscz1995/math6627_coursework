@@ -1,1 +1,19 @@
-\BOOKMARK [1][-]{section.1}{Data}{}% 1
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Data}{}% 2
+\BOOKMARK [1][-]{section.3}{Response and Predictors}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Responses}{section.3}% 4
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Economic Impact}{subsection.3.1}% 5
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Human Impact}{subsection.3.1}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Predictors}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Statistical Analysis With Mixed Models}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Time Variation}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Linear Mixed Model Regression on Economic Cost: Time Variation}{subsection.4.1}% 10
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Linear Mixed Model Regression on Composite Human Cost Response: Time Variation}{subsection.4.1}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Provincial Variation}{section.4}% 12
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Linear Mixed Model Regression on Economic Cost: Provincial Variation}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Linear Mixed Model Regression on Composite Human Cost Response: Provincial Variation}{subsection.4.2}% 14
+\BOOKMARK [1][-]{section.5}{Results}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{Linear Regression Results}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{Mixed Models Results}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Model Selection}{}% 18
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 19

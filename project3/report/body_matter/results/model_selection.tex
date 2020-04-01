@@ -3,23 +3,29 @@ We now test the random intercepts and random slopes for each model. That is, we 
 To compare a generalized mixed model (GLMM) without a random component with a GLMM with a random component in R, we had to use the GLM package for the nested model and LMER4 for the full model as LMER4 does not allow models to not have a random component. Evidently, to compare the nested and full model with random intercepts, we used AIC as our criterion because the ANOVA function in R is not able to compare models from the LMER4 and GLM packages. Table \ref{aic} summarizes the results of testing the random intercept.
 
 \begin{itemize}
-	\item \textbf{Economic Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across themes.
-	\item \textbf{Economic Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average popularity score across time, that is for videos published before and after 2010.
-	\item \textbf{Human Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across themes.
-	\item \textbf{Human Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average avg. views per day across time, that is for videos published before and after 2010.
+	\item \textbf{Economic Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average economic cost across provinces.
+	\item \textbf{Economic Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average economic cost across time.
+	\item \textbf{Human Cost Model with Random Intercept for Provinces}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average composite human cost score across provinces.
+	\item \textbf{Human Cost Model with Random Intercept for Time}: The AIC for the mixed model with random intercept is lower than the null, so it is preferred. This suggest that there exists differences in the average composite human cost score across time.
 \end{itemize}
+
 \input{tables/aic/aic_all.tex}
+
 Similarly, we test the random slopes. We test these random slopes using $\chi^2$ model selection. Table \ref{anova}. summarizes the results.
 \begin{itemize}
-	\item \textbf{Economic Cost Model with Random Slope for Provinces}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. 
-	This suggest that there exists differences in how the predictors effect popularity score across themes.
-	\item \textbf{Economic Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect popularity score across time, that is for videos published before and after 2010.
-	\item \textbf{Human Cost Model with Random Slope for Provinces}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect avg. views per day across themes.
-	\item \textbf{Human Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random intercept. This suggest that there exists differences in how the predictors effect avg. views per day across time, that is for videos published before and after 2010.
+	\item \textbf{Economic Cost Model with Random Slope for Provinces}: The p-value is large, so the model without random slope is an adequate simplification of the full model; the preferred model excludes the random slope. 
+	This suggest that there does not exist differences in how the predictors effect economic costs across provinces.
+	\item \textbf{Economic Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is an adequate simplification of the full model; the preferred model includes the random slope. 
+	This suggest that there exists differences in how the predictors effect economic costs over time.
+	\item \textbf{Human Cost Model with Random Slope for Provinces}: The p-value is large, so the model without random slope is an adequate simplification of the full model; the preferred model excludes the random slope. 
+	This suggest that there does not exist differences in how the predictors effect human costs across provinces.
+	\item \textbf{Human Cost Model with Random Slope for Time}: The p-value is very small, so the model without random slope is not an adequate simplification of the full model; the preferred model includes the random slope. This suggest that there exists differences in how the predictors effect human costs over time.
 \end{itemize}
-\input{tables/anova/anova_all.tex}
-Clearly, the best models include both random intercepts and slopes for both Poisson and Linear models. Which suggests that a lot of the variation in the data can be explained by timing of when a video is published and its theme rather than the actual form/content. The main predictors in these models are the talks duration, talks film age in days since published, and the talks age group (when the talk was published) are the strongest predictors of popularity. This suggests that the best way to create a popular video is by frequently publishing long videos, regardless of the content. Popularity seems to be a function of quantity not quality.
 
+\input{tables/anova/anova_all.tex}
+
+Clearly, the best models include both random intercepts and slopes for both human and economic costs when time is the random effects. However, when provinces is the random effects, we see that the best model is only that with random intercepts. These two findings suggest that the average impacts of natural disasters vary across provinces and over time. However, how the various variables predict the impacts is the same across provinces, but varies over time. The variation across provinces by average impacts is quite intuitive as provinces that experience more natural disasters will have higher impacts. Further, the lack of random slopes for provinces suggest that all provinces are effected the same by natural disasters.
+We would like to mention that although the best models have random intercepts, the AIC values are all quite close together which questions how strong this result is. What is interesting is the significance of the random slopes for time random effects for both cost models. This suggests that most of the variation in the data can be explained by changes over time. This suggests that although all provinces are effected the same by natural disasters, as a country we will all experience more increases in costs as the linear models in the Table 7 showed. Although, the impacts over time will decrease for human costs (which is good), but increase for economic costs, although not by much (about 1.2 million CAD\$ a year) is substantial and worthy of further investigation.
 
 
 
